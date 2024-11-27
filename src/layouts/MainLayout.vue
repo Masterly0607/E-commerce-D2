@@ -1,9 +1,15 @@
 <template>
-        <header-home></header-home>
+  <!-- min-h-screen:  ensure that the container always fills the entire height of the screen, even if the content inside is very small. -->
+   <!-- flex-grow: to make an element (like the middle content) expand and fill any extra space inside a flexible container. -->
+    <!-- flex:  Makes the container flexible so its child items can adjust their size and position. -->
+  <section class="flex flex-col min-h-screen" >
+    <header-home></header-home>
         <transition name="slide" mode="out-in">
-      <router-view />
+      <router-view  class="flex-grow" />
     </transition>
          <footer-component></footer-component>
+  </section>
+        
 
 </template>
 <script setup>

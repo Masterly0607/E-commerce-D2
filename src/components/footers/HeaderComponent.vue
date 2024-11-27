@@ -1,6 +1,6 @@
 <template>
     <section>
-      <div class="w-full p-6 border-b-[2px]">
+      <div class="w-full p-8 border-b-[2px]">
         <div class="flex justify-between items-center">
           <!-- Img box -->
           <div>
@@ -15,7 +15,7 @@
                 <li>
                   <router-link
                     :to="{ name: 'home-page' }"
-                    class="text-gray-400 hover:bg-gray-200 p-3 text-xl"
+                    class="text-gray-400 hover:bg-gray-200 p-3 text-md no-underline"
                     active-class="text-orange-500 font-bold"
                   >
                     Home
@@ -24,7 +24,7 @@
                 <li>
                   <router-link
                     :to="{ name: 'product-page' }"
-                    class="text-gray-400 hover:bg-gray-200 p-3 text-xl"
+                    class="text-gray-400 hover:bg-gray-200 p-3 text-md no-underline"
                     active-class="text-orange-500 font-bold"
                   >
                     Products
@@ -33,7 +33,7 @@
                 <li>
                   <router-link
                     :to="{ name: 'about-us-page' }"
-                    class="text-gray-400 hover:bg-gray-200 p-3 text-xl"
+                    class="text-gray-400 hover:bg-gray-200 p-3 text-md no-underline"
                     active-class="text-orange-500 font-bold"
                   >
                     About Us
@@ -42,7 +42,7 @@
                 <li>
                   <router-link
                     :to="{ name: 'contact-us-page' }"
-                    class="text-gray-400 hover:bg-gray-200 p-3 text-xl"
+                    class="text-gray-400 hover:bg-gray-200 p-3 text-md"
                     active-class="text-orange-500 font-bold"
                   >
                     Contact Us
@@ -92,4 +92,7 @@
       </div>
     </section>
   </template>
+  <style>
+ 
+</style>
   
