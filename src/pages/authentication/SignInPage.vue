@@ -65,7 +65,7 @@
   import { ref } from "vue";
   import { useRouter } from "vue-router";
   import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-  
+  import BackButton from "@/components/buttons/backButton/backButton.vue";
   // State
   const email = ref("");
   const password = ref("");
