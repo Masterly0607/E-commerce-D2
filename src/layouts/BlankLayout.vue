@@ -1,3 +1,8 @@
 <template>
-    <h1>Blank Layout</h1>
+    <section>
+    <div class="p-8">
+        <img src="/src/assets/favicon.ico" alt="">
+    </div>
+    </section>
+    <router-view />
 </template>

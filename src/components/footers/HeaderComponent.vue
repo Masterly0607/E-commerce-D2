@@ -55,7 +55,7 @@
 
               <!-- Auth Buttons -->
               <div class="flex gap-3">
-                <button class="flex items-center px-4 py-2 border border-primary text-gray-500 rounded hover:bg-primary-10">
+                <button class="flex items-center px-4 py-2 border border-primary text-gray-500 rounded hover:bg-primary-10" @click="goToSignUp">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -72,7 +72,7 @@
                   </svg>
                   <span class="text-primary">Sign Up</span>
                 </button>
-                <button class="flex items-center px-4 py-2 bg-primary text-gray-500 rounded hover:bg-primary">
+                <button class="flex items-center px-4 py-2 bg-primary text-gray-500 rounded hover:bg-primary" @click="goToSignIn">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -101,7 +101,7 @@
             fill="none"
             viewBox="0 0 24 24"
             stroke-width="1.5"
-            stroke="currentColor"
+        stroke="currentColor"
             class="size-6"
           >
             <path
@@ -148,7 +148,15 @@
 
 <script setup>
 import { ref,onUnmounted } from 'vue';
+import { useRouter } from 'vue-router';
 
+const router = useRouter();
+const goToSignUp = () => {
+  router.push('/sign-up'); // Navigate to the '/home' route
+};
+const goToSignIn = () => {
+  router.push('/sign-in'); // Navigate to the '/home' route
+};
 const menuDrawer = ref(false);
 
 const toggleMenuDrawer = () => {

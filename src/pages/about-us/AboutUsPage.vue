@@ -1,8 +1,8 @@
 <template>
-    <div class="w-full bg-gray-200 h-28">
- <div class=" ibf-container-1200 bg-red-300 h-full">
+  <section class="bg-gray-200">
+      <div class="f-container-1200">
       About Us Page
-    </div>
-    </div>
-   
+      </div>
+  </section>
+ 
 </template>
