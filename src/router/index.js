@@ -14,9 +14,19 @@ const router = createRouter({
           component: () => import("@/pages/home/HomePage.vue"),
         },
         {
-          path: "/product",
+          path: "product",
           name: "product-page",
           component: () => import("@/pages/product/ProductPage.vue"),
+        },
+        {
+          path: "new-release",
+          name: "new-release-page",
+          component: () => import("@/pages/new-release/NewReleasePage.vue"),
+        },
+        {
+          path: "trending",
+          name: "trending-page",
+          component: () => import("@/pages/trending/TrendingPage.vue"),
         },
         {
           path: "about-us",
@@ -45,6 +55,7 @@ const router = createRouter({
           name: "sign-up-page",
           component: () => import("@/pages/authentication/SignUpPage.vue"),
         },
+        
       ]
      }
   ],

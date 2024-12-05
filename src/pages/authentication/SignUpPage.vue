@@ -1,12 +1,16 @@
 <template>
-    <section class="min-h-screen bg-gray-50 flex items-center justify-center py-10">
+    <section class=" bg-gray-50 flex items-center justify-center py-10">
       <div class="f-container-1200 bg-white shadow-lg rounded-lg p-8 md:p-12 max-w-4xl w-full">
-        <button class="text-blue-500 hover:underline text-sm mb-4" @click="goToHome">Back</button>
+     
+          <!-- <button class="text-black hover:underline text-sm mb-4" @click="goToHome">Back</button>
+         -->
+          <BackButton @click="goToHome"></BackButton>
+        
         <div class="flex flex-col md:flex-row gap-10">
   
           <!-- Image Section -->
           <div class="md:w-1/2 flex justify-center">
-            <img src="/public/images/sign-up.svg" alt="Sign Up" class="object-contain" />
+            <img src="/public/images/sign-up.svg" alt="Sign Up" class="object-contain " />
           </div>
   
           <!-- Form Section -->
@@ -46,7 +50,7 @@
               <!-- Submit Button -->
               <button
                 type="submit"
-                class="w-full py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-300 flex justify-center items-center"
+                class="w-full py-3 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition duration-300 flex justify-center items-center"
                 :disabled="loading"
               >
                 <span v-if="loading" class="loader mr-2"></span>
@@ -84,6 +88,7 @@
     GoogleAuthProvider,
     signInWithPopup,
   } from "firebase/auth";
+import BackButton from "@/components/buttons/backButton/backButton.vue";
   
   // State
   const email = ref("");

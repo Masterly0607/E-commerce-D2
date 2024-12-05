@@ -6,7 +6,7 @@
                 <!-- Logo box -->
               <div class="col-4">
                  <div>
-                      <img src="/src/assets/favicon.ico" alt="">
+                      <img src="/icons/favicon.ico" alt="">
                  </div>
                  <div class="text-sm mt-2 text-gray-500">"Discover premium-quality figurines and collectibles at Figurine. <br>From iconic characters to unique designs, we bring artistry and creativity to life. Perfect for collectors, enthusiasts, and gifting. Explore now!"</div>
               </div>

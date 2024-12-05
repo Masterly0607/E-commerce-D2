@@ -1,11 +1,11 @@
 <template>
-    <section class="min-h-screen bg-gray-50 flex items-center justify-center py-10">
+    <section class=" bg-gray-50 flex items-center justify-center py-10">
       <div class="f-container-1200 bg-white shadow-lg rounded-lg p-8 md:p-12 max-w-4xl w-full">
-        <button class="text-blue-500 hover:underline text-sm mb-4" @click="goToHome">Back</button>
+        <BackButton @click="goToHome"></BackButton>
         <div class="flex flex-col md:flex-row gap-10">
           <!-- Form Section -->
           <div class="md:w-1/2">
-            <h2 class="font-bold text-3xl text-gray-700 text-center mb-4">Login to Your Account</h2>
+            <h2 class="font-bold text-3xl text-gray-700 text-center mb-4">Sign In</h2>
             <p class="text-center text-gray-500 text-sm mb-6">
               Don't have an account yet? 
               <router-link :to="{ name: 'sign-up-page' }" class="text-blue-500 hover:underline">Sign Up</router-link>
@@ -43,11 +43,11 @@
               <!-- Submit Button -->
               <button
                 type="submit"
-                class="w-full py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-300 flex justify-center items-center"
+                class="w-full py-3 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition duration-300 flex justify-center items-center"
                 :disabled="loading"
               >
                 <span v-if="loading" class="loader mr-2"></span>
-                {{ loading ? "Processing..." : "Login" }}
+                {{ loading ? "Processing..." : "Sign In" }}
               </button>
             </form>
           </div>

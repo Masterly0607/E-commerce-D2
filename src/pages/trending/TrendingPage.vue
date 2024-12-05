@@ -1,8 +1,8 @@
 <template>
     <section class="bg-gray-200">
-        <div>
-        Product Page
+        <div >
+        Trending Page
         </div>
     </section>
    
-</template>
+  </template>
