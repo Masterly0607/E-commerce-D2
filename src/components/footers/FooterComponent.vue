@@ -1,94 +1,203 @@
 <template>
-    <section>
-        <div class=" mt-3 p-8    ">
-            <div class="row   ">
-
-                <!-- Logo box -->
-              <div class="col-4">
-                 <div>
-                      <img src="/icons/favicon.ico" alt="">
-                 </div>
-                 <div class="text-sm mt-2 text-gray-500">"Discover premium-quality figurines and collectibles at Figurine. <br>From iconic characters to unique designs, we bring artistry and creativity to life. Perfect for collectors, enthusiasts, and gifting. Explore now!"</div>
-              </div>
-
-              <!-- Address  box -->
-              <div class="flex gap-16 ml-60 col">
-                <!-- Main -->
-                 <div class="flex flex-col gap-1">
-                    <span class="font-medium">Main</span>
-                    <router-link
-                    :to="{ name: 'home-page' }"
-                    class="text-gray-400 text-sm  "
-                    active-class="text-secondary font-bold underline "
-                  >
-                    Home
-                  </router-link>
-                    <router-link
-                    :to="{ name: 'product-page' }"
-                    class="text-gray-400 text-sm  "
-                    active-class="font-bold text-secondary underline "
-                  >
-                    Products
-                  </router-link>
-                  <router-link
-                    :to="{ name: 'about-us-page' }"
-                    class="text-gray-400 text-sm  "
-                    active-class="text-orange-500 font-bold text-secondary underline "
-                  >
-                    About Us
-                  </router-link>
-                  <router-link
-                    :to="{ name: 'contact-us-page' }"
-                    class="text-gray-400 text-sm  "
-                    active-class="text-orange-500 font-bold text-secondary underline "
-                  >
-                    Contact Us
-                  </router-link>
-                 </div>
-                 <!-- Address -->
-                 <div>
-                   <div class="font-medium ">Address</div>
-                   <div class="text-sm text-gray-400">Tel: (+855) 97 333 1501 / 12 560 817</div>
-                   <div class="text-sm text-gray-400">Email: sokmasterlychanon06@gmail.com</div>
-                   <div class="mt-3 flex gap-2">
-                    <a href="https://www.facebook.com/profile.php?id=100091585315101&mibextid=LQQJ4d&mibextid=LQQJ4d" target="_blank" rel="noopener noreferrer">
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48" class="w-9 h-9 cursor-pointer">
-<path fill="#039be5" d="M24 5A19 19 0 1 0 24 43A19 19 0 1 0 24 5Z"></path><path fill="#fff" d="M26.572,29.036h4.917l0.772-4.995h-5.69v-2.73c0-2.075,0.678-3.915,2.619-3.915h3.119v-4.359c-0.548-0.074-1.707-0.236-3.897-0.236c-4.573,0-7.254,2.415-7.254,7.917v3.323h-4.701v4.995h4.701v13.729C22.089,42.905,23.032,43,24,43c0.875,0,1.729-0.08,2.572-0.194V29.036z" ></path>
-</svg>
-                    </a>
-                    <a href="https://t.me/SokMasterly" target="_blank" rel="noopener noreferrer"> <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48" class="w-9 h-9 cursor-pointer">
-<linearGradient id="BiF7D16UlC0RZ_VqXJHnXa_oWiuH0jFiU0R_gr1" x1="9.858" x2="38.142" y1="9.858" y2="38.142" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#33bef0"></stop><stop offset="1" stop-color="#0a85d9"></stop></linearGradient><path fill="url(#BiF7D16UlC0RZ_VqXJHnXa_oWiuH0jFiU0R_gr1)" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path d="M10.119,23.466c8.155-3.695,17.733-7.704,19.208-8.284c3.252-1.279,4.67,0.028,4.448,2.113	c-0.273,2.555-1.567,9.99-2.363,15.317c-0.466,3.117-2.154,4.072-4.059,2.863c-1.445-0.917-6.413-4.17-7.72-5.282	c-0.891-0.758-1.512-1.608-0.88-2.474c0.185-0.253,0.658-0.763,0.921-1.017c1.319-1.278,1.141-1.553-0.454-0.412	c-0.19,0.136-1.292,0.935-1.745,1.237c-1.11,0.74-2.131,0.78-3.862,0.192c-1.416-0.481-2.776-0.852-3.634-1.223	C8.794,25.983,8.34,24.272,10.119,23.466z" opacity=".05"></path><path d="M10.836,23.591c7.572-3.385,16.884-7.264,18.246-7.813c3.264-1.318,4.465-0.536,4.114,2.011	c-0.326,2.358-1.483,9.654-2.294,14.545c-0.478,2.879-1.874,3.513-3.692,2.337c-1.139-0.734-5.723-3.754-6.835-4.633	c-0.86-0.679-1.751-1.463-0.71-2.598c0.348-0.379,2.27-2.234,3.707-3.614c0.833-0.801,0.536-1.196-0.469-0.508	c-1.843,1.263-4.858,3.262-5.396,3.625c-1.025,0.69-1.988,0.856-3.664,0.329c-1.321-0.416-2.597-0.819-3.262-1.078	C9.095,25.618,9.075,24.378,10.836,23.591z" opacity=".07"></path><path fill="#fff" d="M11.553,23.717c6.99-3.075,16.035-6.824,17.284-7.343c3.275-1.358,4.28-1.098,3.779,1.91	c-0.36,2.162-1.398,9.319-2.226,13.774c-0.491,2.642-1.593,2.955-3.325,1.812c-0.833-0.55-5.038-3.331-5.951-3.984	c-0.833-0.595-1.982-1.311-0.541-2.721c0.513-0.502,3.874-3.712,6.493-6.21c0.343-0.328-0.088-0.867-0.484-0.604	c-3.53,2.341-8.424,5.59-9.047,6.013c-0.941,0.639-1.845,0.932-3.467,0.466c-1.226-0.352-2.423-0.772-2.889-0.932	C9.384,25.282,9.81,24.484,11.553,23.717z"></path>
-</svg>
-                    </a>  
-
-                   </div>
-                 </div>
-              </div>
-
-             
+  <section>
+    <div class="mt-3  bg-black text-white  ">
+      <!-- Box1 -->
+      <div class=" p-8 flex justify-center items-center">
+        <div class="flex gap-64">
+          <div class="col">
+            <div class="text-2xl underline mb-4 ">Customer Care</div>
+            <div class="flex flex-col gap-2">
+              <div class="text-gray-400">Contact Us</div>
+              <div class="text-gray-400">FAQs</div>
+              <div class="text-gray-400">Shipping and Delivery</div>
+              <div class="text-gray-400">Order Status</div>
+              <div class="text-gray-400">Order History</div>
+              <div class="text-gray-400">Returns</div>
+              <div class="text-gray-400">Refunds</div>
+              <div class="text-gray-400">Call Now: 800 003 002</div>
             </div>
-        
-            <!-- Separator Box -->
-             <div class=" ">
-                <!-- Separator -->
-                <div class="border-t border-gray-300 my-3"></div>
-                <div class="flex justify-between items-center">
-                    <div class="text-gray-400 text-xs">@ Copyright 2024. Figurine</div>
-                    <div class="flex gap-8 items-center">
-                        <span class="text-gray-400 text-xs">Terms and Conditions </span>
-                        <span class="text-gray-400 text-xs">Privacy Policy</span>
-                        <span class="flex gap-2 text-gray-400 text-xs items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" />
-</svg>
-English
-                        </span>
-                    </div>
-  
-                </div>
-             </div>
- 
+          </div>
+          <div class="col">
+            <div class="text-2xl underline mb-4 ">Company Info</div>
+            <div class="flex flex-col gap-2">
+              <div class="text-gray-400">About Us</div>
+              <div class="text-gray-400">News</div>
+            </div>
+          </div>
+          <div class="col">
+            <div>
+              <div class="text-2xl underline mb-4 ">
+                Promotions & Discounts
+              </div>
+              <div class="flex flex-col gap-2">
+                <div class="text-gray-400">Student</div>
+                <div class="text-gray-400">Teacher</div>
+                <div class="text-gray-400">Birthdays</div>
+                <div class="text-gray-400">Sale Items</div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div>
+              <div class="text-2xl underline mb-4 font-medium">Follow Us</div>
+              <div class="flex items-center gap-5">
+                <a 
+                 href="https://www.instagram.com/your-profile"
+      target="_blank"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    x="0px"
+                    y="0px"
+                    width="50"
+                    height="50"
+                    viewBox="0 0 48 48"
+                    
+                  >
+                    <radialGradient
+                      id="yOrnnhliCrdS2gy~4tD8ma_Xy10Jcu1L2Su_gr1"
+                      cx="19.38"
+                      cy="42.035"
+                      r="44.899"
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      <stop offset="0" stop-color="#fd5"></stop>
+                      <stop offset=".328" stop-color="#ff543f"></stop>
+                      <stop offset=".348" stop-color="#fc5245"></stop>
+                      <stop offset=".504" stop-color="#e64771"></stop>
+                      <stop offset=".643" stop-color="#d53e91"></stop>
+                      <stop offset=".761" stop-color="#cc39a4"></stop>
+                      <stop offset=".841" stop-color="#c837ab"></stop>
+                    </radialGradient>
+                    <path
+                      fill="url(#yOrnnhliCrdS2gy~4tD8ma_Xy10Jcu1L2Su_gr1)"
+                      d="M34.017,41.99l-20,0.019c-4.4,0.004-8.003-3.592-8.008-7.992l-0.019-20	c-0.004-4.4,3.592-8.003,7.992-8.008l20-0.019c4.4-0.004,8.003,3.592,8.008,7.992l0.019,20	C42.014,38.383,38.417,41.986,34.017,41.99z"
+                    ></path>
+                    <radialGradient
+                      id="yOrnnhliCrdS2gy~4tD8mb_Xy10Jcu1L2Su_gr2"
+                      cx="11.786"
+                      cy="5.54"
+                      r="29.813"
+                      gradientTransform="matrix(1 0 0 .6663 0 1.849)"
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      <stop offset="0" stop-color="#4168c9"></stop>
+                      <stop
+                        offset=".999"
+                        stop-color="#4168c9"
+                        stop-opacity="0"
+                      ></stop>
+                    </radialGradient>
+                    <path
+                      fill="url(#yOrnnhliCrdS2gy~4tD8mb_Xy10Jcu1L2Su_gr2)"
+                      d="M34.017,41.99l-20,0.019c-4.4,0.004-8.003-3.592-8.008-7.992l-0.019-20	c-0.004-4.4,3.592-8.003,7.992-8.008l20-0.019c4.4-0.004,8.003,3.592,8.008,7.992l0.019,20	C42.014,38.383,38.417,41.986,34.017,41.99z"
+                    ></path>
+                    <path
+                      fill="#fff"
+                      d="M24,31c-3.859,0-7-3.14-7-7s3.141-7,7-7s7,3.14,7,7S27.859,31,24,31z M24,19c-2.757,0-5,2.243-5,5	s2.243,5,5,5s5-2.243,5-5S26.757,19,24,19z"
+                    ></path>
+                    <circle cx="31.5" cy="16.5" r="1.5" fill="#fff"></circle>
+                    <path
+                      fill="#fff"
+                      d="M30,37H18c-3.859,0-7-3.14-7-7V18c0-3.86,3.141-7,7-7h12c3.859,0,7,3.14,7,7v12	C37,33.86,33.859,37,30,37z M18,13c-2.757,0-5,2.243-5,5v12c0,2.757,2.243,5,5,5h12c2.757,0,5-2.243,5-5V18c0-2.757-2.243-5-5-5H18z"
+                    ></path>
+                  </svg>
+                </a>
+                <a class="text-gray-300"   href="https://www.facebook.com/your-profile"
+                target="_blank">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    x="0px"
+                    y="0px"
+                    width="50"
+                    height="50"
+                    viewBox="0 0 48 48"
+                  >
+                    <linearGradient
+                      id="awSgIinfw5_FS5MLHI~A9a_yGcWL8copNNQ_gr1"
+                      x1="6.228"
+                      x2="42.077"
+                      y1="4.896"
+                      y2="43.432"
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      <stop offset="0" stop-color="#0d61a9"></stop>
+                      <stop offset="1" stop-color="#16528c"></stop>
+                    </linearGradient>
+                    <path
+                      fill="url(#awSgIinfw5_FS5MLHI~A9a_yGcWL8copNNQ_gr1)"
+                      d="M42,40c0,1.105-0.895,2-2,2H8c-1.105,0-2-0.895-2-2V8c0-1.105,0.895-2,2-2h32	c1.105,0,2,0.895,2,2V40z"
+                    ></path>
+                    <path
+                      d="M25,38V27h-4v-6h4v-2.138c0-5.042,2.666-7.818,7.505-7.818c1.995,0,3.077,0.14,3.598,0.208	l0.858,0.111L37,12.224L37,17h-3.635C32.237,17,32,18.378,32,19.535V21h4.723l-0.928,6H32v11H25z"
+                      opacity=".05"
+                    ></path>
+                    <path
+                      d="M25.5,37.5v-11h-4v-5h4v-2.638c0-4.788,2.422-7.318,7.005-7.318c1.971,0,3.03,0.138,3.54,0.204	l0.436,0.057l0.02,0.442V16.5h-3.135c-1.623,0-1.865,1.901-1.865,3.035V21.5h4.64l-0.773,5H31.5v11H25.5z"
+                      opacity=".07"
+                    ></path>
+                    <path
+                      fill="#fff"
+                      d="M33.365,16H36v-3.754c-0.492-0.064-1.531-0.203-3.495-0.203c-4.101,0-6.505,2.08-6.505,6.819V22h-4v4	h4v11h5V26h3.938l0.618-4H31v-2.465C31,17.661,31.612,16,33.365,16z"
+                    ></path>
+                  </svg>
+                </a>
+                <a class="text-gray-300"   href="https://www.tiktok.com/your-profile"
+                target="_blank">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    x="0px"
+                    y="0px"
+                    width="50"
+                    height="50"
+                    viewBox="0 0 48 48"
+                  >
+                    <path
+                      fill="#212121"
+                      fill-rule="evenodd"
+                      d="M10.904,6h26.191C39.804,6,42,8.196,42,10.904v26.191 C42,39.804,39.804,42,37.096,42H10.904C8.196,42,6,39.804,6,37.096V10.904C6,8.196,8.196,6,10.904,6z"
+                      clip-rule="evenodd"
+                    ></path>
+                    <path
+                      fill="#ec407a"
+                      fill-rule="evenodd"
+                      d="M29.208,20.607c1.576,1.126,3.507,1.788,5.592,1.788v-4.011 c-0.395,0-0.788-0.041-1.174-0.123v3.157c-2.085,0-4.015-0.663-5.592-1.788v8.184c0,4.094-3.321,7.413-7.417,7.413 c-1.528,0-2.949-0.462-4.129-1.254c1.347,1.376,3.225,2.23,5.303,2.23c4.096,0,7.417-3.319,7.417-7.413L29.208,20.607L29.208,20.607 z M30.657,16.561c-0.805-0.879-1.334-2.016-1.449-3.273v-0.516h-1.113C28.375,14.369,29.331,15.734,30.657,16.561L30.657,16.561z M19.079,30.832c-0.45-0.59-0.693-1.311-0.692-2.053c0-1.873,1.519-3.391,3.393-3.391c0.349,0,0.696,0.053,1.029,0.159v-4.1 c-0.389-0.053-0.781-0.076-1.174-0.068v3.191c-0.333-0.106-0.68-0.159-1.03-0.159c-1.874,0-3.393,1.518-3.393,3.391 C17.213,29.127,17.972,30.274,19.079,30.832z"
+                      clip-rule="evenodd"
+                    ></path>
+                    <path
+                      fill="#fff"
+                      fill-rule="evenodd"
+                      d="M28.034,19.63c1.576,1.126,3.507,1.788,5.592,1.788v-3.157 c-1.164-0.248-2.194-0.856-2.969-1.701c-1.326-0.827-2.281-2.191-2.561-3.788h-2.923v16.018c-0.007,1.867-1.523,3.379-3.393,3.379 c-1.102,0-2.081-0.525-2.701-1.338c-1.107-0.558-1.866-1.705-1.866-3.029c0-1.873,1.519-3.391,3.393-3.391 c0.359,0,0.705,0.056,1.03,0.159V21.38c-4.024,0.083-7.26,3.369-7.26,7.411c0,2.018,0.806,3.847,2.114,5.183 c1.18,0.792,2.601,1.254,4.129,1.254c4.096,0,7.417-3.319,7.417-7.413L28.034,19.63L28.034,19.63z"
+                      clip-rule="evenodd"
+                    ></path>
+                    <path
+                      fill="#81d4fa"
+                      fill-rule="evenodd"
+                      d="M33.626,18.262v-0.854c-1.05,0.002-2.078-0.292-2.969-0.848 C31.445,17.423,32.483,18.018,33.626,18.262z M28.095,12.772c-0.027-0.153-0.047-0.306-0.061-0.461v-0.516h-4.036v16.019 c-0.006,1.867-1.523,3.379-3.393,3.379c-0.549,0-1.067-0.13-1.526-0.362c0.62,0.813,1.599,1.338,2.701,1.338 c1.87,0,3.386-1.512,3.393-3.379V12.772H28.095z M21.635,21.38v-0.909c-0.337-0.046-0.677-0.069-1.018-0.069 c-4.097,0-7.417,3.319-7.417,7.413c0,2.567,1.305,4.829,3.288,6.159c-1.308-1.336-2.114-3.165-2.114-5.183 C14.374,24.749,17.611,21.463,21.635,21.38z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-    </section>
+      </div>
 
+      <!-- Box2 -->
+      <div class="text-white p-5">
+      
+        <div class="flex justify-between">
+            <div class="text-gray-400">
+              © 2024 skibidi Inc.
+            </div>
+            <div class="flex gap-5 underline text-gray-400">
+                <div>Terms and Conditions</div>
+                <div>Privacy Policy</div>
+            </div>
+        </div>
+           
+      </div>
+    </div>
+  </section>
 </template>
