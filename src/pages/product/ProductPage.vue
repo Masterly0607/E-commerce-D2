@@ -1,5 +1,5 @@
 <template>
-  <div class="all-container">
+  <div class="all-container ">
     <div class="container1">
       <SPageTitle :title="'Trending'"
       />
@@ -144,6 +144,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 150px ;
 }
 .bigcontainer1{
   display: flex;
