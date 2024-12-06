@@ -4,7 +4,7 @@ import 'animate.css'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 // Import Bootstrap Grid CSS
-import 'bootstrap/dist/css/bootstrap-grid.min.css';
+// import 'bootstrap/dist/css/bootstrap-grid.min.css';
 
 import App from './App.vue'
 import router from './router'
