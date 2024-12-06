@@ -1,3 +1,4 @@
+import ProductDetail from '@/pages/product/ProductDetail.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 
@@ -38,6 +39,29 @@ const router = createRouter({
           name: "contact-us-page",
           component: () => import("@/pages/contact-us/ContactUsPage.vue"),
         },
+        {
+          path: "/ProductDetail",
+          name: "Detail",
+          component: (ProductDetail) 
+        },
+      ]
+     },
+     {
+      path:'/auth',
+      component: () => import("@/layouts/BlankLayout.vue"),
+      children:[
+        {
+          path: "sign-in",
+          name: "sign-in-page",
+          component: () => import("@/pages/authentication/SignInPage.vue"),
+        },
+  
+        {
+          path: "sign-up",
+          name: "sign-up-page",
+          component: () => import("@/pages/authentication/SignUpPage.vue"),
+        },
+        
       ]
      },
      {
