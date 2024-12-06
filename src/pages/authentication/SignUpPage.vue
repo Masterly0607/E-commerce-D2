@@ -13,7 +13,7 @@
           <h2 class="font-bold text-3xl text-gray-700 text-center mb-4">Create an Account</h2>
           <p class="text-center text-gray-500 text-sm mb-6">
             Already have an account?
-            <a href="/sign-in" class="text-blue-500 hover:underline">Sign In</a>
+            <router-link class="text-blue-500 hover:underline" :to="{name:'sign-in-page'}">Sign In</router-link>
           </p>
           <form @submit.prevent="register" class="space-y-5">
             <!-- Email Input -->
@@ -124,7 +124,7 @@ const register = () => {
     .then(() => {
       console.log("Successfully registered!");
       loading.value = false;
-      router.push("/sign-in");
+      router.push({name:'sign-in-page'});
     })
     .catch((error) => {
       console.error("Failed to register:", error.message);
@@ -150,4 +150,7 @@ const signInWithGoogle = () => {
 const goToHome = () => {
   router.push("/home");
 };
+const goToSignIn = () => {
+  router.push({name:'sign-in-page'})
+}
 </script>

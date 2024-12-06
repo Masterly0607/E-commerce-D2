@@ -247,11 +247,9 @@ import { useRouter } from "vue-router";
 
 const router = useRouter();
 const goToSignUp = () => {
-  router.push({name: 'sign-up-page'}); // Navigate to the '/home' route
+  router.push({name: 'sign-up-page'}); 
 };
-const goToSignIn = () => {
-  router.push({name: 'sign-in-page'}); // Navigate to the '/home' route
-};
+
 const menuDrawer = ref(false);
 
 const toggleMenuDrawer = () => {
