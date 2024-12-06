@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-gray-200">
+  <section class="bg-gray-200 mt-40">
     <div >
       <!-- Swiper Slider -->
       <div>
@@ -26,12 +26,12 @@
       <div class="mt-7 p-2">
         <div class="flex gap-3 ">
           <div class="relative col h-64 ">
-            <img src="/public/images/16.jpeg" alt="" class="w-full h-full object-cover ">
+            <img src="/public/images/1.png" alt="" class="w-full h-full object-cover ">
             <div class="absolute inset-0 bg-black bg-opacity-30"></div>
             <p class="text-white text-xl font-bold absolute inset-0 flex items-center justify-center underline cursor-pointer">Blind Boxes</p>
           </div>
           <div class="relative col h-64">
-            <img src="/public/images/15.jpg" alt="" class="w-full h-full object-cover  ">
+            <img src="/public/images/2.png" alt="" class="w-full h-full object-cover  ">
             <div class="absolute inset-0 bg-black bg-opacity-30"></div>
             <p class="text-white text-xl font-bold absolute inset-0 flex items-center justify-center underline cursor-pointer">Figurines</p>
           </div>
@@ -42,16 +42,16 @@
      <div class="p-2 mt-7">
       <div class="text-center underline mb-8 font-medium text-xl">New Release</div>
       <div class="flex gap-3 h-72  ">
-        <div class="col bg-white ">
-    <img src="/public/images/14.jpg" alt="" class="w-full h-full  ">
+        <div class="col bg-white flex items-center ">
+    <img src="/public/images/3.png" alt="" class="w-full h-full object-cover ">
         </div>
         <div class="col flex flex-col gap-2">
        
        <div class="col h-[45%] bg-orange-500">
-        <img src="/public/images/15.jpg" alt="" class="w-full h-full object-cover ">
+        <img src="/public/images/4.png" alt="" class="w-full h-full object-cover ">
        </div>
        <div class="col bg-pink-300 h-[45%]">
-        <img src="/public/images/16.jpeg" alt="" class="w-full h-full object-cover">
+        <img src="/public/images/5.png" alt="" class="w-full h-full object-cover">
        </div>
         </div>
       </div>
@@ -66,9 +66,9 @@
           </div>
           
           <div class="flex h-48">
-            <div class="col">  <img src="/public/images/12.jpg" alt="" class="w-full h-full object-cover "></div>
-           <div class="col">  <img src="/public/images/15.jpg" alt="" class="w-full h-full object-cover "></div>
-           <div class="col">  <img src="/public/images/13.jpg" alt="" class="w-full h-full object-cover "></div>
+            <div class="col">  <img src="/public/images/6.png" alt="" class="w-full h-full object-cover "></div>
+           <div class="col">  <img src="/public/images/7.png" alt="" class="w-full h-full object-cover "></div>
+           <div class="col">  <img src="/public/images/8.png" alt="" class="w-full h-full object-cover "></div>
           </div>
          
           <div class="text-center mt-6">
@@ -102,10 +102,10 @@ export default {
   setup() {
     // Array of images for the slider
     const images = [
-      "/images/11.jpg",
-      "/images/12.jpg",
-      "/images/13.jpg",
-      "/images/14.jpg",
+      "/images/1.png",
+      "/images/2.png",
+      "/images/3.png",
+      "/images/4.png",
     ];
     // Array of images for the trending slider
     const trendingImages = [

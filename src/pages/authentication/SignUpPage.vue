@@ -5,7 +5,7 @@
       <div class="flex flex-col md:flex-row gap-10">
         <!-- Image Section -->
         <div class="md:w-1/2 flex justify-center">
-          <img src="/public/images/sign-up.svg" alt="Sign Up" class="object-contain" />
+          <img src="/public/images/sign-up.jpg" alt="Sign Up" class="object-contain" />
         </div>
 
         <!-- Form Section -->

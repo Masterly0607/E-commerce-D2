@@ -54,7 +54,7 @@
   
           <!-- Image Section -->
           <div class="md:w-1/2 flex justify-center">
-            <img src="/public/images/sign-up.svg" alt="Sign In" class="object-contain" />
+            <img src="/public/images/signIn.jpg" alt="Sign In" class="object-contain" />
           </div>
         </div>
       </div>
