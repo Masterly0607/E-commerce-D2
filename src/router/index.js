@@ -38,6 +38,16 @@ const router = createRouter({
           name: "contact-us-page",
           component: () => import("@/pages/contact-us/ContactUsPage.vue"),
         },
+        {
+          path: "wish-list",
+          name: "wishlist",
+          component: () => import("@/pages/wishList/wishList.vue"),
+        },
+        {
+          path: "order-history",
+          name: "orderhistory",
+          component: () => import("@/pages/orderHistory/orderHistory.vue"),
+        }
       ]
      },
      {
