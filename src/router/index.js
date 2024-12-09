@@ -1,4 +1,4 @@
-import ProductDetail from '@/pages/product/ProductDetail.vue'
+
 import { createRouter, createWebHistory } from 'vue-router'
 
 
@@ -7,6 +7,7 @@ const router = createRouter({
   routes: [
      {
       path:'/',
+      redirect: '/home',
       component: () => import("@/layouts/MainLayout.vue"),
       children:[
         {
@@ -35,14 +36,14 @@ const router = createRouter({
           component: () => import("@/pages/about-us/AboutUsPage.vue"),
         },
         {
-          path: "/contact-us",
+          path: "contact-us",
           name: "contact-us-page",
           component: () => import("@/pages/contact-us/ContactUsPage.vue"),
         },
         {
-          path: "/ProductDetail",
+          path: "ProductDetail",
           name: "Detail",
-          component: (ProductDetail) 
+          component: ()  => import ("@/pages/product/ProductDetail.vue"),
         },
       ]
      },
@@ -64,7 +65,12 @@ const router = createRouter({
         },
         
       ]
-     }
+     },
+     {
+      path: '/:pathMatch(.*)*',
+      name: 'not-found',
+      component: () => import('@/pages/NotFoundPage.vue'), // Handle 404
+    },
   ],
 })
 

@@ -17,7 +17,8 @@
           class="custom-swiper"
         >
           <!-- Dynamically Render Slides -->
-          <swiper-slide v-for="(image, index) in images" :key="'slide-' + index">
+          <swiper-slide v-for="(image, index) in images" :key="'slide-' + index" >
+            
             <img :src="image" :alt="'Image ' + (index + 1)" class="swiper-image" />
           </swiper-slide>
         </swiper>
@@ -102,7 +103,7 @@ export default {
   setup() {
     // Array of images for the slider
     const images = [
-      "/images/1.png",
+      "/public/images/slide img/1.webp",
       "/images/2.png",
       "/images/3.png",
       "/images/4.png",
@@ -133,17 +134,19 @@ export default {
 /* Swiper Container */
 .custom-swiper {
   width: 100%;
-  height: 500px;
+  height: 800px;
   position: relative;
   overflow: hidden;
+  background-color: #f5f5f5; 
 }
 
 /* Swiper Images */
 .swiper-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+   object-fit: cover;
   display: block;
+
 }
 
 /* Swiper Slide Transitions */
@@ -151,6 +154,7 @@ export default {
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
   z-index: 1;
+
 }
 
 .swiper-slide.swiper-slide-active {

@@ -13,7 +13,7 @@
           <h2 class="font-bold text-3xl text-gray-700 text-center mb-4">Create an Account</h2>
           <p class="text-center text-gray-500 text-sm mb-6">
             Already have an account?
-            <router-link class="text-blue-500 hover:underline" :to="{name:'sign-in-page'}">Sign In</router-link>
+            <router-link class="text-blue-500 hover:underline" :to="{ name: 'sign-in-page' }">Sign In</router-link>
           </p>
           <form @submit.prevent="register" class="space-y-5">
             <!-- Email Input -->
@@ -25,6 +25,7 @@
                 v-model="email"
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 placeholder="Enter your email"
+                @blur="validateEmail"
                 required
               />
               <p v-if="emailError" class="text-sm text-red-500 mt-1">{{ emailError }}</p>
@@ -42,6 +43,20 @@
                 required
               />
               <p v-if="passwordError" class="text-sm text-red-500 mt-1">{{ passwordError }}</p>
+            </div>
+
+            <!-- Confirm Password Input -->
+            <div>
+              <label for="confirmPassword" class="block text-sm font-medium text-gray-600 mb-1">Confirm Password</label>
+              <input
+                type="password"
+                id="confirmPassword"
+                v-model="confirmPassword"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                placeholder="Confirm your password"
+                required
+              />
+              <p v-if="confirmPasswordError" class="text-sm text-red-500 mt-1">{{ confirmPasswordError }}</p>
             </div>
 
             <!-- Submit Button -->
@@ -90,30 +105,46 @@ import BackButton from "@/components/buttons/backButton/backButton.vue";
 // State
 const email = ref("");
 const password = ref("");
+const confirmPassword = ref("");
 const emailError = ref("");
 const passwordError = ref("");
+const confirmPasswordError = ref("");
 const loading = ref(false);
 const router = useRouter();
 
 // Functions
-const validateInputs = () => {
-  emailError.value = "";
-  passwordError.value = "";
-
+const validateEmail = () => {
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!email.value) {
     emailError.value = "Email is required.";
   } else if (!emailPattern.test(email.value)) {
     emailError.value = "Please enter a valid email address.";
+  } else {
+    emailError.value = "";
   }
+};
 
+const validateInputs = () => {
+  emailError.value = "";
+  passwordError.value = "";
+  confirmPasswordError.value = "";
+
+  // Validate Email
+  validateEmail();
+
+  // Validate Password
   if (!password.value) {
     passwordError.value = "Password is required.";
   } else if (password.value.length < 6) {
     passwordError.value = "Password must be at least 6 characters.";
   }
 
-  return !emailError.value && !passwordError.value;
+  // Validate Confirm Password
+  if (password.value !== confirmPassword.value) {
+    confirmPasswordError.value = "Passwords do not match.";
+  }
+
+  return !emailError.value && !passwordError.value && !confirmPasswordError.value;
 };
 
 const register = () => {
@@ -124,7 +155,7 @@ const register = () => {
     .then(() => {
       console.log("Successfully registered!");
       loading.value = false;
-      router.push({name:'sign-in-page'});
+      router.push({ name: "sign-in-page" });
     })
     .catch((error) => {
       console.error("Failed to register:", error.message);
@@ -150,7 +181,4 @@ const signInWithGoogle = () => {
 const goToHome = () => {
   router.push("/home");
 };
-const goToSignIn = () => {
-  router.push({name:'sign-in-page'})
-}
 </script>

@@ -16,8 +16,8 @@
         <!-- Header -->
         <div class="pr-36">
           <div class="flex gap-7 items-center">
+            <!-- Search icon -->
             <div class="flex items-center gap-2 relative">
-              <!-- Search Input -->
               <div class="relative">
                 <input
                   v-if="isSearchVisible"
@@ -34,8 +34,6 @@
                   ✖
                 </button>
               </div>
-
-              <!-- Search Icon -->
               <svg
                 v-if="!isSearchVisible"
                 xmlns="http://www.w3.org/2000/svg"
@@ -54,6 +52,7 @@
               </svg>
             </div>
 
+            <!-- Wishlist icon -->
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +87,7 @@
             </div>
             <button
               class="flex items-center px-4 py-2 border border-white text-gray-500 rounded hover:bg-orange-500 transition duration-500"
-              @click="goToSignUp"
+              @click="goToSignIn"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -104,7 +103,7 @@
                   d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z"
                 />
               </svg>
-              <span class="text-white ">Sign Up</span>
+              <span class="text-white ">Sign In</span>
             </button>
           </div>
         </div>
@@ -176,17 +175,17 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onUnmounted } from "vue";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
-const goToSignUp = () => {
-  router.push({ name: "sign-up-page" });
+const goToSignIn = () => {
+  router.push({ name: "sign-in-page" });
 };
 
 // Search Visibility
 const isSearchVisible = ref(false);
-const searchInputRef = ref(null);
+
 
 const toggleSearch = () => {
   isSearchVisible.value = false; // Hide search input
@@ -194,9 +193,7 @@ const toggleSearch = () => {
 
 const showSearch = () => {
   isSearchVisible.value = true; // Show search input
-  nextTick(() => {
-    searchInputRef.value?.focus(); // Ensure input gets focused
-  });
+  
 };
 
 // Cleanup to restore UI state
