@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="w-full border-b-2 bg-black fixed top-0 z-50">
-      <div class="flex justify-between items-center ">
+      <div class="flex justify-between items-center">
         <!-- Logo -->
         <div>
           <router-link :to="{ name: 'home-page' }">
@@ -85,26 +85,67 @@
                 />
               </svg>
             </div>
-            <button
-              class="flex items-center px-4 py-2 border border-white text-gray-500 rounded hover:bg-orange-500 transition duration-500"
-              @click="goToSignIn"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="size-6 mr-2 text-white "
+
+            <!-- Conditional Button -->
+            <div v-if="!isUserLoggedIn">
+              <button
+                class="flex items-center px-4 py-2 border border-white text-gray-500 rounded hover:bg-orange-500 transition duration-500"
+                @click="goToSignUp"
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z"
-                />
-              </svg>
-              <span class="text-white ">Sign In</span>
-            </button>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-6 mr-2 text-white"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z"
+                  />
+                </svg>
+                <span class="text-white">Sign Up</span>
+              </button>
+            </div>
+
+            <!-- My Account Dropdown -->
+            <div v-else class="relative">
+
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8 text-white hover:text-orange-500 cursor-pointer"               @click="toggleAccountDropdown">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+</svg>
+
+
+              
+ 
+
+              <!-- Dropdown Menu -->
+              <div
+                v-if="isAccountDropdownVisible"
+                class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50"
+              >
+                <ul class="py-2">
+                  <li>
+                    <router-link
+                      :to="{ name: 'my-account-page' }"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    >
+                      My Account
+                    </router-link>
+                  </li>
+                  <li>
+                    <button
+                      @click="logout"
+                      class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    >
+                      Logout
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -175,29 +216,43 @@
 </template>
 
 <script setup>
-import { ref, onUnmounted } from "vue";
+import { ref, computed, onUnmounted } from "vue";
 import { useRouter } from "vue-router";
+import { useUserStore } from "@/stores/user";
 
+const userStore = useUserStore(); // Pinia store
+const isUserLoggedIn = computed(() => userStore.isLoggedIn); // Derived state
 const router = useRouter();
-const goToSignIn = () => {
-  router.push({ name: "sign-in-page" });
+
+// Dropdown visibility
+const isAccountDropdownVisible = ref(false);
+const toggleAccountDropdown = () => {
+  isAccountDropdownVisible.value = !isAccountDropdownVisible.value;
 };
 
-// Search Visibility
+// Search visibility
 const isSearchVisible = ref(false);
-
-
 const toggleSearch = () => {
   isSearchVisible.value = false; // Hide search input
 };
-
 const showSearch = () => {
   isSearchVisible.value = true; // Show search input
-  
+};
+
+// Logout
+const logout = () => {
+  userStore.setLoggedIn(false);
+  router.push({ name: "home-page" });
+};
+
+// Navigation
+const goToSignUp = () => {
+  router.push({ name: "sign-up-page" });
 };
 
 // Cleanup to restore UI state
 onUnmounted(() => {
   isSearchVisible.value = false;
+  isAccountDropdownVisible.value = false;
 });
 </script>

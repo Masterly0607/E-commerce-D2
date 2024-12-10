@@ -84,7 +84,7 @@
 
             <div class="text-center text-gray-500 text-sm ">
               <router-link
-                :to="{ name: 'sign-up-page' }"
+                :to="{ name: 'home-page' }"
                 class="text-blue-500 hover:underline"
                 >Forget Password?</router-link
               >
@@ -110,6 +110,9 @@ import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import BackButton from "@/components/buttons/backButton/backButton.vue";
+import { useUserStore } from "@/stores/user"; // Assuming Pinia is used
+
+const userStore = useUserStore();
 // State
 const email = ref("");
 const password = ref("");
@@ -124,13 +127,12 @@ const login = () => {
     .then(() => {
       console.log("Successfully signed in!");
       loading.value = false; // Stop loading
+      userStore.setLoggedIn(true); // Update login status
       router.push("/home");
     })
     .catch((error) => {
       console.error("Failed to sign in:", error.message);
       loading.value = false; // Stop loading
-
-      // Handle Errors
       switch (error.code) {
         case "auth/invalid-password":
           errMsg.value = "Invalid password";
