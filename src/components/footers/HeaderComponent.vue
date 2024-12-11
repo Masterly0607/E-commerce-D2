@@ -2,9 +2,9 @@
   <section class="sticky top-0 z-50">
     <div class=" w-full border-b-2 bg-black top-0 ">
       <div class="flex justify-between items-center">
-        <!-- Logo -->
+
         <div>
-          <router-link :to="{ name: 'home-page' }">
+          <router-link :to="{ name: 'home-page' }" >
             <img
               src="/public/icons/apple-touch-icon.png"
               alt="Logo"
@@ -13,10 +13,10 @@
           </router-link>
         </div>
 
-        <!-- Header -->
+
         <div class="pr-36">
           <div class="flex gap-7 items-center">
-            <!-- Search icon -->
+   
             <div class="flex items-center gap-2 relative">
               <div class="relative">
                 <input
@@ -223,6 +223,10 @@ import { useUserStore } from "@/stores/user";
 const userStore = useUserStore(); // Pinia store
 const isUserLoggedIn = computed(() => userStore.isLoggedIn); // Derived state
 const router = useRouter();
+
+const goToHome = () => {
+  router.replace('/home');
+}
 
 // Dropdown visibility
 const isAccountDropdownVisible = ref(false);
