@@ -166,17 +166,27 @@ const register = () => {
     });
 };
 
-const signInWithGoogle = () => {
+const signInWithGoogle = async () => {
   const provider = new GoogleAuthProvider();
-  signInWithPopup(getAuth(), provider)
-    .then((result) => {
-      console.log(result.user);
-      router.push("/home");
-    })
-    .catch((error) => {
-      console.error("Google Sign-In Failed:", error.message);
-    });
+  const auth = getAuth();
+
+  try {
+    // Try using the popup
+    await signInWithPopup(auth, provider);
+    router.push("/home");
+  } catch (error) {
+    if (error.code === "auth/popup-blocked") {
+      // If popup is blocked, use redirect
+      console.log("Popup blocked, switching to redirect...");
+      await signInWithRedirect(auth, provider);
+    } else {
+      console.error("Sign-In Error:", error.message);
+      alert("Something went wrong: " + error.message);
+    }
+  }
 };
+
+
 
 const goToHome = () => {
   router.push("/home");

@@ -29,107 +29,117 @@
       class="p-2 mt-56 "
       ref="newReleaseContainer"
     >
-      <div class="text-center mb-20 font-thin text-6xl animate__animated " :class="{ 'animate__fadeInUp': isVisibleNewRelease }">New Release</div>
-      <div  :class="{ 'animate__fadeInRight': isVisibleNewRelease }" class="animate__animated " >
-          <swiper
-        :key="images.length"
-        :modules="[Navigation, EffectFade, Mousewheel, Scrollbar]"
-        :slides-per-view="4"
-        :space-between="100"
-        :loop="false"
-        :mousewheel="{ forceToAxis: true, releaseOnEdges: false }"
-        :scrollbar="{ draggable: true }"
-        navigation
-        class="custom-new-release-swiper group"
+      <div
+        class="text-center mb-20 font-thin text-6xl animate__animated"
+        :class="{ 'animate__fadeInUp': isVisibleNewRelease }"
+      >New Release</div>
+      <div
+        :class="{ 'animate__fadeInRight': isVisibleNewRelease }"
+        class="animate__animated"
       >
-        <swiper-slide v-for="(newRelease, index) in newReleases" :key="index">
-          <div
-            class="flex flex-col items-center justify-between bg-white shadow-lg rounded h-[500px]"
-          >
-            <img
-              :src="newRelease.image"
-              :alt="newRelease.title"
-              class="object-cover mb-4 w-full h-[70%]"
-            />
-            <h3 class="text-3xl font-bold text-center">
-              {{ newRelease.title }}
-            </h3>
-            <p class="text-sm text-center text-gray-500 mt-2">
-              {{ newRelease.price }}
-            </p>
-          </div>
-        </swiper-slide>
-      </swiper>
+        <swiper
+          :key="images.length"
+          :modules="[Navigation, EffectFade, Mousewheel, Scrollbar]"
+          :slides-per-view="4"
+          :space-between="100"
+          :loop="false"
+          :mousewheel="{ forceToAxis: true, releaseOnEdges: false }"
+          :scrollbar="{ draggable: true }"
+          navigation
+          class="custom-new-release-swiper group"
+        >
+          <swiper-slide v-for="(newRelease, index) in newReleases" :key="index">
+            <div
+              class="flex flex-col items-center justify-between bg-white shadow-lg rounded h-[500px]"
+            >
+              <img
+                :src="newRelease.image"
+                :alt="newRelease.title"
+                class="object-cover mb-4 w-full h-[70%]"
+              />
+              <h3 class="text-3xl font-bold text-center">
+                {{ newRelease.title }}
+              </h3>
+              <p class="text-sm text-center text-gray-500 mt-2">
+                {{ newRelease.price }}
+              </p>
+            </div>
+          </swiper-slide>
+        </swiper>
       </div>
-    
     </div>
 
-    <div class="mt-7 p-2">
-      <div class="flex gap-3">
-        <div class="relative col h-64">
-          <img
-            src="/public/images/1.png"
-            alt=""
-            class="w-full h-full object-cover"
-          />
-          <div class="absolute inset-0 bg-black bg-opacity-30"></div>
-          <p
-            class="text-white text-xl font-bold absolute inset-0 flex items-center justify-center underline cursor-pointer"
-          >
-            Blind Boxes
-          </p>
+<!-- Treading -->
+    <div class="mt-7 p-5" ref="treadingContainer">
+  
+      <div
+        class="mb-10 font-thin text-6xl animate__animated text-center"
+             :class="{ 'animate__fadeInUp': isVisibleTreading }"
+      >
+        Treading
+      </div>
+      <div class="flex flex-wrap animate__animated "   :class="{ 'animate__fadeIn': isVisibleTreading }"
+      style="animation-duration: 2s;">
+        <div class="col-3 mt-3 " v-for="(item,i) in treading" :key="i">
+         <div class=" flex flex-col items-center h-96 cursor-pointer ">
+            
+ 
+            <img :src="item.img" alt="" class="object-cover h-64 bg-green-300 w-[60%]">
+              <div class="text-center  mt-2 ">
+                <span>{{ item.title }}</span> <br>
+                <span>{{ item.subtitle }}</span>
+                <span class=" text-gray-700 text-sm ">from KHR57,168.52</span>
+              </div> 
+
+         </div>
         </div>
-        <div class="relative col h-64">
-          <img
-            src="/public/images/2.png"
-            alt=""
-            class="w-full h-full object-cover"
-          />
-          <div class="absolute inset-0 bg-black bg-opacity-30"></div>
-          <p
-            class="text-white text-xl font-bold absolute inset-0 flex items-center justify-center underline cursor-pointer"
-          >
-            Figurines
-          </p>
-        </div>
+     
+      </div>
+      <div class="text-center ">
+        <button class="px-4 py-2 bg-orange-500 text-white font-semibold rounded-2xl hover:bg-orange-600">
+  View All
+</button>
       </div>
     </div>
 
     <!-- Our Characters -->
-   
-    <div class="mt-56 pl-10" ref="characterContainer   ">
-      <div class=" mb-20 font-thin text-6xl animate__animated text-center"  :class="{'animate__fadeInUp': isVisibleCharacter}"    ref="characterContainer">Characters</div>
-      <div class="flex justify-center  items-center">
-        <div class="row animate__animated  " :class="{'animate__fadeIn': isVisibleCharacter}" style="animation-duration: 2s;">
-          
-          <div class="col-3 mt-5"  v-for="(item,i) in characters " :key="i">
-               <div class="h-72 w-72 relative group cursor-pointer overflow-hidden rounded-[60px]">
-                <!-- overflow-hidden =  is used to stop anything inside a container from sticking out. -->
-                <!-- group =  is added to the parent container so that when you hover or focus on the parent, you can change the styles of its child elements. -->
-      
-              
-                <img :src="item.img" alt="" class="h-full w-full rounded-[60px] object-cover transition-transform duration-500 group-hover:scale-110" >
-                <!--  scale-110 = Increases both width and height by 10% (110% of the original size), scale-100 = original(no scaling)-->
-                  <!--  transition-transform = When you want to animate changes to these properties (like zooming(Scaling), rotating, or moving an element), you use transition-transform to make them happen smoothly.-->
-                <div class="absolute inset-0 bg-black bg-opacity-20 rounded-[60px] group-hover:bg-opacity-30 transition duration-300"></div>
-                <div class="absolute inset-0 flex items-center justify-center  ">
-                  <!-- inset-0(top=0, bottom=0, right=0, left=0) =  takes up all the space inside the parent -->
-                  <span class="text-white text-2xl relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-500 group-hover:after:w-full">
-    {{ item.title }}
-  </span>
-                </div>
-               </div>
 
+    <div class="mt-56 pl-10" ref="characterContainer">
+      <div
+        class="mb-20 font-thin text-6xl animate__animated text-center"
+        :class="{ 'animate__fadeInUp': isVisibleCharacter }"
+      >
+        Characters
+      </div>
+      <div class="flex justify-center items-center">
+        <div
+          class="row animate__animated"
+          :class="{ 'animate__fadeIn': isVisibleCharacter }"
+          style="animation-duration: 2s;"
+        >
+          <div
+            class="col-3 mt-5"
+            v-for="(item, i) in characters"
+            :key="i"
+          >
+            <div class="h-72 w-72 relative group cursor-pointer overflow-hidden rounded-[60px]">
+              <img
+                :src="item.img"
+                alt=""
+                class="h-full w-full rounded-[60px] object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div class="absolute inset-0 bg-black bg-opacity-20 rounded-[60px] group-hover:bg-opacity-30 transition duration-300"></div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span
+                  class="text-white text-2xl relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-500 group-hover:after:w-full"
+                >
+                  {{ item.title }}
+                </span>
+              </div>
+            </div>
           </div>
-       
-
-          
-          
-           
+        </div>
       </div>
-     
-      </div>
-     
     </div>
   </section>
 </template>
@@ -151,248 +161,209 @@ import "swiper/css/effect-fade";
 import "swiper/css/scrollbar";
 import { ref, onMounted } from "vue";
 
+const swiperInstance = ref(null);
+const isVisibleNewRelease = ref(false);
+const isVisibleCharacter = ref(false);
+const isVisibleTreading = ref(false);
+const newReleaseContainer = ref(null);
+const characterContainer = ref(null);
+const treadingContainer = ref(null);
+let lastScrollY = 0;
 
- 
- 
-  
-    const swiperInstance = ref(null);
-    const isVisibleNewRelease = ref(false);
-    const isVisibleCharacter = ref(false);
-    const newReleaseContainer = ref(null); // variable for adding animation
-    const characterContainer = ref(null); // variable for adding animation
-  
-    const isPrevDisabled = ref(true); // Disable left arrow initially
-    const isNextDisabled = ref(false); // Enable right arrow initially
+const handleScrollDirection = (entry) => {
+  const currentScrollY = window.scrollY;
+  const isScrollingDown = currentScrollY > lastScrollY;
+  lastScrollY = currentScrollY;
+  return isScrollingDown && entry.isIntersecting;
+};
 
-    
-    const handleSlideChange = () => {
-      if (swiperInstance.value) {
-        const swiper = swiperInstance.value.swiper; // Access Swiper instance
-        isPrevDisabled.value = swiper.isBeginning; // Check if it's the first slide
-        isNextDisabled.value = swiper.isEnd; // Check if it's the last slide
-      }
-    };
+const observeNewRelease = () => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      isVisibleNewRelease.value = handleScrollDirection(entry);
+    },
+    { threshold: 0.1 }
+  );
 
-    // When scrolling to this, add animation.(New release)
-    const observeNewRelease = () => {
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          isVisibleNewRelease.value = entry.isIntersecting; //
-        },
-        { threshold: 0.1 }
-      );
+  if (newReleaseContainer.value) {
+    observer.observe(newReleaseContainer.value);
+  }
+};
 
-      if (newReleaseContainer.value) {
-        observer.observe(newReleaseContainer.value);
-      }
-    };
-    // When scrolling to this, add animation.(Character)
-    const observeCharacter = () => {
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          isVisibleCharacter.value = entry.isIntersecting; //
-        },
-        { threshold: 0.1 }
-      );
+const observeCharacter = () => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      isVisibleCharacter.value = handleScrollDirection(entry);
+    },
+    { threshold: 0.1 }
+  );
 
-      if (characterContainer.value) {
-        observer.observe(characterContainer.value);
-      }
-    };
-    
+  if (characterContainer.value) {
+    observer.observe(characterContainer.value);
+  }
+};
 
-    onMounted(() => {
-      observeNewRelease();
-      observeCharacter();
-   
-    });
 
-    
+const observeTreading = () => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      isVisibleTreading.value = handleScrollDirection(entry);
+    },
+    { threshold: 0.1 }
+  );
 
-    const images = [
-      "/public/images/slide img/1.webp",
-      "/public/images/slide img/2.webp",
-      "/public/images/slide img/3.webp",
-      "/public/images/slide img/4.webp",
-      "/public/images/slide img/5.webp",
-    ];
+  if (treadingContainer.value) {
+    observer.observe(treadingContainer.value);
+  }
+};
+onMounted(() => {
+  observeNewRelease();
+  observeCharacter();
+  observeTreading();
+});
 
-    const newReleases = [
-      {
-        image: "/public/images/1.png",
-        title: "Blind Box Set",
-        price: "KHR 48,693.68",
-      },
-      {
-        image: "/public/images/2.png",
-        title: "Figurines Collection",
-        price: "KHR 60,000.00",
-      },
-      {
-        image: "/public/images/3.png",
-        title: "Mega Space Molly",
-        price: "KHR 79,000.00",
-      },
-      {
-        image: "/public/images/4.png",
-        title: "Royal Molly Figurines",
-        price: "KHR 90,000.00",
-      },
-      {
-        image: "/public/images/5.png",
-        title: "Special Edition Molly",
-        price: "KHR 85,000.00",
-      },
-      {
-        image: "/public/images/1.png",
-        title: "Blind Box Set",
-        price: "KHR 48,693.68",
-      },
-      {
-        image: "/public/images/2.png",
-        title: "Figurines Collection",
-        price: "KHR 60,000.00",
-      },
-      {
-        image: "/public/images/3.png",
-        title: "Mega Space Molly",
-        price: "KHR 79,000.00",
-      },
-      {
-        image: "/public/images/4.png",
-        title: "Royal Molly Figurines",
-        price: "KHR 90,000.00",
-      },
-      {
-        image: "/public/images/5.png",
-        title: "Special Edition Molly",
-        price: "KHR 85,000.00",
-      },
-      {
-        image: "/public/images/1.png",
-        title: "Blind Box Set",
-        price: "KHR 48,693.68",
-      },
-      {
-        image: "/public/images/2.png",
-        title: "Figurines Collection",
-        price: "KHR 60,000.00",
-      },
-      {
-        image: "/public/images/3.png",
-        title: "Mega Space Molly",
-        price: "KHR 79,000.00",
-      },
-      {
-        image: "/public/images/4.png",
-        title: "Royal Molly Figurines",
-        price: "KHR 90,000.00",
-      },
-      {
-        image: "/public/images/5.png",
-        title: "Special Edition Molly",
-        price: "KHR 85,000.00",
-      },
-      {
-        image: "/public/images/1.png",
-        title: "Blind Box Set",
-        price: "KHR 48,693.68",
-      },
-      {
-        image: "/public/images/2.png",
-        title: "Figurines Collection",
-        price: "KHR 60,000.00",
-      },
-      {
-        image: "/public/images/3.png",
-        title: "Mega Space Molly",
-        price: "KHR 79,000.00",
-      },
-      {
-        image: "/public/images/4.png",
-        title: "Royal Molly Figurines",
-        price: "KHR 90,000.00",
-      },
-      {
-        image: "/public/images/5.png",
-        title: "Special Edition Molly",
-        price: "KHR 85,000.00",
-      },
-      {
-        image: "/public/images/1.png",
-        title: "Blind Box Set",
-        price: "KHR 48,693.68",
-      },
-      {
-        image: "/public/images/2.png",
-        title: "Figurines Collection",
-        price: "KHR 60,000.00",
-      },
-      {
-        image: "/public/images/3.png",
-        title: "Mega Space Molly",
-        price: "KHR 79,000.00",
-      },
-      {
-        image: "/public/images/4.png",
-        title: "Royal Molly Figurines",
-        price: "KHR 90,000.00",
-      },
-      {
-        image: "/public/images/5.png",
-        title: "Special Edition Molly",
-        price: "KHR 85,000.00",
-      },
-    ];
+const images = [
+  "/public/images/slide img/1.webp",
+  "/public/images/slide img/2.webp",
+  "/public/images/slide img/3.webp",
+  "/public/images/slide img/4.webp",
+  "/public/images/slide img/5.webp",
+];
 
-    const characters = [
-      
-      {
-        title: 'Molly',
-        img: '/public/images/1.png'
-      },
-      {
-        title: 'Molly',
-        img: '/public/images/2.png'
-      },
-      {
-        title: 'Molly',
-        img: '/public/images/3.png'
-      },
-      {
-        title: 'Molly',
-        img: '/public/images/4.png'
-      },
-      {
-        title: 'Molly',
-        img: '/public/images/5.png'
-      },
-      {
-        title: 'Molly',
-        img: '/public/images/6.png'
-      },
-    ]
+const newReleases = [
+  {
+    image: "/public/images/1.png",
+    title: "Blind Box Set",
+    price: "KHR 48,693.68",
+  },
+  {
+    image: "/public/images/2.png",
+    title: "Blind Box Set",
+    price: "KHR 48,693.68",
+  },
+  {
+    image: "/public/images/3.png",
+    title: "Blind Box Set",
+    price: "KHR 48,693.68",
+  },
+  {
+    image: "/public/images/4.png",
+    title: "Blind Box Set",
+    price: "KHR 48,693.68",
+  },
+  {
+    image: "/public/images/5.png",
+    title: "Blind Box Set",
+    price: "KHR 48,693.68",
+  },
+  {
+    image: "/public/images/1.png",
+    title: "Blind Box Set",
+    price: "KHR 48,693.68",
+  },
+  {
+    image: "/public/images/2.png",
+    title: "Blind Box Set",
+    price: "KHR 48,693.68",
+  },
+  {
+    image: "/public/images/3.png",
+    title: "Blind Box Set",
+    price: "KHR 48,693.68",
+  },
+  {
+    image: "/public/images/4.png",
+    title: "Blind Box Set",
+    price: "KHR 48,693.68",
+  },
+  {
+    image: "/public/images/5.png",
+    title: "Blind Box Set",
+    price: "KHR 48,693.68",
+  },
+];
 
-    
-  
+const characters = [
+  {
+    title: "Molly",
+    img: "/public/images/1.png",
+  },
+  {
+    title: "Molly",
+    img: "/public/images/2.png",
+  },
+  {
+    title: "Molly",
+    img: "/public/images/3.png",
+  },
+  {
+    title: "Molly",
+    img: "/public/images/4.png",
+  },
+  {
+    title: "Molly",
+    img: "/public/images/5.png",
+  },
+  {
+    title: "Molly",
+    img: "/public/images/6.png",
+  },
+  {
+    title: "Molly",
+    img: "/public/images/7.png",
+  },
+  {
+    title: "Molly",
+    img: "/public/images/7.png",
+  },
+];
+const treading = [
+  { 
+    img:'/public/images/1.png',
+    title: 'POP MART MEGA Collection', 
+    subtitle: '100% Space Molly Series 1',
+    price:'57,168.52'
 
+  },
+  { 
+    img:'/public/images/2.png',
+    title: 'POP MART MEGA Collection', 
+    subtitle: '100% Space Molly Series 1',
+    price:'57,168.52'
+
+  },
+  { 
+    img:'/public/images/3.png',
+    title: 'POP MART MEGA Collection', 
+    subtitle: '100% Space Molly Series 1',
+    price:'57,168.52'
+
+  },
+  { 
+    img:'/public/images/4.png',
+    title: 'POP MART MEGA Collection', 
+    subtitle: '100% Space Molly Series 1',
+    price:'57,168.52'
+
+  },
+  { 
+    img:'/public/images/5.png',
+    title: 'POP MART MEGA Collection', 
+    subtitle: '100% Space Molly Series 1',
+    price:'57,168.52'
+
+  },
+  { 
+    img:'/public/images/6.png',
+    title: 'POP MART MEGA Collection', 
+    subtitle: '100% Space Molly Series 1',
+    price:'57,168.52'
+
+  },
+]
 </script>
 
 <style>
-/* .new-release-section {
-  transition: all 0.7s ease-in-out;
-}
-
-.new-release-section.animate-visible {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.new-release-section {
-  opacity: 0;
-  transform: scale(0.95);
-} */
-
 .custom-swiper {
   width: 100%;
   height: 800px;
@@ -419,6 +390,7 @@ import { ref, onMounted } from "vue";
   justify-content: center;
   align-items: center;
 }
+
 .swiper-button-prev,
 .swiper-button-next {
   background: white;
@@ -445,6 +417,7 @@ import { ref, onMounted } from "vue";
   display: flex;
   align-items: center;
 }
+
 .swiper-scrollbar-drag {
   height: 100%;
   background-color: #888;
