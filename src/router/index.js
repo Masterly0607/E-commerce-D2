@@ -50,6 +50,11 @@ const router = createRouter({
           name: "profile-setting-page",
           component: ()  => import ("@/pages/authentication/userAccount/ProfileSetting.vue"),
         },
+        {
+          path: "card",
+          name: "card-page",
+          component: ()  => import ("@/pages/card/CardPage.vue"),
+        },
       ]
      },
      

@@ -69,7 +69,10 @@
                 />
               </svg>
             </div>
+
+            <!-- Card -->
             <div>
+        
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -77,6 +80,7 @@
                 stroke-width="1.5"
                 stroke="currentColor"
                 class="size-8 text-white hover:text-orange-500 cursor-pointer"
+                @click="goToCard"
               >
                 <path
                   stroke-linecap="round"
@@ -253,6 +257,11 @@ const logout = () => {
 const goToSignUp = () => {
   router.push({ name: "sign-up-page" });
 };
+
+// Card
+const goToCard = () => {
+  router.push({name:'card-page'});
+}
 
 // Cleanup to restore UI state
 onUnmounted(() => {
