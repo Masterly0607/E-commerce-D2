@@ -11,7 +11,9 @@
               <div class="text-gray-400">FAQs</div>
               <div class="text-gray-400">Shipping and Delivery</div>
               <div class="text-gray-400">Order Status</div>
-              <div class="text-gray-400">Order History</div>
+              <router-link :to="{name: 'orderhistory'}">
+                <button class="text-gray-400">Order History</button>
+              </router-link>
               <div class="text-gray-400">Returns</div>
               <div class="text-gray-400">Refunds</div>
               <div class="text-gray-400">Call Now: 800 003 002</div>
