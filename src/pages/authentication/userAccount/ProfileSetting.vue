@@ -2,7 +2,7 @@
     <div class="profile-page">
       <!-- Breadcrumb -->
       <div class="breadcrumb">
-        <router-link to="/">Home</router-link> / 
+        <router-link to="/">Home</router-link> 
         <span>My Account</span>
       </div>
   
