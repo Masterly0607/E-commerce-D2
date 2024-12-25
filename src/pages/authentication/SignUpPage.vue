@@ -100,7 +100,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
-import BackButton from "@/components/buttons/backButton/backButton.vue";
+import BackButton from "@/components/buttons/BackButton.vue";
 
 // State
 const email = ref("");

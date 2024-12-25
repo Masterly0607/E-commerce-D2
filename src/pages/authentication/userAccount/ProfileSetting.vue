@@ -1,98 +1,57 @@
 <template>
-    <div class="profile-page">
-      <!-- Breadcrumb -->
-      <div class="breadcrumb">
-        <router-link to="/">Home</router-link> 
-        <span>My Account</span>
-      </div>
+ 
+    <div class="f-container-1200">
+    <div>
+    <back-button></back-button>
+    </div>
+
+    <div class="mt-3">
+      <BCard no-body>
+  <BTabs card>
+    <BTab title="My Account" active>
+      <BCardText>
+        <my-account-page></my-account-page>
+      </BCardText>
+    </BTab>
+    <BTab title="Order History">
+      <BCardText>
+        <order-history-page></order-history-page>
+      </BCardText>
+    </BTab>
+  </BTabs>
+</BCard>
+    </div>
+ 
+
   
-      <div class="profile-container">
-           <!-- Sidebar -->
-        <aside class="sidebar">
-          <div class="user-info">
-            <div class="avatar">
-              <img src="https://via.placeholder.com/50" alt="User Avatar" />
-            </div>
-            <div class="user-details">
-              <p class="user-name">Veth Sivhuo</p>
-              <p class="user-email">s***@gmail.com</p>
-            </div>
-          </div>
-  
-          <nav class="sidebar-nav">
-            <section>
-              <h3>Manage My Account</h3>
-              <a href="#" class="nav-link">My Profile</a>
-              <a href="#" class="nav-link">Address Book</a>
-              <a href="#" class="nav-link">My Payment Options</a>
-            </section>
-  
-            <section>
-              <h3>My Orders</h3>
-              <a href="#" class="nav-link">My Returns</a>
-              <a href="#" class="nav-link">My Cancellations</a>
-            </section>
-  
-            <section>
-              <h3>My Wishlist</h3>
-            </section>
-          </nav>
-        </aside>
-  
-        <!-- Main Content -->
-        <main class="main-content">
-          <div class="header">
-            <h1>My Profile</h1>
-            <p class="description">Review and update this account's information.</p>
-          </div>
-  
-          <div class="info-card">
-            <div class="card-header">
-              <h3>User Information</h3>
-              <button class="edit-btn">Edit</button>
-            </div>
-            <div class="card-content">
-              <div class="info-row">
-                <label>Name</label>
-                <span>Veth Sivhuo</span>
-              </div>
-              <div class="info-row">
-                <label>Email</label>
-                <span>vethsivhuo@gmail.com</span>
-              </div>
-              <div class="info-row">
-                <label>Address</label>
-                <span>Toulkok, Phnom Penh, Cambodia</span>
-              </div>
-            </div>
-          </div>
-        </main>
-      </div>
+
+
     </div>
   </template>
   
-  <script>
-  export default {
-    name: 'ProfilePage',
-    data() {
-      return {
-        userData: {
-          name: 'Veth Sivhuo',
+  <script setup >
+import backButton from '@/components/buttons/BackButton.vue';
+import MyAccountPage from './profile-setting-components/MyAccountPage.vue';
+import OrderHistoryPage from './profile-setting-components/OrderHistoryPage.vue';
+import {ref, computed} from 'vue';
+const userData = [{
+  name: 'Veth Sivhuo',
           email: 'vethsivhuo@gmail.com',
           address: 'Toulkok, Phnom Penh, Cambodia'
-        }
-      }
-    }
-  }
+}]
+
+const tabIndex = ref(0)
+
+const linkClass = computed(() =>
+  Array.from(Array(3).keys()).map((idx) =>
+    tabIndex.value === idx ? ['bg-primary', 'text-light'] : ['bg-light', 'text-info']
+  )
+)
+
   </script>
   
   <style scoped>
-  .profile-page {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
+
   .breadcrumb {
     margin-bottom: 20px;
     color: #666;

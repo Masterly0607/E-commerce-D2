@@ -3,9 +3,10 @@ import './css/app.scss';
 import 'animate.css'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import {createBootstrap} from 'bootstrap-vue-next';
 
-// Import Bootstrap Grid CSS
-import 'bootstrap/dist/css/bootstrap-grid.min.css';
+import 'bootstrap/dist/css/bootstrap.css'; // This line brings in the main styles from Bootstrap (like buttons, grids, forms, and other basic designs).
+import 'bootstrap-vue-next/dist/bootstrap-vue-next.css'; // This line brings in extra styles for the Vue components provided by bootstrap-vue-next (like <BButton>, <BModal>).
 
 import App from './App.vue'
 import router from './router'
@@ -31,5 +32,5 @@ const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
-
+app.use(createBootstrap()) 
 app.mount('#app')

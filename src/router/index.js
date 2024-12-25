@@ -49,7 +49,16 @@ const router = createRouter({
           path: "profile-setting",
           name: "profile-setting-page",
           component: ()  => import ("@/pages/authentication/userAccount/ProfileSetting.vue"),
+          children:[
+           
+        {
+          path: "order-history",
+          name: "orderhistory",
+          component: () => import("@/pages/authentication/userAccount/profile-setting-components/OrderHistoryPage.vue"),
+        }
+          ]
         },
+        
         {
           path: "card",
           name: "card-page",
@@ -60,11 +69,7 @@ const router = createRouter({
           name: "wishlist",
           component: () => import("@/pages/wishList/wishList.vue"),
         },
-        {
-          path: "order-history",
-          name: "orderhistory",
-          component: () => import("@/pages/orderHistory/orderHistory.vue"),
-        }
+       
       ]
      },
      

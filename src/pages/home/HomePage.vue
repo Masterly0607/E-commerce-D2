@@ -125,7 +125,7 @@
             <div class="h-72 w-72 relative group cursor-pointer overflow-hidden rounded-[60px]">
               <img
                 :src="item.img"
-                alt=""
+                alt="Character Img"
                 class="h-full w-full rounded-[60px] object-cover transition-transform duration-500 group-hover:scale-110"
               />
               <div class="absolute inset-0 bg-black bg-opacity-20 rounded-[60px] group-hover:bg-opacity-30 transition duration-300"></div>
@@ -286,7 +286,7 @@ const newReleases = [
 const characters = [
   {
     title: "Molly",
-    img: "/public/images/1.png",
+    img: "/images/3.png",
   },
   {
     title: "Molly",
@@ -363,7 +363,7 @@ const treading = [
 ]
 </script>
 
-<style>
+<style scoped>
 .custom-swiper {
   width: 100%;
   height: 800px;
@@ -428,4 +428,6 @@ const treading = [
 .swiper-scrollbar-drag:hover {
   background-color: #555;
 }
+
+
 </style>

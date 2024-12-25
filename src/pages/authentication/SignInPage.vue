@@ -109,7 +109,7 @@
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import BackButton from "@/components/buttons/backButton/backButton.vue";
+import BackButton from "@/components/buttons/BackButton.vue";
 import { useUserStore } from "@/stores/user"; // Assuming Pinia is used
 
 const userStore = useUserStore();
