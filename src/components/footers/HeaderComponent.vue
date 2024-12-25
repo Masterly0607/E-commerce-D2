@@ -1,5 +1,5 @@
 <template>
-  <section class="sticky top-0 z-50">
+  <section class="sticky top-0 z-50 ">
     <div class=" w-full border-b-2 bg-black top-0 ">
       <div class="flex justify-between items-center">
 
@@ -54,7 +54,7 @@
 
             <!-- Wishlist icon -->
             <div>
-              <router-link :to="{name: 'wishlist' }">
+              <router-link :to="{name: 'wish-list-page' }">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -130,7 +130,7 @@
               <!-- Dropdown Menu -->
               <div
                 v-if="isAccountDropdownVisible"
-                class="absolute right-0 mt-2 w-44 bg-white  shadow-lg z-50 "
+                class="absolute right-0 mt-2 w-36 bg-white  shadow-lg z-50 "
               >
                 <ul class=" m-0 p-0">
                   <li>
@@ -162,9 +162,9 @@
       </div>
 
       <!-- NavBar -->
-      <div class="flex justify-center mb-2">
+      <div class="flex justify-center">
         <nav>
-          <ul class="gap-10 items-center hidden md:flex">
+          <ul class="gap-10 items-center hidden md:flex m-2">
             <li>
               <router-link
                 :to="{ name: 'home-page' }"

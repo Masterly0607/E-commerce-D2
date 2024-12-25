@@ -1,13 +1,13 @@
 <template>
-    <div class="wishList">
+    <section class="f-container-1200">
+        <back-button></back-button>
+       <div class="wishList mt-5">
         <div class="wishListHeader">
-            <p class="name">Wish List</p>
+  
             <div class="wishLine" />
         </div>
         <div class="wishNav">
-            <div class="navigationBar" @click="onNavigationBarTextClick">Home</div>
-            <div class="arrow">&gt;</div>
-            <div class="navigationBar1">Wish List</div>
+    
         </div>
         <div class="wishAdd">
             <p class="explore"> Explore, purchase, or remove items from your Wish List here.</p>
@@ -27,9 +27,12 @@
             </div>
         </div>
         <div class="wishLine2" />
-    </div>
+    </div>  
+    </section>
+   
 </template>
 <script >
+
     export default {
           name: "Wish",
           methods: {
@@ -74,24 +77,21 @@
 </script>
 <style scoped>
 .wishList {
-    width: 95%;
+
     display: flex;
     justify-content: center;
     flex-direction: column;
-    margin: 0px ;
-
 }
 .wishListHeader {
-    font-size: 36px;
+    font-size: 18px;
     font-weight: bold;
     flex-direction: row;
     display: flex;
-    column-gap: 60px;
     align-items: center;
     width: 90%;
 }
 .wishLine, .wishLine2 {
-    border: 1px solid #B4AEAE;
+
     width: 870px;
 }
 .wishNav {

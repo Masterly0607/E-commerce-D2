@@ -1,6 +1,8 @@
 <template>
  
-    <div class="profile-page" style="width: 1000px;">
+
+ <section >
+   <div class="profile-page" >
    
 
       <div class="profile-container">
@@ -66,6 +68,8 @@
         </main>
       </div>
     </div>
+ </section>
+   
   </template>
   
   <script setup >

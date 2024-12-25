@@ -1,6 +1,6 @@
 <template>
  
-    <div class="f-container-1200">
+    <div >
     <div>
     <back-button></back-button>
     </div>

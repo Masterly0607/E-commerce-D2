@@ -1,5 +1,8 @@
 <template>
-    <div class="p-8 flex flex-col lg:flex-row gap-8">
+     <section class="f-container-1200">
+         <back-button ></back-button>
+        <div class="p-8 flex flex-col lg:flex-row gap-8">
+        
       <!-- Left Section: Shopping Bag -->
       <div class="flex-1 bg-gray-300 p-12 rounded-lg lg:flex-row">
         <h2 class="text-xl font-bold ">Shopping Bag</h2>
@@ -103,6 +106,8 @@
         </button>
       </div>
     </div>
+     </section>
+  
 </template>
 
 <script>

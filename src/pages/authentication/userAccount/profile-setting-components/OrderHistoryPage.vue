@@ -1,5 +1,6 @@
 <template>
-    <div class="history" style="width: 1000px;">
+    <section >
+         <div class="history" >
         <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M18.0475 20.0012L26.2972 28.2507L23.9402 30.6077L13.3335 20.0012L23.9402 9.39453L26.2972 11.7515L18.0475 20.0012Z" fill="black"/>
         </svg>
@@ -95,7 +96,9 @@
             </div>
             <button class="sendMs">Send us a message</button>
         </div>
-    </div>
+    </div>   
+    </section>
+
 </template>
 <script>
 import { ref } from 'vue';
