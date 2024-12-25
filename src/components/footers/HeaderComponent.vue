@@ -130,13 +130,14 @@
               <!-- Dropdown Menu -->
               <div
                 v-if="isAccountDropdownVisible"
-                class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50"
+                class="absolute right-0 mt-2 w-44 bg-white  shadow-lg z-50 "
               >
-                <ul class="py-2">
+                <ul class=" m-0 p-0">
                   <li>
                     <router-link
                       :to="{ name: 'profile-setting-page' }"
-                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      class="block py-2  text-center text-md text-gray-700 hover:bg-gray-100 no-underline"
+         
                     >
                       My Account
                     </router-link>
@@ -144,8 +145,12 @@
                   <li>
                     <button
                       @click="logout"
-                      class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      class="flex justify-center gap-3 text-center w-full py-2 text-md text-gray-700 hover:bg-gray-100"
                     >
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15" />
+</svg>
+
                       Logout
                     </button>
                   </li>
