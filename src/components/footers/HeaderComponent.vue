@@ -130,13 +130,13 @@
               <!-- Dropdown Menu -->
               <div
                 v-if="isAccountDropdownVisible"
-                class="absolute right-0 mt-2 w-36 bg-white  shadow-lg z-50 "
+                class="absolute  mt-2 w-36 bg-white  shadow-lg z-50 "
               >
                 <ul class=" m-0 p-0">
                   <li>
                     <router-link
                       :to="{ name: 'profile-setting-page' }"
-                      class="block py-2  text-center text-md text-gray-700 hover:bg-gray-100 no-underline"
+                      class="block py-2 right-7 text-center text-md text-gray-700 hover:bg-gray-100 no-underline"
          
                     >
                       My Account
