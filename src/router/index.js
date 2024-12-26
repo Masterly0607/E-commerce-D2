@@ -60,9 +60,9 @@ const router = createRouter({
         },
         
         {
-          path: "card",
-          name: "card-page",
-          component: ()  => import ("@/pages/card/CardPage.vue"),
+          path: "cart",
+          name: "cart-page",
+          component: ()  => import ("@/pages/cart/CartPage.vue"),
         },
         {
           path: "wish-list",

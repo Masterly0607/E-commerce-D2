@@ -82,7 +82,7 @@
                 stroke-width="1.5"
                 stroke="currentColor"
                 class="size-8 text-white hover:text-orange-500 cursor-pointer"
-                @click="goToCard"
+                @click="goToCart"
               >
                 <path
                   stroke-linecap="round"
@@ -266,8 +266,8 @@ const goToSignUp = () => {
 };
 
 // Card
-const goToCard = () => {
-  router.push({name:'card-page'});
+const goToCart = () => {
+  router.push({name:'cart-page'});
 }
 
 // Cleanup to restore UI state
