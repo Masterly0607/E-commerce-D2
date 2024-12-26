@@ -1,77 +1,115 @@
 <template>
-    <div class="contactUs">
-      <div class="contact">
-        <p class="name">Contact Us
-        </p>
-        <div class="contactLine"></div>
-      </div>
-      <div class="content">
-        <div class="input" >
-          <input type="text" placeholder="Name" v-model="name" />
-          <input type="text" placeholder="E-mail" v-model="Email" />
-
-        </div>
-        <div class="msg">
-            <textarea rows="4">message</textarea>
-        </div>
-        <div class="button">
-          <button type="button">Send Message</button>
-        </div>
-      </div>
+  <div class="contact-us w-full max-w-4xl mx-auto px-4 py-16 space-y-16">
+    <!-- Header Section -->
+    <div class="text-center">
+      <h1 class="text-5xl font-extrabold text-gray-800">Contact Us</h1>
+      <p class="mt-4 text-lg text-gray-600">
+        Have questions or feedback? We'd love to hear from you. Reach out to us!
+      </p>
+      <div class="w-24 h-1 bg-orange-500 mx-auto mt-6"></div>
     </div>
-  </template>
-  <script>
-  </script>
-  <style scoped>
-  .contactUs {
-    width: 95%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin: 0px ;
-    padding: 250px 0px 80px 180px;
-    gap: 20px;
+
+    <!-- Form Section -->
+    <form @submit.prevent="submitForm" class="space-y-8">
+      <!-- Name and Email Inputs -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+        <div>
+          <label for="name" class="block text-lg font-semibold text-gray-700 mb-2">Name</label>
+          <input
+            type="text"
+            id="name"
+            v-model="name"
+            placeholder="Enter your name"
+            class="w-full border border-gray-300 rounded-full py-3 px-6 focus:outline-none focus:ring-2 focus:ring-orange-500 transition"
+          />
+        </div>
+        <div>
+          <label for="email" class="block text-lg font-semibold text-gray-700 mb-2">Email</label>
+          <input
+            type="email"
+            id="email"
+            v-model="email"
+            placeholder="Enter your email"
+            class="w-full border border-gray-300 rounded-full py-3 px-6 focus:outline-none focus:ring-2 focus:ring-orange-500 transition"
+          />
+        </div>
+      </div>
+
+      <!-- Message Textarea -->
+      <div>
+        <label for="message" class="block text-lg font-semibold text-gray-700 mb-2">Message</label>
+        <textarea
+          id="message"
+          v-model="message"
+          rows="5"
+          placeholder="Write your message..."
+          class="w-full border border-gray-300 rounded-lg py-3 px-6 focus:outline-none focus:ring-2 focus:ring-orange-500 transition resize-none"
+        ></textarea>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="text-center">
+        <button
+          type="submit"
+          class="bg-orange-500 text-white font-semibold py-3 px-10 rounded-full hover:bg-orange-600 transition duration-300"
+        >
+          Send Message
+        </button>
+      </div>
+    </form>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      name: "",
+      email: "",
+      message: "",
+    };
+  },
+  methods: {
+    submitForm() {
+      if (this.name && this.email && this.message) {
+        alert("Thank you for contacting us. We will get back to you shortly!");
+        this.name = "";
+        this.email = "";
+        this.message = "";
+      } else {
+        alert("Please fill out all fields before submitting.");
+      }
+    },
+  },
+};
+</script>
+
+<style scoped>
+/* Form Styling Enhancements */
+input,
+textarea {
+  background-color: #f9f9f9;
+  font-size: 16px;
+  color: #333;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #aaa;
+}
+
+textarea {
+  resize: none; /* Disable resizing */
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Media Query for Responsive Design */
+@media (max-width: 640px) {
+  .contact-us {
+    padding: 20px;
   }
-  .contact {
-    font-size: 36px;
-    font-weight: bold;
-    flex-direction: row;
-    display: flex;
-    column-gap: 60px;
-    align-items: center;
-    width: 90%;
-  }
-  
-  .contactLine {
-    border: 1px solid #B4AEAE;
-    width: 840px;
-  }
-  .content {
-    padding: 0px 150px 0px 0px;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-  }
-  .input {
-    display: flex;
-    gap: 20px;
-    justify-content: space-between;
-  }
-  input, textarea, button {
-    border: 1px black solid;
-    width: 100%;
-  }
-  input, button {
-    border-radius: 50px;
-    padding: 10px 15px;
-  }
-  textarea {
-    border-radius: 10px;
-    padding: 5px 10px;
-    color: #B4AEAE;
-  }
-  button {
-    background-color: black;
-    color: white;
-  }
-  </style>
+}
+</style>
