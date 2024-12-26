@@ -9,7 +9,7 @@
 
 <div class="text-3xl font-bold">WistList</div>
           </div>
-          <div class="ml-14 text-gray-400 font-thin">All items to add to Cart</div>
+          <div class="ml-14 text-gray-400 font-thin">All items for adding to Cart</div>
          </div>
        <div class="wishList mt-5">
         <div class="wishListHeader">

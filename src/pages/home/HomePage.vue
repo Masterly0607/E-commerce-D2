@@ -50,7 +50,7 @@
         >
           <swiper-slide v-for="(newRelease, index) in newReleases" :key="index">
             <div
-              class="flex flex-col items-center justify-between bg-white shadow-lg rounded h-[500px]"
+              class="flex flex-col items-center justify-between bg-white shadow-lg rounded h-[500px] w-[300px]"
             >
               <img
                 :src="newRelease.image"
