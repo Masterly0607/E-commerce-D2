@@ -69,7 +69,16 @@ const router = createRouter({
           name: "wish-list-page",
           component: () => import("@/pages/wishList/WishListPage.vue"),
         },
-       
+       {
+        path: "terms",
+        name: "terms-page",
+        component: () => import("@/pages/terms/TermsConditions.vue"),
+       },
+       {
+        path: "privacy",
+        name: "privacy-page",
+        component: () => import("@/pages/privacy/PrivacyPolicy.vue"),
+       }
       ]
      },
      

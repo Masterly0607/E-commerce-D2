@@ -1,7 +1,7 @@
 <template>
   <section class="w-full max-w-5xl mx-auto px-4 py-16 space-y-16">
     <header class="flex flex-col items-center">
-      <h1 class="text-5xl font-extrabold text-gray-800 tracking-wide">Welcome to Hype Store</h1>
+      <h1 class="text-5xl font-extrabold text-gray-800 tracking-wide">Welcome to HypeStore</h1>
       <p class="mt-4 text-lg text-gray-600 text-center max-w-3xl">
         Your one-stop destination for premium urban figurines and designer collectibles.
       </p>
@@ -10,15 +10,15 @@
 
     <div class="space-y-8 text-gray-700 text-lg leading-8">
       <p class="animate-fade-in">
-        Founded in November 2024, Hype Store began as a visionary project for an Internet Programming class. Today, we stand as a vibrant hub for collectors and enthusiasts who share a passion for urban figurines and designer toys.
+        Founded in November 2024, HypeStore began as a visionary project for an Internet Programming class. Today, we stand as a vibrant hub for collectors and enthusiasts who share a passion for urban figurines and designer toys.
       </p>
       <p class="animate-fade-in">
-        At Hype Store, we don’t just sell products—we curate a lifestyle. Each collectible embodies the spirit of creativity, modern design, and cultural diversity. From bold, colorful figurines to limited-edition designer toys, our products inspire a sense of wonder and artistic appreciation.
+        At HypeStore, we don’t just sell products—we curate a lifestyle. Each collectible embodies the spirit of creativity, modern design, and cultural diversity. From bold, colorful figurines to limited-edition designer toys, our products inspire a sense of wonder and artistic appreciation.
       </p>
       <p class="animate-fade-in">
         Our platform, <a href="http://www.hypestore.com" target="_blank" rel="noopener noreferrer" class="text-black hover:underline">
           www.hypestore.com
-        </a>, isn’t just an online store. It’s a thriving community where collectors come together to explore, connect, and share their love for collectible art. Whether you’re a seasoned collector or just starting your journey, Hype Store is here to inspire and support you.
+        </a>, isn’t just an online store. It’s a thriving community where collectors come together to explore, connect, and share their love for collectible art. Whether you’re a seasoned collector or just starting your journey, HypeStore is here to inspire and support you.
       </p>
     </div>
 
@@ -26,7 +26,7 @@
     <div>
       <h2 class="text-4xl font-bold text-gray-800 text-center">Our Commitment</h2>
       <p class="mt-4 text-center text-gray-600 max-w-3xl mx-auto">
-        At Hype Store, we’re guided by three core principles that define everything we do.
+        At HypeStore, we’re guided by three core principles that define everything we do.
       </p>
       <div class="flex flex-wrap justify-center gap-12 mt-8">
         <div class="flex flex-col items-center text-center space-y-4 max-w-xs hover:scale-105 transform transition duration-300">
