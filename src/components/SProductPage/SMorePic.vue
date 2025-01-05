@@ -7,14 +7,19 @@
 </script>
 
 <template>
-    <div class="dcontainer">
+    <div class="dcontainer1">
         <button class="navi"><</button>
-        <img :src="Pppic" alt="">
-        <img :src="Pppic" alt="">
-        <img :src="Pppic" alt="">
-        <img :src="Pppic" alt="">
-        <img :src="Pppic" alt="">
-        <img :src="Pppic" alt="">
+        <div class="dcontainer2">
+            <div class="dcontainer">
+                <img :src="Pppic" alt="">
+                <img :src="Pppic" alt="">
+                <img :src="Pppic" alt="">
+                <img :src="Pppic" alt="">
+                <img :src="Pppic" alt="">
+                <img :src="Pppic" alt="">
+                <img :src="Pppic" alt="">
+            </div>
+        </div>
         <button class="navi">></button>
     </div>
 </template>
@@ -36,10 +41,30 @@
         margin-right: 6px;
     }
     
-    .dcontainer{
+    .dcontainer1{
         display: flex;
         flex-direction: row;
         height: 120px;
-        width: 800px;
+        width: 600px;
+    }
+
+    .dcontainer{
+        display: flex;
+        flex-direction: row;
+        overflow-y: scroll;
+    }
+
+    .dcontainer2{
+        /* width: 100%;
+        height: 100%; */
+    }
+
+    html {
+        overflow: scroll;
+    }
+
+    ::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
     }
 </style>

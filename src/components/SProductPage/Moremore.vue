@@ -15,13 +15,15 @@ export default{
 </script>
 
 <template>
-    <div class="fcontainer">
-        <img :src="picc" alt="">
-        <div class="namee">{{nameholders}}</div>
-        <div class="cos">{{ coster }}</div>
-        <div class="tag-container1">
-            <div class="tag11">{{tag11}}</div>
-            <div class="tag22">{{ tag22 }}</div>
+    <div class="fcontainer1">
+        <div class="fcontainer">
+            <img :src="picc" alt="">
+            <div class="namee">{{nameholders}}</div>
+            <div class="cos">{{ coster }}</div>
+            <div class="tag-container1">
+                <div class="tag11">{{tag11}}</div>
+                <div class="tag22">{{ tag22 }}</div>
+            </div>
         </div>
     </div>
 </template>
@@ -75,7 +77,7 @@ export default{
         /* margin-left: 10px; */
         padding: 0;
         /* box-sizing: border-box; */
-        overflow: hidden;
+        /* overflow: hidden; */
         margin-left: 15px;
         margin-right: 15px;
     }
@@ -88,6 +90,7 @@ export default{
         word-break: normal; */
         word-wrap: break-word;
     }
+    
     .fcontainer .coster{
         font-size: 18px;
         font-weight: 400px;
