@@ -89,9 +89,11 @@
             <span>${{ cartSubtotal - 5 }}</span>
           </p>
         </div>
+        <!-- <router-link :to="{name: 'checkout'}"> -->
         <button class="mt-4 w-full bg-gray-500 text-white rounded-md px-4 py-2 hover:bg-red-700">
           Proceed to Checkout
         </button>
+        <!-- </router-link> -->
       </div>
     </div>
   </section>
