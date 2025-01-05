@@ -37,13 +37,6 @@
             <p class="text-gray-800">${{ item.price * item.quantity }}</p>
           </div>
         </div>
-  
-        <!-- <div class="mt-6 flex justify-between">
-          <button class="text-gray-500 flex items-center">
-            <span class="material-icons-outlined mr-2"></span>
-            Back
-          </button>
-        </div> -->
       </div>
   
       <!-- Right Section: Shipping & Total -->
@@ -111,9 +104,11 @@
             <span>${{ cartSubtotal -5 }}</span>
           </p>
         </div>
+        <!-- <router-link :to="{name: 'checkout'}"> -->
         <button class="mt-4 w-full bg-gray-500 text-white rounded-md px-4 py-2 hover:bg-red-700">
           Proceed to Checkout
         </button>
+        <!-- </router-link> -->
       </div>
     </div>
      </section>
@@ -122,12 +117,13 @@
 
 <script>
   export default {
+    name: 'CartPage',
     data() {
       return {
         cartItems: [
-          { name: 'Product 1', price: 12, quantity: 1, image: '/public/images/yugi.png' },
-          { name: 'Product 2', price: 11, quantity: 2, image: '/public/images/miku.png' },
-          { name: 'Product 3', price: 35, quantity: 1, image: '/public/images/kuji.png' },
+          { name: 'Product 1', price: 12, quantity: 1, image: '/images/yugi.png' },
+          { name: 'Product 2', price: 11, quantity: 2, image: '/images/miku.png' },
+          { name: 'Product 3', price: 35, quantity: 1, image: '/images/kuji.png' },
         ],
       };
     },
@@ -135,6 +131,14 @@
       cartSubtotal() {
         return this.cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
       },
+      // hasItems() {
+      //   return this.cartItems.length > 0
+      // }
     },
+    // methods: {
+    //   goToCheckout() {
+    //     this.$router.push({name: 'checkout'})
+    //   }
+    // }
   };
   </script>
