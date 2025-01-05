@@ -27,18 +27,7 @@
                 />
             </div>
             <div class="moritem">
-                <button class="nav"><</button>
-                <template v-for="item in goodie" :key="item">
-                    <Moremore
-                    :picc="item.picc"
-                    :nameholders="item.nameholders"
-                    :coster="item.coster"
-                    :tag11="item.tag11"
-                    :tag11Color="item.tag11Color"
-                    :tag22="item.tag22"
-                    :tag22Color="item.tag22Color"/>
-                </template>
-                <button class="nav">></button>
+                <Moremore2 />
             </div>
         </div>
         <div class="ccontainer5">
@@ -47,18 +36,7 @@
                 />
             </div>
             <div class="moritem">
-                <button class="nav"><</button>
-                <template v-for="item in goodie" :key="item">
-                    <Moremore
-                    :picc="item.picc"
-                    :nameholders="item.nameholders"
-                    :coster="item.coster"
-                    :tag11="item.tag11"
-                    :tag11Color="item.tag11Color"
-                    :tag22="item.tag22"
-                    :tag22Color="item.tag22Color"/>
-                </template>
-                <button class="nav">></button>
+                <Moremore2 />
             </div>
         </div>
         <div class="ccontainer5">
@@ -67,18 +45,7 @@
                 />
             </div>
             <div class="moritem">
-                <button class="nav"><</button>
-                <template v-for="item in goodie" :key="item">
-                    <Moremore
-                    :picc="item.picc"
-                    :nameholders="item.nameholders"
-                    :coster="item.coster"
-                    :tag11="item.tag11"
-                    :tag11Color="item.tag11Color"
-                    :tag22="item.tag22"
-                    :tag22Color="item.tag22Color"/>
-                </template>
-                <button class="nav">></button>
+                <Moremore2 />
             </div>
         </div>
     </div>
@@ -89,8 +56,8 @@
     import SProductDetail from '@/components/SProductPage/SProductDetail.vue';
     import SMorePic from '@/components/SProductPage/SMorePic.vue';
     import Description from '@/components/SProductPage/Description.vue';
-    import Moremore from '@/components/SProductPage/Moremore.vue';
     import SPageTitle from '@/components/SProductPage/SPageTitle.vue';
+    import Moremore2 from '@/components/SProductPage/Moremore2.vue';
 
     export default {
         components: {
@@ -98,7 +65,7 @@
             SProductDetail,
             SMorePic,
             Description,
-            Moremore,
+            Moremore2,
             SPageTitle
         },
         data() {
@@ -127,58 +94,10 @@
                     },
                     {
                         letters: 'Manufacturer: Good Smile Company'
-                    }
+                    },
                 ],
-
-                goodie: [
-                    {
-                        picc :'./src/assets/ImageProduct/Joker6.jpg',
-                        nameholders :'xxD',
-                        coster :'$20.99',
-                        tag11 :'In Stock',
-                        tag11Color :'#009000',
-                        tag22 :'Persona Series',
-                        tag22Color :'#7B7B7B'
-                    },
-                    {
-                        picc :'./src/assets/ImageProduct/Joker6.jpg',
-                        nameholders :'xxD',
-                        coster :'$20.99',
-                        tag11 :'In Stock',
-                        tag11Color :'#009000',
-                        tag22 :'Persona Series',
-                        tag22Color :'#7B7B7B'
-                    },
-                    {
-                        picc :'./src/assets/ImageProduct/Joker6.jpg',
-                        nameholders :'xxD',
-                        coster :'$20.99',
-                        tag11 :'In Stock',
-                        tag11Color :'#009000',
-                        tag22 :'Persona Series',
-                        tag22Color :'#7B7B7B'
-                    },
-                    {
-                        picc :'./src/assets/ImageProduct/Joker6.jpg',
-                        nameholders :'xxD',
-                        coster :'$20.99',
-                        tag11 :'In Stock',
-                        tag11Color :'#009000',
-                        tag22 :'Persona Series',
-                        tag22Color :'#7B7B7B'
-                    },
-                    {
-                        picc :'./src/assets/ImageProduct/Joker6.jpg',
-                        nameholders :'xxD',
-                        coster :'$20.99',
-                        tag11 :'In Stock',
-                        tag11Color :'#009000',
-                        tag22 :'Persona Series',
-                        tag22Color :'#7B7B7B'
-                    }
-                ]
-            }
-        }
+            };
+        },
     }
 </script>
 
@@ -234,15 +153,6 @@
     .moritem{
         display: flex;
         flex-direction: row;
-    }
-
-    .nav{
-        height: 320px;
-        width: 25px;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        background-color: black;
     }
 
     .ccontainer6{
