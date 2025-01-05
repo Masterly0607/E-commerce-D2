@@ -139,26 +139,25 @@
             </div>
           </div>
 
-          <!-- Total -->
-          <div class="bg-gray-50 p-4 rounded-md border border-gray-200">
-            <p class="flex justify-between">
-              <span>Cart Subtotal</span>
-              <span>${{ cartSubtotal }}</span>
-            </p>
-            <p class="flex justify-between">
-              <span>Discount</span>
-              <span>-$5.00</span>
-            </p>
-            <p class="flex justify-between font-bold text-lg">
-              <span>Total</span>
-              <span>${{ cartSubtotal - 5 }}</span>
-            </p>
-          </div>
-
-          <button class="mt-4 w-full bg-red-600 text-white rounded-md px-4 py-2 hover:bg-red-700 transition duration-150 ease-in-out">
-            Proceed to Checkout
-          </button>
+        <div class="bg-gray-500 p-4 rounded-md text-white">
+          <p class="flex justify-between">
+            <span>Cart Subtotal</span>
+            <span>${{ cartSubtotal }}</span>
+          </p>
+          <p class="flex justify-between">
+            <span>Discount</span>
+            <span>-$5</span>
+          </p>
+          <p class="flex justify-between font-bold">
+            <span>Cart Total</span>
+            <span>${{ cartSubtotal - 5 }}</span>
+          </p>
         </div>
+        <!-- <router-link :to="{name: 'checkout'}"> -->
+        <button class="mt-4 w-full bg-gray-500 text-white rounded-md px-4 py-2 hover:bg-red-700">
+          Proceed to Checkout
+        </button>
+        <!-- </router-link> -->
       </div>
     </div>
   </section>
