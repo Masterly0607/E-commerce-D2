@@ -95,8 +95,17 @@ const router = createRouter({
           path: "payment-methods",
           name: "payment-methods-page",
           component: () => import("@/pages/authentication/userAccount/profile-setting-components/PaymentMethodsPage.vue"),
-        }
-       
+        },
+       {
+        path: "terms",
+        name: "terms-page",
+        component: () => import("@/pages/terms/TermsConditions.vue"),
+       },
+       {
+        path: "privacy",
+        name: "privacy-page",
+        component: () => import("@/pages/privacy/PrivacyPolicy.vue"),
+       }
       ]
      },
      

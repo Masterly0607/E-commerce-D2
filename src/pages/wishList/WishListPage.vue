@@ -84,14 +84,12 @@
   export default {
     name: "Wishlist",
     data() {
-      return {
-        products: [
-          { name: "POP UP PARADE Joker Figure", image: "joker.png", price: "30.99" },
-          { name: "POP MART Skullpanda The Sound Series", image: "anger.webp", price: "15.99" },
-          { name: "Smiski Dressing Series", image: "smiski.jpg", price: "11.99" },
-          { name: "Sonny Angel Dinosaur Series", image: "angel.avif", price: "25.00" },
-        ],
-      };
+        return {
+            products: [],
+        };
+    },
+    computed: {
+
     },
     methods: {
       getImagePath(image) {

@@ -191,11 +191,11 @@
       
         <div class="flex justify-between">
             <div class="text-gray-400">
-              © 2024 skibidi Inc.
+              © 2024 HypeStore Inc.
             </div>
             <div class="flex gap-5 underline text-gray-400">
-                <div>Terms and Conditions</div>
-                <div>Privacy Policy</div>
+                <router-link :to="{name: 'terms-page'}" class="text-gray-400">Terms and Conditions</router-link>
+                <router-link :to="{name: 'privacy-page'}" class="text-gray-400">Privacy Policy</router-link>
             </div>
         </div>
            
