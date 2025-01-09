@@ -7,8 +7,6 @@ const state = reactive({
 
 const actions = {
     fetchProducts() {
-        // Fetch products from an API or local data
-        // Example: this.products = fetchedProducts;
     },
     addToCart(product) {
         if (!product || !product.name) {
