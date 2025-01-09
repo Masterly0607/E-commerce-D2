@@ -15,10 +15,14 @@
                 <div class="wishLine" />
             </div>
             <div class="wishNav"></div>
-            <div class="wishAdd">
-                <p class="explore"> Explore, purchase, or remove items from your Wish List here.</p>
-                <button class="AddCart" @click="addAllToCart">Add all to Cart</button>
-            </div>
+                <div v-if="lists.length === 0" class="emptyWishlist">
+                    <img class="empty" src="/images/wishList_img/empty.jpg"/>
+                    <h4>Your wishlist is empty.</h4>
+                </div>
+                <div v-else class="wishAdd">
+                    <p class="explore"> Explore, purchase, or remove items from your Wish List here.</p>
+                    <button class="AddCart" @click="addAllToCart">Add all to Cart</button>
+                </div>
             <div class="wishItem" v-for="list in lists" :key="list.name">
                 <div class="product">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -102,6 +106,17 @@ export default {
     flex-direction: row;
     color: #717171;
     column-gap: 10px;
+}
+.emptyWishlist{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+.empty {
+    width: 300px;
+    height: 300px;
 }
 .wishAdd {
     display: flex;
