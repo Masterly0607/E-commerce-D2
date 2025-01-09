@@ -12,8 +12,17 @@
                     <button class="ship" @click="changeColor('Not Shipped')"  :style="{backgroundColor: activeButton === 'Not Shipped' ? '#E5E5E5' : '#B4AEAE'}">Not Shipped</button>
                     <button class="cancel" @click="changeColor('Cancelled Orders')"  :style="{backgroundColor: activeButton === 'Cancelled Orders' ? '#E5E5E5' : '#B4AEAE'}">Cancelled Orders</button>
                 </div>
-                <div class="duration"> Past 2 weeks</div>
-            </div>
+                <div class="duration">
+                    <select class="option">
+                        <option value="All">All</option>
+                        <option value="Yesterday">Yesterday</option>
+                        <option value="Past Week">Past Week</option>
+                        <option value="Last 2 Weeks">Last 2 Weeks</option>
+                        <option value="Last Month">Last Month</option>
+                        <option value="Last 6 Months">Last 6 Months</option>
+                        <option value="Last Year">Last Year</option>
+                    </select>
+                </div>            </div>
             <div class="orderList">
                 <div class="head">
                     <p>Order placed</p>
@@ -61,7 +70,6 @@
                                             </svg>
                                             Buy it again</button>
                                         <button class="viewProduct">View product detail</button>
-                                        <button class="track">Track Package</button>
                                         <button class="moreOpt">
                                             <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M3 9.5C2.60218 9.5 2.22064 9.34196 1.93934 9.06066C1.65804 8.77936 1.5 8.39782 1.5 8C1.5 7.60218 1.65804 7.22064 1.93934 6.93934C2.22064 6.65804 2.60218 6.5 3 6.5C3.39782 6.5 3.77936 6.65804 4.06066 6.93934C4.34196 7.22064 4.5 7.60218 4.5 8C4.5 8.39782 4.34196 8.77936 4.06066 9.06066C3.77936 9.34196 3.39782 9.5 3 9.5ZM8 9.5C7.60218 9.5 7.22064 9.34196 6.93934 9.06066C6.65804 8.77936 6.5 8.39782 6.5 8C6.5 7.60218 6.65804 7.22064 6.93934 6.93934C7.22064 6.65804 7.60218 6.5 8 6.5C8.39782 6.5 8.77936 6.65804 9.06066 6.93934C9.34196 7.22064 9.5 7.60218 9.5 8C9.5 8.39782 9.34196 8.77936 9.06066 9.06066C8.77936 9.34196 8.39782 9.5 8 9.5ZM13 9.5C12.6022 9.5 12.2206 9.34196 11.9393 9.06066C11.658 8.77936 11.5 8.39782 11.5 8C11.5 7.60218 11.658 7.22064 11.9393 6.93934C12.2206 6.65804 12.6022 6.5 13 6.5C13.3978 6.5 13.7794 6.65804 14.0607 6.93934C14.342 7.22064 14.5 7.60218 14.5 8C14.5 8.39782 14.342 8.77936 14.0607 9.06066C13.7794 9.34196 13.3978 9.5 13 9.5Z" />
@@ -94,7 +102,7 @@
                     the next page.
                 </p>
             </div>
-            <button class="sendMs">Send us a message</button>
+            <router-link :to="{name:'contact-us-page'}" class="sendMs">Send us a message</router-link>
         </div>
     </div>   
     </section>
@@ -126,9 +134,9 @@ export default {
         return {
             products: [
             {
-                name: "Kimetsu no Yaiba - Kamado Nezuko - Figuarts ZERO - Kekkijutsu (Bandai Spirits)",
+                name: "POP UP PARADE Joker Figure",
                 date: "July 8",
-                image: "coco.png",
+                image: "Joker6.jpg",
                 lastDate: "July 8, 2023",
             },
             {
@@ -179,6 +187,10 @@ export default {
     align-items: center;
     padding: 0px 20px;
 }
+.option {
+    display: flex;
+    background-color: #B4AEAE;
+}
 .orderList {
     border: black 1px solid;
     border-radius: 20px;
@@ -186,7 +198,7 @@ export default {
 .order, .ship, .cancel {
     background-color:#B4AEAE;
     border: none;
-    padding: 10px 50px;
+    padding: 10px 20px;
     border-radius: 10px;
     cursor: pointer;
     font-size: 16px;
@@ -251,6 +263,7 @@ font-size: 16px;
     flex-direction: row;
     gap: 20px;
     padding: 5px;
+    align-items: center;
 }
 .productDescription {
     display: flex;
@@ -265,17 +278,17 @@ font-size: 16px;
     gap: 10px;
     display: flex;
 }
-.again, .viewProduct, .track, .moreOpt, .sendMs {
+.again, .viewProduct, .moreOpt, .sendMs {
     background-color: white;
     border: gray 1px solid;
     border-radius: 10px;
-    padding: 10px;
+    padding: 5px;
     display: flex;
     gap: 5px;
     color: black;
     align-items: center;
 }
-.again:hover, .viewProduct:hover, .track:hover, .moreOpt:hover, .sendMs:hover {
+.again:hover, .viewProduct:hover, .moreOpt:hover, .sendMs:hover {
     background-color: #4C9D16;
     color: white;
     border: none;
@@ -305,5 +318,8 @@ font-size: 16px;
 }
 button {
     cursor: pointer;
+}
+a {
+    text-decoration: none;
 }
 </style>
