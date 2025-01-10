@@ -8,7 +8,7 @@
             <div class="text-2xl underline mb-4 ">Customer Care</div>
             <div class="flex flex-col gap-2">
               <div class="text-gray-400">Contact Us</div>
-              <div class="text-gray-400">FAQs</div>
+              <router-link :to="{name:'faqs-page'}" class="text-gray-400">FAQs</router-link>
               <div class="text-gray-400">Shipping and Delivery</div>
               <div class="text-gray-400">Order Status</div>
               <router-link :to="{name: 'orderhistory'}">
