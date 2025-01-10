@@ -19,6 +19,7 @@
                 addToCart: "addToCart",
                 productsInCart: "productsInCart",
                 incrementProduct: "incrementProduct",
+                decrementProduct: "decrementProduct",
                 amountInCart(store) {
                     console.log(this.id)
                     return store.getAmountInCart(this.id)
@@ -35,7 +36,7 @@
                     Costs: this.Costs,
                     Status: this.Status,
                     statusColor: this.statusColor,
-                    Amount: this.Amount,
+                    Amount: this.amountInCart,
                 }
                 return product;
             }
@@ -53,7 +54,7 @@
             <div class="How">{{ Status }}</div>
             <div class="quantity">
                 <div class="counter">Quantity</div>
-                <button class="remove-tocart" @click="updateCart(product, 'substract')">-</button>
+                <button class="remove-tocart" @click="decrementProduct(product.id)">-</button>
                 <span class="quanity">{{ amountInCart }}</span>
                 <button class="add-tocart" @click="incrementProduct(product.id)">+</button>
             </div>

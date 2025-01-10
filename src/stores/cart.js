@@ -20,6 +20,18 @@ export const useCartStore = defineStore("cart", {
       console.log(this.products);
     },
 
+    // addToFav(product){
+    //   const Favor = this.products.includes(product.id, product.Name, product.Costs);
+    //   console.log(Favor);
+    //   if (!Favor) {
+    //     this.products[product.id] = product;
+    //     console.log("Product added");
+    //   } else {
+    //     console.log("product not added");
+    //   }
+    //   console.log(this.products);
+    // },
+
     incrementProduct(productId) {
       // initialize product count for the product
       if (!this.productsInCart[productId]) {
@@ -35,6 +47,7 @@ export const useCartStore = defineStore("cart", {
         `ID: ${productId}; Amount: ${this.productsInCart[productId]}`
       );
     },
+
     getAmountInCart(productId) {
       if (!this.productsInCart[productId]) {
         this.productsInCart[productId] = 0;
@@ -42,5 +55,16 @@ export const useCartStore = defineStore("cart", {
 
       return this.productsInCart[productId];
     },
+
+    decrementProduct(productId){
+      if (!this.productsInCart[productId]){
+        this.productsInCart[productId] > 0;
+      }
+      this.productsInCart[productId]--;
+      console.log("AMOUNT IN CART: ");
+      console.log(
+        `ID: ${productId}; Amount: ${this.productsInCart[productId]}`
+      );
+    }
   },
 });

@@ -8,6 +8,8 @@
             :Costs="'$30.99'"
             :Status="'In Stock'"
             :statusColor="'#00FF2B'"
+            :id=1
+            :Amount=0
             />
         </div>
         <div class="ccontainer2">
