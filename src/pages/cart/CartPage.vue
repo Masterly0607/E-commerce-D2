@@ -89,11 +89,9 @@
             <span>${{ cartSubtotal - 5 }}</span>
           </p>
         </div>
-        <!-- <router-link :to="{name: 'checkout'}"> -->
         <button class="mt-4 w-full bg-gray-500 text-white rounded-md px-4 py-2 hover:bg-red-700">
           Proceed to Checkout
         </button>
-        <!-- </router-link> -->
       </div>
     </div>
   </section>
@@ -118,18 +116,3 @@ export default {
   },
 };
 </script>
-    computed: {
-      cartSubtotal() {
-        return this.cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
-      },
-      // hasItems() {
-      //   return this.cartItems.length > 0
-      // }
-    },
-    // methods: {
-    //   goToCheckout() {
-    //     this.$router.push({name: 'checkout'})
-    //   }
-    // }
-  };
-  </script>
