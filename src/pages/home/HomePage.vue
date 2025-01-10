@@ -96,7 +96,7 @@
      
       </div>
       <div class="text-center ">
-        <button class="px-4 py-2 bg-green-500 text-white font-semibold rounded-2xl hover:bg-green-600">
+        <button class="px-4 py-2 bg-black text-white font-semibold rounded-2xl hover:bg-gray-600">
   View All
 </button>
       </div>
