@@ -24,7 +24,7 @@
                   ref="searchInput"
                   type="text"
                   placeholder="Search..."
-                  class="w-[600px] border border-gray-300 rounded-lg pl-2 py-2 text-black focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                  class="w-[600px] border border-gray-300 rounded-lg pl-2 py-2 text-black focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
                 />
                 <button
                   v-if="isSearchVisible"
@@ -41,7 +41,7 @@
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="size-8 text-white hover:text-orange-500 "
+                class="size-8 text-white hover:text-green-500 "
                 @click="showSearch"
               >
                 <path
@@ -61,7 +61,7 @@
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="size-8 text-white hover:text-orange-500 cursor-pointer"
+                class="size-8 text-white hover:text-green-500 cursor-pointer"
               >
                 <path
                   stroke-linecap="round"
@@ -81,7 +81,7 @@
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="size-8 text-white hover:text-orange-500 cursor-pointer"
+                class="size-8 text-white hover:text-green-500 cursor-pointer"
                 @click="goToCart"
               >
                 <path
@@ -95,7 +95,7 @@
             <!-- Conditional Button -->
             <div v-if="!isUserLoggedIn">
               <button
-                class="flex items-center px-4 py-2 border border-white text-gray-500 rounded hover:bg-orange-500 transition duration-500"
+                class="flex items-center px-4 py-2 border border-white text-gray-500 rounded hover:bg-green-500 transition duration-500"
                 @click="goToSignUp"
               >
                 <svg
@@ -119,7 +119,7 @@
             <!-- My Account Dropdown -->
             <div v-else >
 
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8 text-white hover:text-orange-500 cursor-pointer"               @click="toggleAccountDropdown">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8 text-white hover:text-green-500 cursor-pointer"               @click="toggleAccountDropdown">
   <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
 </svg>
 
@@ -169,7 +169,7 @@
               <router-link
                 :to="{ name: 'home-page' }"
                 class="text-gray-400 p-3 text-xl no-underline "
-                active-class="text-orange-500 font-bold"
+                active-class="text-green-500 font-bold"
               >
                 Home
               </router-link>
@@ -178,7 +178,7 @@
               <router-link
                 :to="{ name: 'product-page' }"
                 class="text-gray-400 p-3 text-xl no-underline "
-                active-class="text-orange-500 font-bold"
+                active-class="text-green-500 font-bold"
               >
                 All Products
               </router-link>
@@ -187,7 +187,7 @@
               <router-link
                 :to="{ name: 'new-release-page' }"
                 class="text-gray-400 p-3 text-xl no-underline "
-                active-class="text-orange-500 font-bold"
+                active-class="text-green-500 font-bold"
               >
                 New Release
               </router-link>
@@ -196,7 +196,7 @@
               <router-link
                 :to="{ name: 'trending-page' }"
                 class="text-gray-400 p-3 text-xl no-underline "
-                active-class="text-orange-500 font-bold"
+                active-class="text-green-500 font-bold"
               >
                 Trending
               </router-link>
@@ -205,7 +205,7 @@
               <router-link
                 :to="{ name: 'about-us-page' }"
                 class="text-gray-400 p-3 text-xl no-underline "
-                active-class="text-orange-500 font-bold"
+                active-class="text-green-500 font-bold"
               >
                 About Us
               </router-link>
@@ -214,7 +214,7 @@
               <router-link
                 :to="{ name: 'contact-us-page' }"
                 class="text-gray-400 p-3 text-xl no-underline "
-                active-class="text-orange-500 font-bold"
+                active-class="text-green-500 font-bold"
               >
                 Contact Us
               </router-link>
