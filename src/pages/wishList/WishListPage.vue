@@ -6,7 +6,7 @@
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z" fill="#F1FE5D"/>
                 </svg>
-                <div class="text-3xl font-bold">Wish List</div>
+                <div class="text-3xl font-bold">Wishlist</div>
             </div>
             <div class="ml-14 text-gray-400 font-thin">All items for adding to Cart</div>
         </div>
@@ -15,25 +15,26 @@
                 <div class="wishLine" />
             </div>
             <div class="wishNav"></div>
-                <div v-if="lists.length === 0" class="emptyWishlist">
+                <div v-if="products.length === 0" class="emptyWishlist">
                     <img class="empty" src="/images/wishList_img/empty.jpg"/>
                     <h4>Your wishlist is empty.</h4>
+                    <router-link :to="{name:'home-page'}" class="browse">Browse Items</router-link>
                 </div>
                 <div v-else class="wishAdd">
                     <p class="explore"> Explore, purchase, or remove items from your Wish List here.</p>
                     <button class="AddCart" @click="addAllToCart">Add all to Cart</button>
                 </div>
-            <div class="wishItem" v-for="list in lists" :key="list.name">
+            <div class="wishItem" v-for="product in products" :key="product.name">
                 <div class="product">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z" fill="#F1FE5D"/>
                     </svg>
-                    <img class="productImage" :src="getImagePath(list.image)" :alt="list.name" />
-                    <div class="productName">{{ list.name }}</div>
+                    <img class="productImage" :src="getImagePath(product.image)" :alt="product.name" />
+                    <div class="productName">{{ product.name }}</div>
                 </div>
                 <div class="price">
-                    <div class="priceValue">$ {{ list.price }}</div>
-                    <button class="add" @click="addToCart(list)">Add to Cart</button>
+                    <div class="priceValue">$ {{ product.price }}</div>
+                    <button class="add" @click="addToCart(product)">Add to Cart</button>
                 </div>
             </div>
             <div class="wishLine2" />
@@ -48,7 +49,7 @@ export default {
     name: "Wish",
     data() {
         return {
-            lists: [
+            products: [
                 { name: "POP UP PARADE Joker Figure", image: "joker.png", price: "30.99" },
                 { name: "POP MART Skullpanda The Sound Series", image: "anger.webp", price: "15.99" },
                 { name: "Smiski Dressing Series", image: "smiski.jpg", price: "11.99" },
@@ -67,10 +68,10 @@ export default {
                 quantity: 1,
                 image: this.getImagePath(item.image),
             });
-            this.lists = this.lists.filter(list => list.name !== item.name);
+            this.products = this.products.filter(product => product.name !== item.name);
         },
         addAllToCart() {
-            this.lists.forEach(item => {
+            this.products.forEach(item => {
                 productStore.actions.addToCart({
                     name: item.name,
                     price: item.price,
@@ -78,7 +79,7 @@ export default {
                     image: this.getImagePath(item.image),
                 });
             });
-            this.lists = [];
+            this.products = [];
         },
     },
 };
@@ -174,5 +175,12 @@ img {
     width: 100px;
     height: 100px;
     border-radius: 10px;
+}
+.browse {
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    border-radius: 10px;
+    padding: 10px 15px;
 }
 </style>

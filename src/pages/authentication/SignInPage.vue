@@ -61,7 +61,7 @@
             <!-- Submit Button -->
             <button
               type="submit"
-              class="w-full py-3 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition duration-300 flex justify-center items-center"
+              class="w-full py-3 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition duration-300 flex justify-center items-center"
               :disabled="loading"
             >
               <span v-if="loading" class="loader mr-2"></span>
@@ -95,7 +95,7 @@
         <!-- Image Section -->
         <div class="md:w-1/2 flex justify-center">
           <img
-            src="/public/images/signIn.jpg"
+            src="/public/images/sign-in.webp"
             alt="Sign In"
             class="object-contain"
           />
