@@ -5,7 +5,7 @@
       <p class="mt-4 text-lg text-gray-600 text-center max-w-3xl">
         Your one-stop destination for premium urban figurines and designer collectibles.
       </p>
-      <div class="w-24 h-1 bg-green-500 mt-6"></div>
+      <div class="w-24 h-1 bg-black mt-6"></div>
     </header>
 
     <div class="space-y-8 text-gray-700 text-lg leading-8">
@@ -16,7 +16,7 @@
         At Hype Store, we don’t just sell products—we curate a lifestyle. Each collectible embodies the spirit of creativity, modern design, and cultural diversity. From bold, colorful figurines to limited-edition designer toys, our products inspire a sense of wonder and artistic appreciation.
       </p>
       <p class="animate-fade-in">
-        Our platform, <a href="http://www.hypestore.com" target="_blank" rel="noopener noreferrer" class="text-green-500 hover:underline">
+        Our platform, <a href="http://www.hypestore.com" target="_blank" rel="noopener noreferrer" class="text-black hover:underline">
           www.hypestore.com
         </a>, isn’t just an online store. It’s a thriving community where collectors come together to explore, connect, and share their love for collectible art. Whether you’re a seasoned collector or just starting your journey, Hype Store is here to inspire and support you.
       </p>
@@ -55,15 +55,15 @@
       <ul class="space-y-4 mt-6 text-gray-700">
         <li class="animate-slide-in-left text-lg">
           📧 Email: 
-          <a href="mailto:contact@hypestore.com" class="text-green-500 hover:underline">contact@hypestore.com</a>
+          <a href="mailto:contact@hypestore.com" class="text-black hover:underline">contact@hypestore.com</a>
         </li>
         <li class="animate-slide-in-left text-lg">
           📞 Phone: 
-          <a href="tel:+85512345678" class="text-green-500 hover:underline">+855 12 345 678</a>
+          <a href="tel:+85512345678" class="text-black hover:underline">+855 12 345 678</a>
         </li>
         <li class="animate-slide-in-left text-lg">
           🖥️ Visit: 
-          <a href="/contact-us" class="text-green-500 hover:underline">Contact Form</a>
+          <a href="/contact-us" class="text-black hover:underline">Contact Form</a>
         </li>
       </ul>
       <p class="mt-8 text-gray-500 italic">

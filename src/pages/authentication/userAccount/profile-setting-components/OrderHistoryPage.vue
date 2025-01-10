@@ -80,15 +80,15 @@
 
 </template>
 <script>
-import { ref } from 'vue';
 import productStore from '@/stores/productStore'; // Import the product store
+import { ref } from 'vue';
 
 
 export default {
     name: 'OrderHistory',
     setup() {
         const activeButton = ref("All orders"); // Set default state to "All orders"
-        const showRate = ref(true); // Set default state to show the rating section
+        const showRate = ref(true); // Ensure the rating section is displayed initially
 
         const changeColor = (buttonName) => {
             activeButton.value = buttonName;
@@ -266,16 +266,16 @@ p {
     display: flex;
 }
 .again, .viewProduct, .sendMs {
-    background-color: #E5E5E5;
+    background-color: black;
     border-radius: 10px;
-    padding: 5px;
+    padding: 10px;
     display: flex;
     gap: 5px;
-    color: black;
+    color: white;
     align-items: center;
 }
 .again:hover, .viewProduct:hover, .sendMs:hover {
-    background-color: #4C9D16;
+    background-color: gray;
     color: white;
     border: none;
 }
