@@ -14,7 +14,7 @@
         </div>
 
 
-        <div class="pr-36">
+        <div class="pr-16">
           <div class="flex gap-7 items-center">
    
             <div class="flex items-center gap-2 relative">
