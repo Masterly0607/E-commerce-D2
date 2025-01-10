@@ -2,13 +2,12 @@ import { reactive } from 'vue';
 
 const state = reactive({
     products: [],
-    cart: [],
+    cart: JSON.parse(localStorage.getItem('cart')) || [], // Load cart from local storage
 });
 
 const actions = {
-    fetchProducts() {
-    },
     addToCart(product) {
+        console.log("Cart before saving:", state.cart); // Log the cart before saving
         if (!product || !product.name) {
             console.error("Invalid product:", product);
             return;
