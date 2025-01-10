@@ -118,3 +118,18 @@ export default {
   },
 };
 </script>
+    computed: {
+      cartSubtotal() {
+        return this.cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+      },
+      // hasItems() {
+      //   return this.cartItems.length > 0
+      // }
+    },
+    // methods: {
+    //   goToCheckout() {
+    //     this.$router.push({name: 'checkout'})
+    //   }
+    // }
+  };
+  </script>
