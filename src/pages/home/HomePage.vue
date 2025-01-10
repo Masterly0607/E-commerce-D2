@@ -50,7 +50,7 @@
         >
           <swiper-slide v-for="(newRelease, index) in newReleases" :key="index">
             <div
-              class="flex flex-col items-center justify-between bg-white shadow-lg rounded h-[500px]"
+              class="flex flex-col items-center justify-between bg-white shadow-lg rounded h-[500px] w-[300px]"
             >
               <img
                 :src="newRelease.image"
@@ -69,18 +69,18 @@
       </div>
     </div>
 
-<!-- Treading -->
-    <div class="mt-7 p-5" ref="treadingContainer">
+<!-- Trending -->
+    <div class="mt-7 p-5" ref="trendingContainer">
   
       <div
         class="mb-10 font-thin text-6xl animate__animated text-center"
-             :class="{ 'animate__fadeInUp': isVisibleTreading }"
+             :class="{ 'animate__fadeInUp': isVisibleTrending }"
       >
-        Treading
+        Trending
       </div>
-      <div class="flex flex-wrap animate__animated "   :class="{ 'animate__fadeIn': isVisibleTreading }"
+      <div class="flex flex-wrap animate__animated "   :class="{ 'animate__fadeIn': isVisibleTrending }"
       style="animation-duration: 2s;">
-        <div class="col-3 mt-3 " v-for="(item,i) in treading" :key="i">
+        <div class="col-3 mt-3 " v-for="(item,i) in trending" :key="i">
          <div class=" flex flex-col items-center h-96 cursor-pointer ">
             
  
@@ -96,7 +96,7 @@
      
       </div>
       <div class="text-center ">
-        <button class="px-4 py-2 bg-orange-500 text-white font-semibold rounded-2xl hover:bg-orange-600">
+        <button class="px-4 py-2 bg-black text-white font-semibold rounded-2xl hover:bg-gray-600">
   View All
 </button>
       </div>
@@ -165,10 +165,10 @@ import { ref, onMounted } from "vue";
 const swiperInstance = ref(null);
 const isVisibleNewRelease = ref(false);
 const isVisibleCharacter = ref(false);
-const isVisibleTreading = ref(false);
+const isVisibleTrending = ref(false);
 const newReleaseContainer = ref(null);
 const characterContainer = ref(null);
-const treadingContainer = ref(null);
+const trendingContainer = ref(null);
 let lastScrollY = 0;
 
 const handleScrollDirection = (entry) => {
@@ -205,22 +205,22 @@ const observeCharacter = () => {
 };
 
 
-const observeTreading = () => {
+const observeTrending = () => {
   const observer = new IntersectionObserver(
     ([entry]) => {
-      isVisibleTreading.value = handleScrollDirection(entry);
+      isVisibleTrending.value = handleScrollDirection(entry);
     },
     { threshold: 0.1 }
   );
 
-  if (treadingContainer.value) {
-    observer.observe(treadingContainer.value);
+  if (trendingContainer.value) {
+    observer.observe(trendingContainer.value);
   }
 };
 onMounted(() => {
   observeNewRelease();
   observeCharacter();
-  observeTreading();
+  observeTrending();
 });
 
 const images = [
@@ -318,7 +318,7 @@ const characters = [
     img: "/public/images/7.png",
   },
 ];
-const treading = [
+const trending = [
   { 
     img:'/public/images/1.png',
     title: 'POP MART MEGA Collection', 

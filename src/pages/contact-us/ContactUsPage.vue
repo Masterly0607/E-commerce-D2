@@ -6,7 +6,7 @@
       <p class="mt-4 text-lg text-gray-600">
         Have questions or feedback? We'd love to hear from you. Reach out to us!
       </p>
-      <div class="w-24 h-1 bg-orange-500 mx-auto mt-6"></div>
+      <div class="w-24 h-1 bg-black mx-auto mt-6"></div>
     </div>
 
     <!-- Form Section -->
@@ -20,7 +20,7 @@
             id="name"
             v-model="name"
             placeholder="Enter your name"
-            class="w-full border border-gray-300 rounded-full py-3 px-6 focus:outline-none focus:ring-2 focus:ring-orange-500 transition"
+            class="w-full border border-gray-300 rounded-full py-3 px-6 focus:outline-none focus:ring-2 focus:ring-black transition"
           />
         </div>
         <div>
@@ -30,7 +30,7 @@
             id="email"
             v-model="email"
             placeholder="Enter your email"
-            class="w-full border border-gray-300 rounded-full py-3 px-6 focus:outline-none focus:ring-2 focus:ring-orange-500 transition"
+            class="w-full border border-gray-300 rounded-full py-3 px-6 focus:outline-none focus:ring-2 focus:ring-black transition"
           />
         </div>
       </div>
@@ -43,7 +43,7 @@
           v-model="message"
           rows="5"
           placeholder="Write your message..."
-          class="w-full border border-gray-300 rounded-lg py-3 px-6 focus:outline-none focus:ring-2 focus:ring-orange-500 transition resize-none"
+          class="w-full border border-gray-300 rounded-lg py-3 px-6 focus:outline-none focus:ring-2 focus:ring-black transition resize-none"
         ></textarea>
       </div>
 
@@ -51,7 +51,7 @@
       <div class="text-center">
         <button
           type="submit"
-          class="bg-orange-500 text-white font-semibold py-3 px-10 rounded-full hover:bg-orange-600 transition duration-300"
+          class="bg-black text-white font-semibold py-3 px-10 rounded-full hover:bg-green-600 transition duration-300"
         >
           Send Message
         </button>
