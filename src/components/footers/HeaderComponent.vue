@@ -1,22 +1,22 @@
 <template>
-  <section class="sticky top-0 z-50 ">
-    <div class=" w-full border-b-2 bg-black top-0 ">
+  <section class="sticky top-0 z-50">
+    <div class="w-full border-b-2 bg-black top-0">
       <div class="flex justify-between items-center">
-
+        <!-- Logo -->
         <div>
-          <router-link :to="{ name: 'home-page' }" >
+          <router-link :to="{ name: 'home-page' }">
             <img
-              src="/public/icons/apple-touch-icon.png"
+              src="/icons/apple-touch-icon.png"
               alt="Logo"
               class="h-32"
             />
           </router-link>
         </div>
 
-
+        <!-- Actions -->
         <div class="pr-16">
           <div class="flex gap-7 items-center">
-   
+            <!-- Search -->
             <div class="flex items-center gap-2 relative">
               <div class="relative">
                 <input
@@ -28,7 +28,7 @@
                 />
                 <button
                   v-if="isSearchVisible"
-                  class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-red-500 " 
+                  class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-red-500"
                   @click="toggleSearch"
                 >
                   ✖
@@ -41,7 +41,7 @@
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="size-8 text-gray-400 hover:text-gray-500 "
+                class="size-8 text-gray-400 hover:text-gray-500"
                 @click="showSearch"
               >
                 <path
@@ -52,29 +52,28 @@
               </svg>
             </div>
 
-            <!-- Wishlist icon -->
+            <!-- Wishlist -->
             <div>
-              <router-link :to="{name: 'wish-list-page' }">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="size-8 text-gray-400 hover:text-gray-500 cursor-pointer"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
-                />
-              </svg>
-            </router-link>
+              <router-link :to="{ name: 'wish-list-page' }">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-8 text-gray-400 hover:text-gray-500 cursor-pointer"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
+                  />
+                </svg>
+              </router-link>
             </div>
 
-            <!-- Card -->
+            <!-- Cart -->
             <div>
-        
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -95,7 +94,7 @@
             <!-- Conditional Button -->
             <div v-if="!isUserLoggedIn">
               <button
-                class="flex items-center px-4 py-2 border rounded  transition duration-500 hover:bg-opacity-50 hover:bg-white"
+                class="flex items-center px-4 py-2 border rounded transition duration-500 hover:bg-opacity-50 hover:bg-white"
                 @click="goToSignUp"
               >
                 <svg
@@ -117,27 +116,33 @@
             </div>
 
             <!-- My Account Dropdown -->
-            <div v-else >
-
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8 text-gray-400 hover:text-gray-500 cursor-pointer"               @click="toggleAccountDropdown">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-</svg>
-
-
-              
- 
+            <div v-else class="relative">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-8 text-gray-400 hover:text-gray-500 cursor-pointer"
+                @click="toggleAccountDropdown"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                />
+              </svg>
 
               <!-- Dropdown Menu -->
               <div
                 v-if="isAccountDropdownVisible"
-                class="absolute  mt-2 w-36 bg-white  shadow-lg z-50 right-0"
+                class="absolute mt-2 w-36 bg-white shadow-lg z-50 right-0"
               >
-                <ul class=" m-0 p-0">
+                <ul class="m-0 p-0">
                   <li>
                     <router-link
                       :to="{ name: 'profile-setting-page' }"
                       class="block py-2 right-7 text-center text-md text-gray-700 hover:bg-gray-100 no-underline"
-         
                     >
                       My Account
                     </router-link>
@@ -147,10 +152,20 @@
                       @click="logout"
                       class="flex justify-center gap-3 text-center w-full py-2 text-md text-gray-700 hover:bg-gray-100"
                     >
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15" />
-</svg>
-
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="size-6"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15"
+                        />
+                      </svg>
                       Logout
                     </button>
                   </li>
@@ -161,14 +176,14 @@
         </div>
       </div>
 
-      <!-- NavBar -->
+      <!-- Navigation Links -->
       <div class="flex justify-center">
         <nav>
           <ul class="gap-10 items-center hidden md:flex m-2">
             <li>
               <router-link
                 :to="{ name: 'home-page' }"
-                class="text-gray-400 p-3 text-xl no-underline hover:text-gray-500 "
+                class="text-gray-400 p-3 text-xl no-underline hover:text-gray-500"
                 active-class="text-white font-bold"
               >
                 Home
@@ -183,24 +198,6 @@
                 All Products
               </router-link>
             </li>
-            <!-- <li>
-              <router-link
-                :to="{ name: 'new-release-page' }"
-                class="text-gray-400 p-3 text-xl no-underline "
-                active-class="text-white font-bold"
-              >
-                New Release
-              </router-link>
-            </li>
-            <li>
-              <router-link
-                :to="{ name: 'trending-page' }"
-                class="text-gray-400 p-3 text-xl no-underline "
-                active-class="text-white font-bold"
-              >
-                Trending
-              </router-link>
-            </li> -->
             <li>
               <router-link
                 :to="{ name: 'about-us-page' }"
@@ -213,7 +210,7 @@
             <li>
               <router-link
                 :to="{ name: 'contact-us-page' }"
-                class="text-gray-400 p-3 text-xl no-underline hover:text-gray-500 "
+                class="text-gray-400 p-3 text-xl no-underline hover:text-gray-500"
                 active-class="text-white font-bold"
               >
                 Contact Us
@@ -227,52 +224,46 @@
 </template>
 
 <script setup>
-import { ref, computed, onUnmounted } from "vue";
+import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
-import { useUserStore } from "@/stores/user";
 
-const userStore = useUserStore(); // Pinia store
-const isUserLoggedIn = computed(() => userStore.isLoggedIn); // Derived state
+const isUserLoggedIn = ref(false);
+const isAccountDropdownVisible = ref(false);
+const isSearchVisible = ref(false);
+
 const router = useRouter();
 
-const goToHome = () => {
-  router.replace('/home');
-}
+// Check login state on mount
+onMounted(() => {
+  const loggedIn = localStorage.getItem("isUserLoggedIn");
+  isUserLoggedIn.value = loggedIn === "true";
+});
 
-// Dropdown visibility
-const isAccountDropdownVisible = ref(false);
+// Logout function
+const logout = () => {
+  isUserLoggedIn.value = false;
+  localStorage.removeItem("isUserLoggedIn");
+  router.push({ name: "home-page" });
+};
+
+// Toggle dropdown
 const toggleAccountDropdown = () => {
   isAccountDropdownVisible.value = !isAccountDropdownVisible.value;
 };
 
-// Search visibility
-const isSearchVisible = ref(false);
+// Toggle search visibility
 const toggleSearch = () => {
-  isSearchVisible.value = false; // Hide search input
+  isSearchVisible.value = false;
 };
 const showSearch = () => {
-  isSearchVisible.value = true; // Show search input
-};
-
-// Logout
-const logout = () => {
-  userStore.setLoggedIn(false);
-  router.push({ name: "home-page" });
+  isSearchVisible.value = true;
 };
 
 // Navigation
 const goToSignUp = () => {
   router.push({ name: "sign-up-page" });
 };
-
-// Card
 const goToCart = () => {
-  router.push({name:'cart-page'});
-}
-
-// Cleanup to restore UI state
-onUnmounted(() => {
-  isSearchVisible.value = false;
-  isAccountDropdownVisible.value = false;
-});
+  router.push({ name: "cart-page" });
+};
 </script>
