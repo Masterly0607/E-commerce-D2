@@ -65,7 +65,7 @@
           Can't find the answer? Describe your issue and we’ll provide a solution
           shortly.
         </p>
-        <router-link to="/contact" class="btn btn-primary">
+        <router-link :to="{name:'contact-us-page'}" class="btn btn-primary">
           Contact Us
         </router-link>
       </div>
