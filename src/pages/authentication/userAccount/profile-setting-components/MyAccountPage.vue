@@ -2,7 +2,6 @@
   <section>
     <div class="profile-page">
       <div class="profile-container">
-        <!-- Sidebar -->
         <aside class="sidebar">
           <div class="user-info">
             <div class="avatar">
@@ -35,7 +34,7 @@
           </nav>
         </aside>
 
-        <!-- Main Content -->
+  
         <main class="main-content">
           <div class="header">
             <h1>My Profile</h1>
@@ -79,7 +78,7 @@ const userData = [
 </script>
 
 <style scoped>
-/* General Styles */
+
 body {
   font-family: "Roboto", sans-serif;
   background-color: #f9f9f9;
@@ -92,14 +91,14 @@ body {
   padding: 20px;
 }
 
-/* Layout */
+
 .profile-container {
   display: grid;
   grid-template-columns: 280px 1fr;
   gap: 30px;
 }
 
-/* Sidebar Styles */
+
 .sidebar {
   background-color: #fff;
   border-radius: 10px;
@@ -168,7 +167,6 @@ body {
   padding-left: 10px;
 }
 
-/* Main Content */
 .main-content {
   background: white;
   padding: 30px;
@@ -189,7 +187,6 @@ body {
   margin-bottom: 30px;
 }
 
-/* Info Card */
 .info-card {
   border: 1px solid #eaeaea;
   border-radius: 10px;
@@ -247,7 +244,6 @@ body {
   color: #333;
 }
 
-/* Responsiveness */
 @media (max-width: 768px) {
   .profile-container {
     grid-template-columns: 1fr;

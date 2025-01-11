@@ -1,10 +1,9 @@
 <template>
     <section class="bg-gray-100 py-10">
       <div class="container mx-auto px-4">
-        <!-- Back Button -->
+
         <back-button></back-button>
-  
-        <!-- Wishlist Header -->
+ 
         <div class="mt-5">
           <div class="flex items-center gap-3">
             <svg
@@ -26,9 +25,7 @@
           </p>
         </div>
   
-        <!-- Wishlist Content -->
         <div class="wishlist mt-8">
-          <!-- Empty Wishlist -->
           <div v-if="products.length === 0" class="empty-wishlist">
             <img
               src="/images/wishList_img/empty.jpg"
@@ -41,9 +38,8 @@
             <router-link to="/home" class="browse-btn">Browse Items</router-link>
           </div>
   
-          <!-- Wishlist Items -->
           <div v-else>
-            <!-- Wishlist Header with Actions -->
+
             <div class="flex justify-between items-center bg-white p-5 rounded-lg shadow-sm mb-5">
               <p class="text-gray-700 text-sm">
                 Explore, purchase, or remove items from your wishlist.
@@ -51,7 +47,7 @@
               <button class="add-all-btn" @click="addAllToCart">Add All to Cart</button>
             </div>
   
-            <!-- Wishlist Items -->
+    
             <div
               v-for="product in products"
               :key="product.name"
@@ -126,14 +122,12 @@
   </script>
   
   <style scoped>
-  /* General Layout */
   .wishlist {
     display: flex;
     flex-direction: column;
     gap: 20px;
   }
   
-  /* Empty Wishlist */
   .empty-wishlist {
     display: flex;
     flex-direction: column;
@@ -162,7 +156,6 @@
     background-color: #3730a3;
   }
   
-  /* Wishlist Header with Actions */
   .add-all-btn {
     background-color: #22c55e;
     color: white;
@@ -177,7 +170,6 @@
     background-color: #15803d;
   }
   
-  /* Wishlist Items */
   .wishlist-item {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }

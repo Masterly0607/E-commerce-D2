@@ -1,10 +1,8 @@
 <template>
     <section class="history">
-      <!-- Main Order Section -->
       <div class="myOrder">
         <h1 class="title">Order History</h1>
   
-        <!-- Tabs for Order States -->
         <div class="tabs">
           <button
             class="tab"
@@ -29,14 +27,13 @@
           </button>
         </div>
   
-        <!-- Order List -->
         <div class="orderList">
           <div
             v-for="product in filteredProducts"
             :key="product.name"
             class="product"
           >
-            <!-- Product Image -->
+   
             <div class="productImageWrapper">
               <img
                 class="productImg"
@@ -45,7 +42,6 @@
               />
             </div>
   
-            <!-- Product Details -->
             <div class="productDetails">
               <h3 class="productTitle">{{ product.name }}</h3>
               <p class="productPrice">Price: ${{ product.price }}</p>
@@ -63,7 +59,6 @@
         </div>
       </div>
   
-      <!-- Message Section -->
       <div class="message">
         <h3>Need Help?</h3>
         <p>
@@ -138,7 +133,6 @@
   </script>
   
   <style scoped>
-  /* General Layout */
   .history {
     display: flex;
     gap: 20px;
@@ -160,7 +154,6 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
-  /* Titles */
   .title {
     font-size: 22px;
     font-weight: bold;
@@ -177,7 +170,6 @@
     color: #555;
   }
   
-  /* Tabs */
   .tabs {
     display: flex;
     gap: 10px;
@@ -206,7 +198,6 @@
     color: #fff;
   }
   
-  /* Order List */
   .orderList {
     display: flex;
     flex-direction: column;
@@ -264,7 +255,6 @@
     margin-bottom: 10px;
   }
   
-  /* Buttons */
   .buttons {
     display: flex;
     gap: 10px;
@@ -298,7 +288,6 @@
     background-color: #c0c0c0;
   }
   
-  /* Responsive Design */
   @media (max-width: 768px) {
     .history {
       flex-direction: column;
