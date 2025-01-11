@@ -130,7 +130,7 @@
               <!-- Dropdown Menu -->
               <div
                 v-if="isAccountDropdownVisible"
-                class="absolute  mt-2 w-36 bg-white  shadow-lg z-50 "
+                class="absolute  mt-2 w-36 bg-white  shadow-lg z-50 right-0"
               >
                 <ul class=" m-0 p-0">
                   <li>
@@ -183,7 +183,7 @@
                 All Products
               </router-link>
             </li>
-            <li>
+            <!-- <li>
               <router-link
                 :to="{ name: 'new-release-page' }"
                 class="text-gray-400 p-3 text-xl no-underline "
@@ -200,7 +200,7 @@
               >
                 Trending
               </router-link>
-            </li>
+            </li> -->
             <li>
               <router-link
                 :to="{ name: 'about-us-page' }"

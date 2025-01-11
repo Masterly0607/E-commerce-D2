@@ -1,50 +1,47 @@
 <template>
- 
-
- <section >
-   <div class="profile-page" >
-   
-
+  <section>
+    <div class="profile-page">
       <div class="profile-container">
-           <!-- Sidebar -->
+        <!-- Sidebar -->
         <aside class="sidebar">
           <div class="user-info">
             <div class="avatar">
-              <img src="https://via.placeholder.com/50" alt="User Avatar" />
+              <img src="/public/images/profile.png" alt="User Avatar" />
             </div>
             <div class="user-details">
               <p class="user-name">Veth Sivhuo</p>
               <p class="user-email">s***@gmail.com</p>
             </div>
           </div>
-  
+
           <nav class="sidebar-nav">
             <section>
               <h3>Manage My Account</h3>
               <a href="#" class="nav-link">My Profile</a>
               <a href="#" class="nav-link">Address Book</a>
-              <a href="#" class="nav-link">My Payment Options</a>
+              <a href="#" class="nav-link">Payment Methods</a>
             </section>
-  
+
             <section>
               <h3>My Orders</h3>
               <a href="#" class="nav-link">My Returns</a>
               <a href="#" class="nav-link">My Cancellations</a>
             </section>
-  
+
             <section>
               <h3>My Wishlist</h3>
+              <a href="#" class="nav-link">Wishlist</a>
             </section>
           </nav>
         </aside>
-  
+
         <!-- Main Content -->
         <main class="main-content">
           <div class="header">
             <h1>My Profile</h1>
-            <p class="description">Review and update this account's information.</p>
+            <p class="description">Review and update your account information below.</p>
           </div>
-  
+
           <div class="info-card">
             <div class="card-header">
               <h3>User Information</h3>
@@ -68,144 +65,196 @@
         </main>
       </div>
     </div>
- </section>
-   
-  </template>
-  
-  <script setup >
-const userData = [{
-  name: 'Veth Sivhuo',
-          email: 'vethsivhuo@gmail.com',
-          address: 'Toulkok, Phnom Penh, Cambodia'
-}]
+  </section>
+</template>
 
+<script setup>
+const userData = [
+  {
+    name: "Veth Sivhuo",
+    email: "vethsivhuo@gmail.com",
+    address: "Toulkok, Phnom Penh, Cambodia",
+  },
+];
+</script>
 
-  </script>
-  
-  <style scoped>
-  .profile-page {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  .breadcrumb {
-    margin-bottom: 20px;
-    color: #666;
-  }
-  
-  .breadcrumb a {
-    color: #666;
-    text-decoration: none;
-  }
-  
+<style scoped>
+/* General Styles */
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.profile-page {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Layout */
+.profile-container {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 30px;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.166);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 20px;
+}
+
+.avatar img {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border: 2px solid #007bff;
+}
+
+.user-details {
+  margin-left: 15px;
+}
+
+.user-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #222;
+}
+
+.user-email {
+  font-size: 14px;
+  color: #666;
+  margin-top: 5px;
+}
+
+.sidebar-nav section {
+  margin-bottom: 30px;
+}
+
+.sidebar-nav h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.nav-link {
+  display: block;
+  font-size: 15px;
+  color: #555;
+  text-decoration: none;
+  padding: 10px 0;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: #007bff;
+  color: white;
+  padding-left: 10px;
+}
+
+/* Main Content */
+.main-content {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.166);
+}
+
+.header h1 {
+  font-size: 26px;
+  color: #222;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 15px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* Info Card */
+.info-card {
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9fa;
+  padding: 15px 20px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.card-header h3 {
+  font-size: 18px;
+  color: #333;
+}
+
+.edit-btn {
+  padding: 8px 15px;
+  font-size: 14px;
+  color: #007bff;
+  background-color: transparent;
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.edit-btn:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.info-row {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  margin-bottom: 20px;
+}
+
+.info-row label {
+  font-weight: 600;
+  font-size: 14px;
+  color: #555;
+}
+
+.info-row span {
+  font-weight: 400;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
   .profile-container {
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: 30px;
+    grid-template-columns: 1fr;
   }
-  
-  /* Sidebar Styles */
+
   .sidebar {
-    width: 250px;
-    padding: 20px;
-  }
-  
-  .user-info {
-    display: flex;
-    align-items: center;
     margin-bottom: 30px;
   }
-  
-  .avatar img {
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-  }
-  .user-details {
-    margin-left: 10px;
-  }
-  .user-name {
-    font-weight: bold;
-  }
-  .user-email {
-    color: #888;
-    font-size: 14px;
-  }
-  .sidebar-nav section {
-    margin-bottom: 20px;
-  }
-  
-  .sidebar-nav h3 {
-    font-size: 14px;
-    margin-bottom: 10px;
-    font-weight: Bold;
-  }
-  
-  .nav-link {
-    display: block;
-    color: gray;
-    text-decoration: none;
-    font-size: 14px;
-    margin-bottom: 8px;
-  }
-  
-  /* Main Content Styles */
-  .main-content {
-    background: white;
-    padding: 20px;
-  }
-  
-  .header h1 {
-    margin: 0;
-    font-size: 24px;
-  }
-  
-  .description {
-    color: gray;
-    margin: 10px 0 30px;
-  }
-  
-  .info-card {
-    border: 1px solid #eee;
-    border-radius: 4px;
-  }
-  
-  .card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    background: #f8f8f8;
-    border-bottom: 1px solid #eee;
-  }
-  
-  .card-header h3 {
-    margin: 0;
-    font-size: 16px;
-  }
-  
-  .edit-btn {
-    padding: 6px 15px;
-    border: 1px solid #666;
-    background: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .card-content {
-    padding: 20px;
-  }
-  
-  .info-row {
-    display: grid;
-    grid-template-columns: 120px 1fr;
-    margin-bottom: 15px;
-  }
-  
-  .info-row label {
-    color: #666;
-    font-weight: 500;
-  }
-  </style>
-  
+}
+</style>
