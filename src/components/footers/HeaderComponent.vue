@@ -41,7 +41,7 @@
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="size-8 text-white hover:text-white "
+                class="size-8 text-gray-400 hover:text-gray-500 "
                 @click="showSearch"
               >
                 <path
@@ -61,7 +61,7 @@
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="size-8 text-white hover:text-white cursor-pointer"
+                class="size-8 text-gray-400 hover:text-gray-500 cursor-pointer"
               >
                 <path
                   stroke-linecap="round"
@@ -81,7 +81,7 @@
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="size-8 text-white hover:text-white cursor-pointer"
+                class="size-8 text-gray-400 hover:text-gray-500 cursor-pointer"
                 @click="goToCart"
               >
                 <path
@@ -119,7 +119,7 @@
             <!-- My Account Dropdown -->
             <div v-else >
 
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8 text-white hover:text-white cursor-pointer"               @click="toggleAccountDropdown">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8 text-gray-400 hover:text-gray-500 cursor-pointer"               @click="toggleAccountDropdown">
   <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
 </svg>
 
@@ -168,7 +168,7 @@
             <li>
               <router-link
                 :to="{ name: 'home-page' }"
-                class="text-gray-400 p-3 text-xl no-underline "
+                class="text-gray-400 p-3 text-xl no-underline hover:text-gray-500 "
                 active-class="text-white font-bold"
               >
                 Home
@@ -177,7 +177,7 @@
             <li>
               <router-link
                 :to="{ name: 'product-page' }"
-                class="text-gray-400 p-3 text-xl no-underline "
+                class="text-gray-400 p-3 text-xl no-underline hover:text-gray-500"
                 active-class="text-white font-bold"
               >
                 All Products
@@ -204,7 +204,7 @@
             <li>
               <router-link
                 :to="{ name: 'about-us-page' }"
-                class="text-gray-400 p-3 text-xl no-underline "
+                class="text-gray-400 p-3 text-xl no-underline hover:text-gray-500"
                 active-class="text-white font-bold"
               >
                 About Us
@@ -213,7 +213,7 @@
             <li>
               <router-link
                 :to="{ name: 'contact-us-page' }"
-                class="text-gray-400 p-3 text-xl no-underline "
+                class="text-gray-400 p-3 text-xl no-underline hover:text-gray-500 "
                 active-class="text-white font-bold"
               >
                 Contact Us
