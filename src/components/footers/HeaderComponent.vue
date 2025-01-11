@@ -95,7 +95,7 @@
             <!-- Conditional Button -->
             <div v-if="!isUserLoggedIn">
               <button
-                class="flex items-center px-4 py-2 border border-white text-gray-500 rounded hover:bg-white transition duration-500"
+                class="flex items-center px-4 py-2 border rounded  transition duration-500 hover:bg-opacity-50 hover:bg-white"
                 @click="goToSignUp"
               >
                 <svg
