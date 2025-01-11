@@ -47,7 +47,6 @@
           </nav>
         </aside>
 
-  
         <main class="main-content">
           <div class="header">
             <h1>My Profile</h1>
@@ -99,7 +98,6 @@
 <script setup>
 import { reactive, ref, computed, onMounted } from "vue";
 
-// Reactive user data
 const user = reactive({
   name: "Sok Masterlyasasasasasasasasasasasasas",
   email: "sokmasterly@gmail.com",
@@ -110,7 +108,6 @@ const user = reactive({
   nationality: "",
 });
 
-// Editable fields
 const editableFields = reactive({
   name: "Name",
   email: "Email",
@@ -121,49 +118,37 @@ const editableFields = reactive({
   nationality: "Nationality",
 });
 
-// Default profile image
 const profileImage = ref("/public/images/profile.png");
-
-// Editing state
 const isEditing = ref(false);
 
-// Truncate name if it's too long
 const truncatedName = computed(() => {
   const maxLength = 25;
   return user.name.length > maxLength ? `${user.name.slice(0, maxLength)}...` : user.name;
 });
 
-// Load user profile from localStorage or initial setup
 onMounted(() => {
   const storedProfile = JSON.parse(localStorage.getItem("userProfile"));
-  if (storedProfile) {
-    Object.assign(user, storedProfile);
-  }
+  if (storedProfile) Object.assign(user, storedProfile);
+
   const storedProfileImage = localStorage.getItem("profileImage");
-  if (storedProfileImage) {
-    profileImage.value = storedProfileImage;
-  }
+  if (storedProfileImage) profileImage.value = storedProfileImage;
 });
 
-// Toggle editing mode
 const toggleEditMode = () => {
   isEditing.value = !isEditing.value;
 };
 
-// Update profile and save to localStorage
 const updateProfile = () => {
   localStorage.setItem("userProfile", JSON.stringify(user));
   isEditing.value = false;
   alert("Profile updated successfully!");
 };
 
-// Trigger file input
 const triggerFileInput = () => {
   const fileInput = document.querySelector("input[type='file']");
   fileInput.click();
 };
 
-// Handle file upload
 const handleFileUpload = (event) => {
   const file = event.target.files[0];
   if (file) {
@@ -179,7 +164,6 @@ const handleFileUpload = (event) => {
 </script>
 
 <style scoped>
-
 body {
   font-family: "Roboto", sans-serif;
   background-color: #f9f9f9;
@@ -192,13 +176,11 @@ body {
   padding: 20px;
 }
 
-
 .profile-container {
   display: grid;
   grid-template-columns: 280px 1fr;
   gap: 30px;
 }
-
 
 .sidebar {
   background-color: #fff;
@@ -330,6 +312,8 @@ body {
 
 .save-btn:hover {
   background-color: #0056b3;
+}
+
 .info-row span {
   font-weight: 400;
   font-size: 14px;
