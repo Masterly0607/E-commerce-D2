@@ -5,31 +5,44 @@
         <aside class="sidebar">
           <div class="user-info">
             <div class="avatar">
-              <img src="/public/images/profile.png" alt="User Avatar" />
+              <img :src="profileImage" alt="User Avatar" />
+              <button @click="triggerFileInput" class="change-photo">Change Photo</button>
+              <input
+                ref="fileInput"
+                type="file"
+                accept="image/*"
+                @change="handleFileUpload"
+                style="display: none"
+              />
             </div>
             <div class="user-details">
-              <p class="user-name">Veth Sivhuo</p>
-              <p class="user-email">s***@gmail.com</p>
+              <p class="user-name" :title="user.name">{{ truncatedName }}</p>
+              <p class="user-role">Customer</p>
             </div>
           </div>
 
           <nav class="sidebar-nav">
             <section>
-              <h3>Manage My Account</h3>
-              <a href="#" class="nav-link">My Profile</a>
-              <a href="#" class="nav-link">Address Book</a>
-              <a href="#" class="nav-link">Payment Methods</a>
+              <h3>Account Management</h3>
+              <ul>
+                <li><a href="#" class="nav-link">My Profile</a></li>
+                <li><a href="#" class="nav-link">Address Book</a></li>
+                <li><a href="#" class="nav-link">Payment Methods</a></li>
+              </ul>
             </section>
-
             <section>
-              <h3>My Orders</h3>
-              <a href="#" class="nav-link">My Returns</a>
-              <a href="#" class="nav-link">My Cancellations</a>
+              <h3>Orders</h3>
+              <ul>
+                <li><a href="#" class="nav-link">Order History</a></li>
+                <li><a href="#" class="nav-link">Returns</a></li>
+                <li><a href="#" class="nav-link">Cancellations</a></li>
+              </ul>
             </section>
-
             <section>
-              <h3>My Wishlist</h3>
-              <a href="#" class="nav-link">Wishlist</a>
+              <h3>Wishlist</h3>
+              <ul>
+                <li><a href="#" class="nav-link">Saved Items</a></li>
+              </ul>
             </section>
           </nav>
         </aside>
@@ -44,20 +57,36 @@
           <div class="info-card">
             <div class="card-header">
               <h3>User Information</h3>
-              <button class="edit-btn">Edit</button>
+              <button @click="toggleEditMode" class="edit-btn">
+                {{ isEditing ? "Cancel" : "Edit" }}
+              </button>
             </div>
-            <div class="card-content">
-              <div class="info-row">
-                <label>Name</label>
-                <span>Veth Sivhuo</span>
+            <form v-if="isEditing" @submit.prevent="updateProfile" class="card-content">
+              <div class="info-row" v-for="(label, key) in editableFields" :key="key">
+                <label>{{ label }}</label>
+                <template v-if="key === 'gender'">
+                  <select v-model="user[key]" class="input-field">
+                    <option value="" disabled>Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </template>
+                <template v-else>
+                  <input
+                    v-model="user[key]"
+                    :placeholder="'Enter your ' + label.toLowerCase()"
+                    type="text"
+                    class="input-field"
+                  />
+                </template>
               </div>
-              <div class="info-row">
-                <label>Email</label>
-                <span>vethsivhuo@gmail.com</span>
-              </div>
-              <div class="info-row">
-                <label>Address</label>
-                <span>Toulkok, Phnom Penh, Cambodia</span>
+              <button type="submit" class="save-btn">Save</button>
+            </form>
+            <div v-else class="card-content">
+              <div class="info-row" v-for="(label, key) in editableFields" :key="key">
+                <label>{{ label }}</label>
+                <span>{{ user[key] || '--' }}</span>
               </div>
             </div>
           </div>
@@ -68,13 +97,85 @@
 </template>
 
 <script setup>
-const userData = [
-  {
-    name: "Veth Sivhuo",
-    email: "vethsivhuo@gmail.com",
-    address: "Toulkok, Phnom Penh, Cambodia",
-  },
-];
+import { reactive, ref, computed, onMounted } from "vue";
+
+// Reactive user data
+const user = reactive({
+  name: "Sok Masterlyasasasasasasasasasasasasas",
+  email: "sokmasterly@gmail.com",
+  address: "",
+  phoneNumber: "",
+  gender: "",
+  dob: "",
+  nationality: "",
+});
+
+// Editable fields
+const editableFields = reactive({
+  name: "Name",
+  email: "Email",
+  gender: "Gender",
+  address: "Address",
+  phoneNumber: "Phone Number",
+  dob: "Date of Birth",
+  nationality: "Nationality",
+});
+
+// Default profile image
+const profileImage = ref("/public/images/profile.png");
+
+// Editing state
+const isEditing = ref(false);
+
+// Truncate name if it's too long
+const truncatedName = computed(() => {
+  const maxLength = 25;
+  return user.name.length > maxLength ? `${user.name.slice(0, maxLength)}...` : user.name;
+});
+
+// Load user profile from localStorage or initial setup
+onMounted(() => {
+  const storedProfile = JSON.parse(localStorage.getItem("userProfile"));
+  if (storedProfile) {
+    Object.assign(user, storedProfile);
+  }
+  const storedProfileImage = localStorage.getItem("profileImage");
+  if (storedProfileImage) {
+    profileImage.value = storedProfileImage;
+  }
+});
+
+// Toggle editing mode
+const toggleEditMode = () => {
+  isEditing.value = !isEditing.value;
+};
+
+// Update profile and save to localStorage
+const updateProfile = () => {
+  localStorage.setItem("userProfile", JSON.stringify(user));
+  isEditing.value = false;
+  alert("Profile updated successfully!");
+};
+
+// Trigger file input
+const triggerFileInput = () => {
+  const fileInput = document.querySelector("input[type='file']");
+  fileInput.click();
+};
+
+// Handle file upload
+const handleFileUpload = (event) => {
+  const file = event.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      profileImage.value = e.target.result;
+      localStorage.setItem("profileImage", profileImage.value);
+      alert("Profile picture updated successfully!");
+    };
+    reader.readAsDataURL(file);
+  }
+};
 </script>
 
 <style scoped>
@@ -109,6 +210,7 @@ body {
 .user-info {
   display: flex;
   align-items: center;
+  gap: 15px;
   margin-bottom: 30px;
   border-bottom: 1px solid #eaeaea;
   padding-bottom: 20px;
@@ -116,55 +218,57 @@ body {
 
 .avatar img {
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
   object-fit: cover;
-  border: 2px solid #007bff;
 }
 
-.user-details {
-  margin-left: 15px;
+.change-photo {
+  display: block;
+  font-size: 14px;
+  color: #007bff;
+  background: none;
+  border: none;
+  margin-top: 10px;
+  cursor: pointer;
 }
 
 .user-name {
-  font-size: 20px;
-  font-weight: 700;
-  color: #222;
+  font-size: 18px;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
 }
 
-.user-email {
+.user-role {
   font-size: 14px;
   color: #666;
-  margin-top: 5px;
 }
 
 .sidebar-nav section {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .sidebar-nav h3 {
   font-size: 16px;
-  font-weight: 600;
-  color: #444;
-  margin-bottom: 15px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
 }
 
 .nav-link {
-  display: block;
-  font-size: 15px;
+  font-size: 14px;
   color: #555;
+  display: block;
+  padding: 5px 0;
   text-decoration: none;
-  padding: 10px 0;
-  border-radius: 5px;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-  background-color: #007bff;
-  color: white;
-  padding-left: 10px;
+  color: #007bff;
 }
 
 .main-content {
@@ -175,69 +279,57 @@ body {
 }
 
 .header h1 {
-  font-size: 26px;
-  color: #222;
-  margin-bottom: 10px;
+  font-size: 22px;
   font-weight: bold;
 }
 
 .description {
-  font-size: 15px;
+  font-size: 14px;
   color: #666;
   margin-bottom: 30px;
 }
 
 .info-card {
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  overflow: hidden;
+  margin-top: 20px;
 }
 
 .card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #f8f9fa;
-  padding: 15px 20px;
-  border-bottom: 1px solid #eaeaea;
-}
-
-.card-header h3 {
-  font-size: 18px;
-  color: #333;
 }
 
 .edit-btn {
-  padding: 8px 15px;
   font-size: 14px;
   color: #007bff;
-  background-color: transparent;
-  border: 1px solid #007bff;
-  border-radius: 5px;
-  transition: all 0.3s ease;
-}
-
-.edit-btn:hover {
-  background-color: #007bff;
-  color: white;
-}
-
-.card-content {
-  padding: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .info-row {
   display: grid;
   grid-template-columns: 150px 1fr;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
-.info-row label {
-  font-weight: 600;
-  font-size: 14px;
-  color: #555;
+.input-field {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
+.save-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.save-btn:hover {
+  background-color: #0056b3;
 .info-row span {
   font-weight: 400;
   font-size: 14px;

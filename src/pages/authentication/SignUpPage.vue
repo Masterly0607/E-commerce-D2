@@ -11,24 +11,72 @@
         <!-- Form Section -->
         <div class="md:w-1/2">
           <h2 class="font-bold text-3xl text-gray-700 text-center mb-4">Create an Account</h2>
-          <p class="text-center text-gray-500 text-sm mb-6">
-            Already have an account?
-            <router-link class="text-blue-500 hover:underline" :to="{ name: 'sign-in-page' }">Sign In</router-link>
-          </p>
           <form @submit.prevent="register" class="space-y-5">
+            <!-- Gender Input -->
+            <div>
+              <label for="gender" class="block text-sm font-medium text-gray-600 mb-1">Gender</label>
+              <select
+                id="gender"
+                v-model="form.gender"
+                @input="validateField('gender')"
+                class="w-full px-4 py-3 border rounded-lg text-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                :class="{ 'border-red-500': errors.gender }"
+                required
+              >
+                <option value="" disabled>Select your gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+              <p v-if="errors.gender" class="text-red-500 text-sm">{{ errors.gender }}</p>
+            </div>
+
+            <!-- First Name Input -->
+            <div>
+              <label for="firstName" class="block text-sm font-medium text-gray-600 mb-1">First Name</label>
+              <input
+                type="text"
+                id="firstName"
+                v-model="form.firstName"
+                @input="validateField('firstName')"
+                class="w-full px-4 py-3 border rounded-lg text-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                :class="{ 'border-red-500': errors.firstName }"
+                placeholder="Enter your first name"
+                required
+              />
+              <p v-if="errors.firstName" class="text-red-500 text-sm">{{ errors.firstName }}</p>
+            </div>
+
+            <!-- Last Name Input -->
+            <div>
+              <label for="lastName" class="block text-sm font-medium text-gray-600 mb-1">Last Name</label>
+              <input
+                type="text"
+                id="lastName"
+                v-model="form.lastName"
+                @input="validateField('lastName')"
+                class="w-full px-4 py-3 border rounded-lg text-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                :class="{ 'border-red-500': errors.lastName }"
+                placeholder="Enter your last name"
+                required
+              />
+              <p v-if="errors.lastName" class="text-red-500 text-sm">{{ errors.lastName }}</p>
+            </div>
+
             <!-- Email Input -->
             <div>
               <label for="email" class="block text-sm font-medium text-gray-600 mb-1">Email</label>
               <input
                 type="email"
                 id="email"
-                v-model="email"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                v-model="form.email"
+                @input="validateField('email')"
+                class="w-full px-4 py-3 border rounded-lg text-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                :class="{ 'border-red-500': errors.email }"
                 placeholder="Enter your email"
-                @blur="validateEmail"
                 required
               />
-              <p v-if="emailError" class="text-sm text-red-500 mt-1">{{ emailError }}</p>
+              <p v-if="errors.email" class="text-red-500 text-sm">{{ errors.email }}</p>
             </div>
 
             <!-- Password Input -->
@@ -37,54 +85,33 @@
               <input
                 type="password"
                 id="password"
-                v-model="password"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                v-model="form.password"
+                @input="validateField('password')"
+                class="w-full px-4 py-3 border rounded-lg text-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                :class="{ 'border-red-500': errors.password }"
                 placeholder="Enter your password"
                 required
               />
-              <p v-if="passwordError" class="text-sm text-red-500 mt-1">{{ passwordError }}</p>
+              <p v-if="errors.password" class="text-red-500 text-sm">{{ errors.password }}</p>
             </div>
 
-            <!-- Confirm Password Input -->
-            <div>
-              <label for="confirmPassword" class="block text-sm font-medium text-gray-600 mb-1">Confirm Password</label>
-              <input
-                type="password"
-                id="confirmPassword"
-                v-model="confirmPassword"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                placeholder="Confirm your password"
-                required
-              />
-              <p v-if="confirmPasswordError" class="text-sm text-red-500 mt-1">{{ confirmPasswordError }}</p>
-            </div>
-
-            <!-- Submit Button -->
+            <!-- Sign-Up Button -->
             <button
               type="submit"
-              class="w-full py-3 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition duration-300 flex justify-center items-center"
+              class="w-full py-3 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition duration-300"
               :disabled="loading"
             >
-              <span v-if="loading" class="loader mr-2"></span>
               {{ loading ? "Processing..." : "Sign Up" }}
             </button>
           </form>
 
-          <!-- Divider -->
-          <div class="my-5 flex items-center justify-between">
-            <hr class="w-1/3 border-gray-300" />
-            <span class="text-sm text-gray-500">or</span>
-            <hr class="w-1/3 border-gray-300" />
-          </div>
-
-          <!-- Google Sign-Up -->
-          <button
-            @click="signInWithGoogle"
-            class="flex items-center justify-center gap-3 w-full py-3 border border-gray-300 rounded-lg text-gray-600 hover:bg-gray-100 transition duration-300"
-          >
-            <img src="/public/images/google.svg" alt="Google" class="h-5 w-5" />
-            Sign Up with Google
-          </button>
+          <!-- Link to Sign-In Page -->
+          <p class="text-sm text-center mt-4 text-gray-600">
+            Already have an account? 
+            <router-link :to="{ name: 'sign-in-page' }" class="text-blue-500 hover:underline">
+              Sign In
+            </router-link>
+          </p>
         </div>
       </div>
     </div>
@@ -92,103 +119,88 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { reactive, ref } from "vue";
 import { useRouter } from "vue-router";
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  GoogleAuthProvider,
-  signInWithPopup,
-} from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import BackButton from "@/components/buttons/BackButton.vue";
 
-// State
-const email = ref("");
-const password = ref("");
-const confirmPassword = ref("");
-const emailError = ref("");
-const passwordError = ref("");
-const confirmPasswordError = ref("");
+const form = reactive({
+  firstName: "",
+  lastName: "",
+  email: "",
+  password: "",
+  gender: "",
+});
+
+const errors = reactive({});
 const loading = ref(false);
 const router = useRouter();
 
-// Functions
-const validateEmail = () => {
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!email.value) {
-    emailError.value = "Email is required.";
-  } else if (!emailPattern.test(email.value)) {
-    emailError.value = "Please enter a valid email address.";
-  } else {
-    emailError.value = "";
+// Validate a single field in real-time
+const validateField = (field) => {
+  const value = form[field];
+  switch (field) {
+    case "gender":
+      errors.gender = value ? "" : "Please select your gender.";
+      break;
+    case "firstName":
+      errors.firstName = value.trim() ? "" : "First name is required.";
+      break;
+    case "lastName":
+      errors.lastName = value.trim() ? "" : "Last name is required.";
+      break;
+    case "email":
+      if (!value.trim()) {
+        errors.email = "Email is required.";
+      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+        errors.email = "Invalid email format.";
+      } else {
+        errors.email = "";
+      }
+      break;
+    case "password":
+      if (!value.trim()) {
+        errors.password = "Password is required.";
+      } else if (value.length < 6) {
+        errors.password = "Password must be at least 6 characters.";
+      } else {
+        errors.password = "";
+      }
+      break;
+    default:
+      break;
   }
-};
-
-const validateInputs = () => {
-  emailError.value = "";
-  passwordError.value = "";
-  confirmPasswordError.value = "";
-
-  // Validate Email
-  validateEmail();
-
-  // Validate Password
-  if (!password.value) {
-    passwordError.value = "Password is required.";
-  } else if (password.value.length < 6) {
-    passwordError.value = "Password must be at least 6 characters.";
-  }
-
-  // Validate Confirm Password
-  if (password.value !== confirmPassword.value) {
-    confirmPasswordError.value = "Passwords do not match.";
-  }
-
-  return !emailError.value && !passwordError.value && !confirmPasswordError.value;
 };
 
 const register = () => {
-  if (!validateInputs()) return;
+  // Validate all fields before submission
+  Object.keys(form).forEach(validateField);
+  if (Object.values(errors).some((error) => error)) return;
 
   loading.value = true;
-  createUserWithEmailAndPassword(getAuth(), email.value, password.value)
+
+  const auth = getAuth();
+  createUserWithEmailAndPassword(auth, form.email, form.password)
     .then(() => {
-      console.log("Successfully registered!");
-      loading.value = false;
-      router.push({ name: "sign-in-page" });
+      const userProfile = {
+        name: `${form.firstName} ${form.lastName}`,
+        email: form.email,
+        gender: form.gender,
+      };
+      localStorage.setItem("userProfile", JSON.stringify(userProfile));
+      localStorage.setItem("isUserLoggedIn", "true");
+      router.push({ name: "profile-setting-page" });
     })
     .catch((error) => {
-      console.error("Failed to register:", error.message);
+      console.error("Registration failed:", error.message);
+      alert("Error: " + error.message);
+    })
+    .finally(() => {
       loading.value = false;
-      if (error.message.includes("email-already-in-use")) {
-        emailError.value = "This email is already registered.";
-      }
     });
 };
 
-const signInWithGoogle = async () => {
-  const provider = new GoogleAuthProvider();
-  const auth = getAuth();
-
-  try {
-    // Try using the popup
-    await signInWithPopup(auth, provider);
-    router.push("/home");
-  } catch (error) {
-    if (error.code === "auth/popup-blocked") {
-      // If popup is blocked, use redirect
-      console.log("Popup blocked, switching to redirect...");
-      await signInWithRedirect(auth, provider);
-    } else {
-      console.error("Sign-In Error:", error.message);
-      alert("Something went wrong: " + error.message);
-    }
-  }
-};
-
-
-
 const goToHome = () => {
-  router.push("/home");
+  router.push("/");
 };
 </script>
