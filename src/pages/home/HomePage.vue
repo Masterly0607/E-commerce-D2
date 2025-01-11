@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-gray-200">
+  <section class="bg-gray-100">
     <!-- Open Slider -->
     <div>
       <swiper
