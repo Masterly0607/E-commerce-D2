@@ -1,30 +1,17 @@
 <template>
-  <section class="bg-gray-100 py-8">
-    <div class="container mx-auto px-4 py-8">
-      <!-- Back Button -->
-      <back-button></back-button>
-
-      <!-- Page Header -->
-      <div class="mb-6">
-        <div class="flex items-center gap-3">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="w-8 h-8 text-gray-700"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
-            />
-          </svg>
-          <h1 class="text-4xl font-extrabold text-gray-900">Cart</h1>
-        </div>
-        <p class="text-gray-500 text-sm">Review your items before checkout</p>
+  <section class="f-container-1200">
+    <back-button></back-button>
+    <div class="mt-3">
+      <div class="flex items-center gap-3">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M36.3699 12.385C36.2166 12.1635 36.0119 11.9824 35.7733 11.8573C35.5347 11.7322 35.2693 11.6668 34.9999 11.6667H12.2216L10.2983 7.05002C10.0468 6.44153 9.61995 5.92165 9.07205 5.55657C8.52414 5.1915 7.87997 4.99776 7.22159 5.00002H3.33325V8.33335H7.22159L15.1283 27.3084C15.2549 27.6119 15.4685 27.8713 15.7423 28.0537C16.016 28.2361 16.3376 28.3334 16.6666 28.3334H29.9999C30.6949 28.3334 31.3166 27.9017 31.5616 27.2534L36.5616 13.92C36.6561 13.6677 36.688 13.3963 36.6546 13.1289C36.6212 12.8616 36.5236 12.6063 36.3699 12.385ZM28.8449 25H17.7783L13.6116 15H32.5949L28.8449 25Z" fill="black"/>
+          <path d="M17.5 35C18.8807 35 20 33.8807 20 32.5C20 31.1193 18.8807 30 17.5 30C16.1193 30 15 31.1193 15 32.5C15 33.8807 16.1193 35 17.5 35Z" fill="black"/>
+          <path d="M29.1667 35C30.5475 35 31.6667 33.8807 31.6667 32.5C31.6667 31.1193 30.5475 30 29.1667 30C27.786 30 26.6667 31.1193 26.6667 32.5C26.6667 33.8807 27.786 35 29.1667 35Z" fill="black"/>
+        </svg>
+        <div class="text-3xl font-bold">Cart</div>
       </div>
+      <div class="ml-14 text-gray-400 font-thin">All items to checkout</div>
+    </div>
 
       <!-- Main Content -->
       <div class="flex flex-col lg:flex-row gap-8">
@@ -162,21 +149,23 @@
 </template>
 
 <script>
-import productStore from "@/stores/productStore";
+import {useProductStore} from '@/stores/productStore';
 
 export default {
   computed: {
     cartItems() {
-      return productStore.state.cart;
+      const cart = useProductStore().state.cart;
+      console.log('Cart Items:', cart);
+      return cart;
     },
     cartSubtotal() {
-      return this.cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
-    },
+      return this.cartItems.reduce((sum, item) => sum + (item.price || 0) * (item.quantity || 0), 0);
+    }
   },
   methods: {
     removeItem(item) {
-      productStore.actions.removeFromCart(item.name);
-    },
-  },
+      useProductStore().removeFromCart(item.name);
+    }
+  }
 };
 </script>

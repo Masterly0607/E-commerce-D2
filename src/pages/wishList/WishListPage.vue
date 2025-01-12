@@ -46,81 +46,84 @@
               </p>
               <button class="add-all-btn" @click="addAllToCart">Add All to Cart</button>
             </div>
-  
-    
-            <div
-              v-for="product in products"
-              :key="product.name"
-              class="wishlist-item flex justify-between items-center bg-white p-5 rounded-lg shadow-sm mb-4"
-            >
-              <div class="flex items-center gap-5">
-                <img
-                  :src="getImagePath(product.image)"
-                  :alt="product.name"
-                  class="item-img"
-                />
-                <div>
-                  <h3 class="item-name text-xl font-bold text-gray-800">
-                    {{ product.name }}
-                  </h3>
-                  <p class="item-price text-md text-gray-600">
-                    $ {{ product.price }}
-                  </p>
-                </div>
-              </div>
-              <button class="add-to-cart-btn" @click="addToCart(product)">
-                Add to Cart
-              </button>
+            <div class="wishNav"></div>
+            <div v-if="!wishlist || wishlist.length === 0" class="emptyWishlist">
+                <img class="empty" src="../../assets/wishList_img/empty.jpg"/>
+                <h4>Your wishlist is empty.</h4>
+                <router-link :to="{name:'home-page'}" class="browse">Browse Items</router-link>
             </div>
-          </div>
-        </div>
-      </div>
+            <div v-else class="wishAdd">
+                <p class="explore"> Explore, purchase, or remove items from your Wish List here.</p>
+                <button class="AddCart" @click="addAllToCart">Add all to Cart</button>
+            </div>
+            <div v-if="wishlist">
+                <div class="wishItem" v-for="product in wishlist" :key="product.name">
+                    <div class="product">
+                        <button @click="removeFromWishlist(product)">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z" fill="#F1FE5D"/>
+                            </svg>
+                        </button>
+                        <img class="productImage" :src="product.image" :alt="product.name" />
+                        <div class="productName">{{ product.name }}</div>
+                    </div>
+                   <div class="price">
+                        <div class="priceValue">$ {{ product.price }}</div>
+                        <button class="add" @click="addToCart(product)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="wishLine2" />
+        </div>  
     </section>
-  </template>
-  
-  <script>
-  import productStore from "@/stores/productStore";
-  
-  export default {
-    name: "Wishlist",
-    data() {
-        return {
-            products: [],
-        };
+</template>
+
+<script>
+import { useProductStore } from '@/stores/productStore';
+import { mapActions } from 'pinia';
+
+export default {
+    setup() {
+        const productStore = useProductStore();
+        return { productStore };
     },
     computed: {
-
+        wishlist() {
+            return this.productStore.state.wishlist || [];
+        }
     },
     methods: {
-      getImagePath(image) {
-        return `/images/wishList_img/${image}`;
-      },
-      addToCart(item) {
-        productStore.actions.addToCart({
-          name: item.name,
-          price: item.price,
-          quantity: 1,
-          image: this.getImagePath(item.image),
-        });
-        this.products = this.products.filter((product) => product.name !== item.name);
-      },
-      addAllToCart() {
-        this.products.forEach((item) => {
-          productStore.actions.addToCart({
-            name: item.name,
-            price: item.price,
-            quantity: 1,
-            image: this.getImagePath(item.image),
-          });
-        });
-        this.products = [];
-      },
+    ...mapActions(useProductStore, ['addToCart', 'removeFromWishlist']),
+    getImagePath(image) {
+        return `${image}`;
     },
-  };
-  </script>
-  
-  <style scoped>
-  .wishlist {
+    addToCart(product) {
+        const productStore = useProductStore(); // Use the store directly
+        productStore.addToCart(product); // Call the action to add to cart
+        productStore.removeFromWishlist(product); // Remove the product from wishlist
+        alert('Product added to cart!');
+        console.log(localStorage.getItem('product'));
+    },
+    addAllToCart() {
+        const productStore = useProductStore(); // Use the store directly
+        this.wishlist.forEach(item => {
+            productStore.addToCart({
+                name: item.name,
+                 price: item.price,
+                quantity: 1,
+                image: this.getImagePath(item.image),
+            });
+            productStore.removeFromWishlist(item); // Remove item from wishlist after adding to cart
+        });
+        this.product = [];
+    },
+}
+
+};
+</script>
+
+<style scoped>
+.wishList {
     display: flex;
     flex-direction: column;
     gap: 20px;
