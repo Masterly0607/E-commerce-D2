@@ -118,23 +118,10 @@ const loading = ref(false);
 const router = useRouter();
 
 const validateField = (field) => {
-  switch (field) {
-    case "email":
-      errors.value.email = email.value
-        ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)
-          ? ""
-          : "Invalid email format"
-        : "Email is required.";
-      break;
-    case "password":
-      errors.value.password = password.value
-        ? password.value.length >= 6
-          ? ""
-          : "Password must be at least 6 characters."
-        : "Password is required.";
-      break;
-    default:
-      break;
+  if (field === "email") {
+    errors.value.email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value) ? "" : "Invalid email format.";
+  } else if (field === "password") {
+    errors.value.password = password.value.length >= 6 ? "" : "Password must be at least 6 characters.";
   }
 };
 
@@ -153,16 +140,12 @@ const login = () => {
   signInWithEmailAndPassword(auth, email.value, password.value)
     .then((result) => {
       const user = result.user;
-
-      // Save user profile
       const profile = {
         name: user.displayName || "User",
         email: user.email,
       };
       localStorage.setItem("userProfile", JSON.stringify(profile));
       localStorage.setItem("isUserLoggedIn", "true");
-
-      // Redirect to profile settings
       router.push({ name: "profile-setting-page" });
     })
     .catch((error) => {
@@ -180,16 +163,12 @@ const signInWithGoogle = () => {
   signInWithPopup(auth, provider)
     .then((result) => {
       const user = result.user;
-
-      // Save user profile
       const profile = {
         name: user.displayName,
         email: user.email,
       };
       localStorage.setItem("userProfile", JSON.stringify(profile));
       localStorage.setItem("isUserLoggedIn", "true");
-
-      // Redirect to profile settings
       router.push({ name: "profile-setting-page" });
     })
     .catch((error) => {

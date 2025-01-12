@@ -27,7 +27,7 @@
               <ul>
                 <li><a href="#" class="nav-link">My Profile</a></li>
                 <li><a href="#" class="nav-link">Address Book</a></li>
-                <li><a href="#" class="nav-link">Payment Methods</a></li>
+                <li><router-link :to="{name:'payment-methods-page'}" class="nav-link">Payment Methods</router-link></li>
               </ul>
             </section>
             <section>
@@ -96,14 +96,15 @@
 </template>
 
 <script setup>
+import router from "@/router";
 import { reactive, ref, computed, onMounted } from "vue";
 
 const user = reactive({
-  name: "Sok Masterlyasasasasasasasasasasasasas",
-  email: "sokmasterly@gmail.com",
+  name: "",
+  email: "",
+  gender: "",
   address: "",
   phoneNumber: "",
-  gender: "",
   dob: "",
   nationality: "",
 });
@@ -126,11 +127,20 @@ const truncatedName = computed(() => {
   return user.name.length > maxLength ? `${user.name.slice(0, maxLength)}...` : user.name;
 });
 
+const loadUserProfile = () => {
 onMounted(() => {
   const storedProfile = JSON.parse(localStorage.getItem("userProfile"));
   if (storedProfile) Object.assign(user, storedProfile);
 
   const storedProfileImage = localStorage.getItem("profileImage");
+  if (storedProfileImage) {
+    profileImage.value = storedProfileImage;
+  }
+};
+
+onMounted(() => {
+  loadUserProfile();
+  window.addEventListener("storage", loadUserProfile);
   if (storedProfileImage) profileImage.value = storedProfileImage;
 });
 
