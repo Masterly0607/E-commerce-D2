@@ -55,7 +55,8 @@ const router = createRouter({
           path: "order-history",
           name: "orderhistory",
           component: () => import("@/pages/authentication/userAccount/profile-setting-components/OrderHistoryPage.vue"),
-        }
+        },
+     
           ]
         },
         
@@ -69,6 +70,12 @@ const router = createRouter({
           name: "wish-list-page",
           component: () => import("@/pages/wishList/WishListPage.vue"),
         },
+               
+        {
+          path: "payment-methods",
+          name: "payment-methods-page",
+          component: () => import("@/pages/authentication/userAccount/profile-setting-components/PaymentMethodsPage.vue"),
+        }
        
       ]
      },

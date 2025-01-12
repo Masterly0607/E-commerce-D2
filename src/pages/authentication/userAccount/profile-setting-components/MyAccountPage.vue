@@ -28,7 +28,7 @@
               <ul>
                 <li><a href="#" class="nav-link">My Profile</a></li>
                 <li><a href="#" class="nav-link">Address Book</a></li>
-                <li><a href="#" class="nav-link">Payment Methods</a></li>
+                <li><router-link :to="{name:'payment-methods-page'}" class="nav-link">Payment Methods</router-link></li>
               </ul>
             </section>
             <section>
@@ -98,20 +98,19 @@
 </template>
 
 <script setup>
+import router from "@/router";
 import { reactive, ref, computed, onMounted } from "vue";
 
-// Reactive user data
 const user = reactive({
-  name: "Sok Masterlyasasasasasasasasasasasasas",
-  email: "sokmasterly@gmail.com",
+  name: "",
+  email: "",
+  gender: "",
   address: "",
   phoneNumber: "",
-  gender: "",
   dob: "",
   nationality: "",
 });
 
-// Editable fields
 const editableFields = reactive({
   name: "Name",
   email: "Email",
@@ -122,20 +121,15 @@ const editableFields = reactive({
   nationality: "Nationality",
 });
 
-// Default profile image
 const profileImage = ref("/public/images/profile.png");
-
-// Editing state
 const isEditing = ref(false);
 
-// Truncate name if it's too long
 const truncatedName = computed(() => {
   const maxLength = 25;
   return user.name.length > maxLength ? `${user.name.slice(0, maxLength)}...` : user.name;
 });
 
-// Load user profile from localStorage or initial setup
-onMounted(() => {
+const loadUserProfile = () => {
   const storedProfile = JSON.parse(localStorage.getItem("userProfile"));
   if (storedProfile) {
     Object.assign(user, storedProfile);
@@ -144,27 +138,28 @@ onMounted(() => {
   if (storedProfileImage) {
     profileImage.value = storedProfileImage;
   }
+};
+
+onMounted(() => {
+  loadUserProfile();
+  window.addEventListener("storage", loadUserProfile);
 });
 
-// Toggle editing mode
 const toggleEditMode = () => {
   isEditing.value = !isEditing.value;
 };
 
-// Update profile and save to localStorage
 const updateProfile = () => {
   localStorage.setItem("userProfile", JSON.stringify(user));
   isEditing.value = false;
   alert("Profile updated successfully!");
 };
 
-// Trigger file input
 const triggerFileInput = () => {
   const fileInput = document.querySelector("input[type='file']");
   fileInput.click();
 };
 
-// Handle file upload
 const handleFileUpload = (event) => {
   const file = event.target.files[0];
   if (file) {

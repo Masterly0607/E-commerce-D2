@@ -121,7 +121,7 @@
 <script setup>
 import { reactive, ref } from "vue";
 import { useRouter } from "vue-router";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import BackButton from "@/components/buttons/BackButton.vue";
 
 const form = reactive({
@@ -136,7 +136,6 @@ const errors = reactive({});
 const loading = ref(false);
 const router = useRouter();
 
-// Validate a single field in real-time
 const validateField = (field) => {
   const value = form[field];
   switch (field) {
@@ -150,30 +149,15 @@ const validateField = (field) => {
       errors.lastName = value.trim() ? "" : "Last name is required.";
       break;
     case "email":
-      if (!value.trim()) {
-        errors.email = "Email is required.";
-      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
-        errors.email = "Invalid email format.";
-      } else {
-        errors.email = "";
-      }
+      errors.email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? "" : "Invalid email format.";
       break;
     case "password":
-      if (!value.trim()) {
-        errors.password = "Password is required.";
-      } else if (value.length < 6) {
-        errors.password = "Password must be at least 6 characters.";
-      } else {
-        errors.password = "";
-      }
-      break;
-    default:
+      errors.password = value.length >= 6 ? "" : "Password must be at least 6 characters.";
       break;
   }
 };
 
 const register = () => {
-  // Validate all fields before submission
   Object.keys(form).forEach(validateField);
   if (Object.values(errors).some((error) => error)) return;
 
@@ -181,15 +165,20 @@ const register = () => {
 
   const auth = getAuth();
   createUserWithEmailAndPassword(auth, form.email, form.password)
-    .then(() => {
-      const userProfile = {
-        name: `${form.firstName} ${form.lastName}`,
-        email: form.email,
-        gender: form.gender,
-      };
-      localStorage.setItem("userProfile", JSON.stringify(userProfile));
-      localStorage.setItem("isUserLoggedIn", "true");
-      router.push({ name: "profile-setting-page" });
+    .then((userCredential) => {
+      const user = userCredential.user;
+      const fullName = `${form.firstName} ${form.lastName}`;
+
+      return updateProfile(user, { displayName: fullName }).then(() => {
+        const userProfile = {
+          name: fullName,
+          email: user.email,
+          gender: form.gender,
+        };
+        localStorage.setItem("userProfile", JSON.stringify(userProfile));
+        localStorage.setItem("isUserLoggedIn", "true");
+        router.push({ name: "profile-setting-page" });
+      });
     })
     .catch((error) => {
       console.error("Registration failed:", error.message);
