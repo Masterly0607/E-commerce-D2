@@ -6,7 +6,7 @@
         <h1 class="title">Payment Methods</h1>
         <p class="description">Manage your saved payment methods below.</p>
   
-        <!-- Saved Payment Methods -->
+        
         <div class="payment-methods">
           <h2 class="section-title">Saved Payment Methods</h2>
           <div v-if="paymentMethods.length" class="methods-list">
@@ -31,7 +31,7 @@
           <p v-else class="no-methods">You have no saved payment methods.</p>
         </div>
   
-        <!-- Add Payment Method Form -->
+
         <div class="add-method-form">
           <h2 class="section-title">Add Payment Method</h2>
           <form @submit.prevent="addPaymentMethod">
@@ -77,17 +77,17 @@
   <script setup>
   import { reactive, ref, onMounted } from "vue";
   
-  // Payment Methods State
+
   const paymentMethods = ref([]);
   
-  // New Payment Method Form
+
   const newMethod = reactive({
     type: "",
     number: "",
     expiry: "",
   });
   
-  // Load saved payment methods from localStorage
+
   const loadPaymentMethods = () => {
     const storedMethods = JSON.parse(localStorage.getItem("paymentMethods"));
     if (storedMethods) {
@@ -95,12 +95,12 @@
     }
   };
   
-  // Save payment methods to localStorage
+
   const savePaymentMethods = () => {
     localStorage.setItem("paymentMethods", JSON.stringify(paymentMethods.value));
   };
   
-  // Add a new payment method
+
   const addPaymentMethod = () => {
     const lastFour = newMethod.number.slice(-4);
   
@@ -113,13 +113,13 @@
     savePaymentMethods();
     alert("Payment method added successfully!");
   
-    // Reset form
+
     newMethod.type = "";
     newMethod.number = "";
     newMethod.expiry = "";
   };
   
-  // Delete a payment method
+  
   const deletePaymentMethod = (index) => {
     if (confirm("Are you sure you want to remove this payment method?")) {
       paymentMethods.value.splice(index, 1);
@@ -128,14 +128,12 @@
     }
   };
   
-  // Load payment methods on page load
   onMounted(() => {
     loadPaymentMethods();
   });
   </script>
   
   <style scoped>
-  /* General Styles */
   .payment-page {
     max-width: 600px;
     margin: 0 auto;
@@ -157,7 +155,6 @@
     text-align: center;
   }
   
-  /* Payment Methods List */
   .payment-methods {
     margin-bottom: 30px;
   }
@@ -214,7 +211,6 @@
     background-color: #d9363e;
   }
   
-  /* Add Payment Method Form */
   .add-method-form {
     margin-top: 30px;
   }
