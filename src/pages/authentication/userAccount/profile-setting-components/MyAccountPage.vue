@@ -128,9 +128,10 @@ const truncatedName = computed(() => {
 });
 
 const loadUserProfile = () => {
-onMounted(() => {
   const storedProfile = JSON.parse(localStorage.getItem("userProfile"));
-  if (storedProfile) Object.assign(user, storedProfile);
+  if (storedProfile) {
+    Object.assign(user, storedProfile);
+  }
 
   const storedProfileImage = localStorage.getItem("profileImage");
   if (storedProfileImage) {
@@ -138,10 +139,10 @@ onMounted(() => {
   }
 };
 
+// Call `loadUserProfile` on component mount and listen to storage changes
 onMounted(() => {
   loadUserProfile();
   window.addEventListener("storage", loadUserProfile);
-  if (storedProfileImage) profileImage.value = storedProfileImage;
 });
 
 const toggleEditMode = () => {
@@ -172,6 +173,7 @@ const handleFileUpload = (event) => {
   }
 };
 </script>
+
 
 <style scoped>
 body {
