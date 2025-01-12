@@ -33,7 +33,7 @@
                                 </h3>
                             </div>
                             <div class="productInfo">
-                                <img class="productImg" :src="getImagepath(product.image)" :alt="product.name" />
+                                <img class="productImg" :src="product.image" :alt="product.name" />
                                 <div class="productDescription">
                                     <h5 class="productTitle">{{ product.name }}</h5>
                                     <div class="productPrice">Price: ${{ product.price }}</div>
@@ -80,15 +80,13 @@
 
 </template>
 <script>
-import productStore from '@/stores/productStore'; // Import the product store
+import { useProductStore } from '@/stores/productStore'; // Import the product store
 import { ref } from 'vue';
-
 
 export default {
     name: 'OrderHistory',
     setup() {
         const activeButton = ref("All orders"); // Set default state to "All orders"
-        const showRate = ref(true); // Ensure the rating section is displayed initially
 
         const changeColor = (buttonName) => {
             activeButton.value = buttonName;
@@ -125,17 +123,12 @@ export default {
         },
     },
     methods: {
-        getImagepath(image) {
-            return `/images/orderHistory_img/${image}`;
-        },
         addToCart(product) {
-            console.log("Adding to cart:", product); // Log the product being added
-            productStore.actions.addToCart({
-                name: product.name,
-                price: product.price,
-                quantity: 1,
-                image: this.getImagepath(product.image),
-            });
+            const productStore = useProductStore(); // Use the store directly
+            productStore.addToCart(product); // Call the action to add to wishlist
+            alert('Product added to cart!');
+            console.log(localStorage.getItem('product'));
+
         },
     },
     data() {
@@ -145,14 +138,14 @@ export default {
                 name: "POP UP PARADE Joker Figure",
                 price: "30.99",
                 date: "July 8, 2025",
-                image: "Joker6.jpg",
+                image: '../src/assets/orderHistory_img/Joker6.jpg',
                 orderDate: "August 8, 2025",
             },
             {
                 name: "Fire Emblem: Fuukasetsugetsu - Byleth - 1/7 (Intelligent Systems)",
                 price: "25.99",
                 date: "March 15, 2024",
-                image: "wow.png",
+                image: '../src/assets/orderHistory_img/wow.png',
                 orderDate: "April 15, 2024",
             },
             ]

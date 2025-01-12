@@ -5,7 +5,7 @@
             <SProductDetail :Name="'POP UP PARADE Joker Figure'"
             :tag="'New Arrival'"
             :tagColor="'#00FF2B'"
-            :Costs="'$30.99'"
+            :Costs="'30.99'"
             :Status="'In Stock'"
             :statusColor="'#00FF2B'"
             :id=1
