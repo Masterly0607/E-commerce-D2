@@ -1,14 +1,13 @@
 <template>
-    <section class="f-container-1200">
-        <back-button></back-button>
-        <div class="mt-3">
+    <section class="container">
+        <div class="box">
             <div class="flex items-center gap-3">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z" fill="#F1FE5D"/>
                 </svg>
                 <div class="text-3xl font-bold">Wishlist</div>
             </div>
-            <div class="ml-14 text-gray-400 font-thin">All items for adding to Cart</div>
+            <div class="ml-10 text-gray-400 font-thin">All items for adding to Cart</div>
         </div>
         <div class="wishList mt-5">
             <div class="wishListHeader">
@@ -62,9 +61,6 @@ export default {
     },
     methods: {
     ...mapActions(useProductStore, ['addToCart', 'removeFromWishlist']),
-    getImagePath(image) {
-        return `${image}`;
-    },
     addToCart(product) {
         const productStore = useProductStore(); // Use the store directly
         productStore.addToCart(product); // Call the action to add to cart
@@ -77,9 +73,9 @@ export default {
         this.wishlist.forEach(item => {
             productStore.addToCart({
                 name: item.name,
-                 price: item.price,
+                price: item.price,
                 quantity: 1,
-                image: this.getImagePath(item.image),
+                image: item.image,
             });
             productStore.removeFromWishlist(item); // Remove item from wishlist after adding to cart
         });
@@ -91,6 +87,19 @@ export default {
 </script>
 
 <style scoped>
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 50px 0px;
+}
+.box {
+    display: flex;
+    flex-direction: column;
+    margin-left: -850px;
+    gap: 10px;
+}
 .wishList {
     display: flex;
     justify-content: center;
@@ -131,9 +140,9 @@ export default {
 .explore {
     margin-right: 35%;
 }
-.AddCart {
+.AddCart, .add {
     border: none;
-    background-color: blue;
+    background-color: black;
     border-radius: 5px;
     padding: 10px 15px;
     color: white;
@@ -141,12 +150,15 @@ export default {
     height: fit-content;
     margin-top: 10px;
 }
+.AddCart:hover, .add:hover {
+    background-color:gray;
+}
 .wishItem {
     display: flex;
     flex-direction: row;
     justify-content: space-between; 
     align-items: center;
-    width: 82%; 
+    width: 87%; 
     margin-bottom: 20px; 
 }
 .product {
@@ -162,16 +174,6 @@ export default {
     align-items: center;
     justify-content: center;
     gap: 20px;
-}
-.add {
-    border: none;
-    background-color: red;
-    border-radius: 5px;
-    padding: 10px 15px;
-    color: white;
-    cursor: pointer;
-    height: fit-content;
-    margin-top: 10px;
 }
 .wishLine2 {
     width: 1090px;

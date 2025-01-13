@@ -41,26 +41,22 @@ import { mapState } from 'pinia';
             }
         },
         methods: {
-    addToWishlist(product) {
-        const productStore = useProductStore(); // Use the store directly
-        productStore.addToWishlist({
-            name: product.Name,
-            price: product.Costs,
-            image: product.image, // Include image if available
-            Amount: product.Amount || 1, // Ensure Amount is included
-            tag: product.tag,
-            tagColor: product.tagColor,
-            Status: product.Status,
-            statusColor: product.statusColor,
-        }); // Call the action to add to wishlist
-        alert('Product added to wishlist!');
-        console.log(localStorage.getItem('wishlist'));
-        
-    }
-}
-
-
-
+            addToWishlist(product) {
+                const productStore = useProductStore(); // Use the store directly
+                productStore.addToWishlist({
+                    name: product.Name,
+                    price: product.Costs,
+                    Amount: product.Amount || 1, // Ensure Amount is included
+                    tag: product.tag,
+                    tagColor: product.tagColor,
+                    Status: product.Status,
+                    statusColor: product.statusColor,
+                }); // Call the action to add to wishlist
+                alert('Product added to wishlist!');
+                console.log(localStorage.getItem('wishlist'));
+                
+            }
+        }
     }
 </script>
 
