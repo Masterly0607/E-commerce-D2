@@ -10,7 +10,8 @@
             Costs: String,
             Status: String,
             statusColor: String,
-            Amount: Number
+            Amount: Number,
+            picLink: String
         },
 
         computed: {
@@ -37,6 +38,7 @@
                     Status: this.Status,
                     statusColor: this.statusColor,
                     Amount: this.amountInCart,
+                    picLink: this.picLink,
                 }
                 return product;
             }

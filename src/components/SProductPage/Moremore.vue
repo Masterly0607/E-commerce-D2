@@ -78,8 +78,8 @@ export default{
         padding: 0;
         /* box-sizing: border-box; */
         /* overflow: hidden; */
-        margin-left: 15px;
-        margin-right: 15px;
+        margin-left: 7.5px;
+        margin-right: 7.5px;
     }
 
     .fcontainer .namee{

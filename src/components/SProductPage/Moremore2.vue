@@ -119,6 +119,8 @@ import Moremore from './Moremore.vue';
         width: 100%;
         height: 100%;
         overflow-y: scroll;
+        margin-left: 7.5px;
+        margin-right: 7.5px;
     }
 
     html {
