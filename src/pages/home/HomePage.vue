@@ -122,22 +122,28 @@
             v-for="(item, i) in characters"
             :key="i"
           >
-            <div class="h-72 w-72 group cursor-pointer overflow-hidden relative rounded-[60px] ">
-            
-              <img
-                :src="item.img"
-                alt="Character Img"
-                class="h-full w-full  rounded-[60px] object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div class="absolute inset-0 bg-black bg-opacity-40 rounded-[60px] group-hover:bg-opacity-30 transition duration-300" style="opacity: 30%;"></div>
-              <div class="absolute inset-0 flex items-center justify-center">
-                <span
-                  class="text-white text-2xl relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-500 group-hover:after:w-full"
-                >
-                  {{ item.title }}
-                </span>
-              </div>
-            </div>
+          <div
+  class="h-72 w-72 group cursor-pointer overflow-hidden relative rounded-[60px]"
+  @click="$router.push({ name: 'character-detail', params: { title: item.title, img: item.img } })"
+>
+  <img
+    :src="item.img"
+    alt="Character Img"
+    class="h-full w-full rounded-[60px] object-cover transition-transform duration-500 group-hover:scale-110"
+  />
+  <div
+    class="absolute inset-0 bg-black bg-opacity-40 rounded-[60px] group-hover:bg-opacity-30 transition duration-300"
+    style="opacity: 30%;"
+  ></div>
+  <div class="absolute inset-0 flex items-center justify-center">
+    <span
+      class="text-white text-2xl relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-500 group-hover:after:w-full"
+    >
+      {{ item.title }}
+    </span>
+  </div>
+</div>
+
           </div>
         </div>
       </div>
