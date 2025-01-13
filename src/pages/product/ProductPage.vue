@@ -1,9 +1,8 @@
 <template>
 
   <div class="all-container f-container-1200">
-   <back-button></back-button>
     <div class="container1">
-      <SPageTitle :title="'Trending'"
+      <SPageTitle :title="'All Products'"
       />
     </div>
     <!-- <div class="container">
@@ -63,23 +62,25 @@ export default {
       ],
 
       goods: [
-        {
-        ImageSource: './src/assets/ImageProduct/Yuu3.jpg',
-        Name: 'Qset + P4G Protagnist Figure',
-        Price: '$15.99',
-        tag1: 'Pre Order',
-        tag1Color: '#009000',
-        tag2: 'Persona Series',
+      {
+        Rout: 'ProductDetail1',
+        ImageSource: './src/assets/ImageProduct/Amiya.jpg',
+        Name: 'Amiya: Newsgirl Ver. figure',
+        Price: '$117.99',
+        tag1: 'In Stock',
+        tag1Color: '#FF6200',
+        tag2: 'Arknights',
         tag2Color: '#7B7B7B'
         },
         {
-        ImageSource: './src/assets/ImageProduct/Miku1.jpg',
-        Name: 'Hatsune Miku Figure - Sakura Miku 2024 Ver.',
-        Price: '$33.99',
+        Rout: 'ProductDetail2',
+        ImageSource: './src/assets/ImageProduct/Kita.jpg',
+        Name: 'TENITOL Ikyou Kita Style Ver.',
+        Price: '$30.99',
         tag1: 'In Stock',
         tag1Color: '#FF6200',
-        tag2: 'Hatsune Miku',
-       tag2Color: '#7B7B7B'
+        tag2: 'Bocchi the Rock!',
+        tag2Color: '#7B7B7B'
         },
         {
         Rout: 'ProductDetail',
@@ -92,7 +93,7 @@ export default {
         tag2Color: '#7B7B7B'
         },
         {
-        ImageSource: './src/assets/ImageProduct/Miku2.jpg',
+        ImageSource: './src/assets/ImageProduct/MikuToo.jpg',
         Name: 'Nenderoid Surprise Piapro Characters',
         Price: '$59.94',
         tag1: 'In Stock',
@@ -101,12 +102,13 @@ export default {
         tag2Color: '#7B7B7B'
         },
         {
-        ImageSource: './src/assets/ImageProduct/Amiya.jpg',
-        Name: 'Amiya: Newsgirl Ver. figure',
-        Price: '$117.99',
-        tag1: 'In Stock',
-        tag1Color: '#FF6200',
-        tag2: 'Arknights',
+        // Rout: 'ProductDetail1',
+        ImageSource: './src/assets/ImageProduct/Yuu3.jpg',
+        Name: 'Qset + P4G Protagnist Figure',
+        Price: '$15.99',
+        tag1: 'Pre Order',
+        tag1Color: '#009000',
+        tag2: 'Persona Series',
         tag2Color: '#7B7B7B'
         },
         {
@@ -116,7 +118,7 @@ export default {
         tag1: 'Pre Order',
         tag1Color: '#009000',
         tag2: 'Arknights',
-       tag2Color: '#7B7B7B'
+        tag2Color: '#7B7B7B'
         },
         {
         ImageSource: './src/assets/ImageProduct/Thorn.jpg',
@@ -240,12 +242,13 @@ export default {
         tag2Color: '#7B7B7B'
         },
         {
-        ImageSource: './src/assets/ImageProduct/Kita.jpg',
-        Name: 'TENITOL Ikyou Kita Style Ver.',
-        Price: '$30.99',
+        // Rout: 'ProductDetail2',
+        ImageSource: './src/assets/ImageProduct/Miku.jpg',
+        Name: 'Hatsune Miku Figure - Sakura Miku 2024 Ver.',
+        Price: '$33.99',
         tag1: 'In Stock',
         tag1Color: '#FF6200',
-        tag2: 'Bocchi the Rock!',
+        tag2: 'Hatsune Miku',
         tag2Color: '#7B7B7B'
         },
         {

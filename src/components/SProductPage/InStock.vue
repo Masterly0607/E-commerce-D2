@@ -30,72 +30,72 @@ import { ref, onMounted } from "vue";
                 goodie: [
                     {
                         Rou : 'ProductDetail',
-                        picc :'./src/assets/ImageProduct/Makoto3.jpg',
-                        nameholders :'POP UP PARADE P3R Protagnist',
-                        coster :'$33.99',
-                        tag11 :'In Stock',
-                        tag11Color :'#FF6200',
-                        tag22 :'Persona Series',
-                        tag22Color :'#7B7B7B'
-                    },
-                    {
-                        Rou : 'ProductDetail1',
-                        picc :'./src/assets/ImageProduct/Sumire2.jpg',
-                        nameholders :'Kasumi Yoshizawa Figure',
-                        coster :'$168.99',
-                        tag11 :'In Stock',
-                        tag11Color :'#FF6200',
-                        tag22 :'Persona Series',
-                        tag22Color :'#7B7B7B'
-                    },
-                    {
-                        Rou : 'ProductDetail1',
-                        picc :'./src/assets/ImageProduct/Queen2.jpg',
-                        nameholders :'POP UP PARADE Queen Figure',
-                        coster :'$38.99',
-                        tag11 :'Pre Order',
-                        tag11Color :'#009000',
-                        tag22 :'Persona Series',
-                        tag22Color :'#7B7B7B'
-                    },
-                    {
-                        Rou : 'ProductDetail1',
-                        picc :'./src/assets/ImageProduct/Yuu4.jpg',
-                        nameholders :'figma Hero Figure (Rerelease)',
-                        coster :'$70.99',
-                        tag11 :'In Stock',
-                        tag11Color :'#FF6200',
-                        tag22 :'Persona Series',
-                        tag22Color :'#7B7B7B'
-                    },
-                    {
-                        Rou : 'ProductDetail1',
-                        picc :'./src/assets/ImageProduct/Yuu3.jpg',
-                        nameholders :'Qset + P4G Protagnist Figure',
-                        coster :'$15.99',
-                        tag11 :'Pre Order',
-                        tag11Color :'#009000',
-                        tag22 :'Persona Series',
-                        tag22Color :'#7B7B7B'
-                    },
-                    {
-                        Rou : 'ProductDetail1',
-                        picc :'./src/assets/ImageProduct/Haru1.jpg',
-                        nameholders :'POP UP PARADE Noir Figure',
+                        picc :'./src/assets/ImageProduct/Kirby.jpg',
+                        nameholders :'POP UP PARADE Kirby Figure',
                         coster :'$31.99',
-                        tag11 :'Pre Order',
-                        tag11Color :'#009000',
-                        tag22 :'Persona Series',
+                        tag11 :'In Stock',
+                        tag11Color :'#FF6200',
+                        tag22 :'Kirby Series',
                         tag22Color :'#7B7B7B'
                     },
                     {
                         Rou : 'ProductDetail1',
-                        picc :'./src/assets/ImageProduct/Panther.jpg',
-                        nameholders :'POP UP PARADE Panther Figure',
-                        coster :'$31.99',
-                        tag11 :'Pre Order',
-                        tag11Color :'#009000',
-                        tag22 :'Persona Series',
+                        picc :'./src/assets/ImageProduct/Kuromi.jpg',
+                        nameholders :'Nendoroid Kuromi Figure',
+                        coster :'$54.99',
+                        tag11 :'In Stock',
+                        tag11Color :'#FF6200',
+                        tag22 :'Sanrio',
+                        tag22Color :'#7B7B7B'
+                    },
+                    {
+                        Rou : 'ProductDetail',
+                        picc :'./src/assets/ImageProduct/Monokuma.jpg',
+                        nameholders :'SOFT VINYL FIGURE Dangaronpa 12 - Monokuma',
+                        coster :'$58.99',
+                        tag11 :'In Stock',
+                        tag11Color :'#FF6200',
+                        tag22 :'Dangaronpa',
+                        tag22Color :'#7B7B7B'
+                    },
+                    {
+                        Rou : 'ProductDetail',
+                        picc :'./src/assets/ImageProduct/Senku.jpg',
+                        nameholders :'PPOP UP PARADE Senku Ishigami Figure',
+                        coster :'$35.99',
+                        tag11 :'in Stock',
+                        tag11Color :'#FF6200',
+                        tag22 :'Makeine',
+                        tag22Color :'#7B7B7B'
+                    },
+                    {
+                        Rou : 'ProductDetail',
+                        picc :'./src/assets/ImageProduct/Asuka.jpg',
+                        nameholders :'Asuka Shikinami Langley Figure',
+                        coster :'$56.99',
+                        tag11 :'In Stock',
+                        tag11Color :'#FF6200',
+                        tag22 :'Evangelion Series',
+                        tag22Color :'#7B7B7B'
+                    },
+                    {
+                        Rou : 'ProductDetail',
+                        picc :'./src/assets/ImageProduct/Christina.jpg',
+                        nameholders :'Kurisu Mikase Figure',
+                        coster :'$179.99',
+                        tag11 :'In Stock',
+                        tag11Color :'#FF6200',
+                        tag22 :'Steins;Gate',
+                        tag22Color :'#7B7B7B'
+                    },
+                    {
+                        Rou : 'ProductDetail',
+                        picc :'./src/assets/ImageProduct/Mio.jpg',
+                        nameholders :'figma Mio Figure',
+                        coster :'$85.99',
+                        tag11 :'In Stock',
+                        tag11Color :'#FF6200',
+                        tag22 :'Xenoblade Chr...',
                         tag22Color :'#7B7B7B'
                     },
                 ]
@@ -190,10 +190,5 @@ import { ref, onMounted } from "vue";
         width: 1200px;
         overflow: hidden;
         gap: 10px;
-    }
-
-    .swiper-button-prev,
-    .swiper-button-next {
-        color: black;
     }
 </style>

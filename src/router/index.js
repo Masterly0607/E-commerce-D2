@@ -52,6 +52,16 @@ const router = createRouter({
           component: ()  => import ("@/pages/product/ProductDetail.vue"),
         },
         {
+          path: "ProductDetail1",
+          name: "Detail1",
+          component: ()  => import ("@/pages/product/ProductDetail1.vue"),
+        },
+        {
+          path: "ProductDetail2",
+          name: "Detail2",
+          component: ()  => import ("@/pages/product/ProductDetail2.vue"),
+        },
+        {
           path: "profile-setting",
           name: "profile-setting-page",
           component: ()  => import ("@/pages/authentication/userAccount/ProfileSetting.vue"),

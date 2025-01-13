@@ -5,16 +5,15 @@
                 <SMorePic :images="PPimages"/>
             </div>
             <div class="ccontainer1">
-                <!-- <SProductPic :Ppic="PPimages[index]"/> -->
-                <SProductDetail :Name="'POP UP PARADE Joker Figure'"
+                <SProductDetail :Name="'TENITOL Ikuyo Kita Cafe Style ver.'"
                 :tag="'New Arrival'"
                 :tagColor="'#00FF2B'"
-                :Costs="'30.99'"
+                :Costs="'$41.99'"
                 :Status="'In Stock'"
                 :statusColor="'#00FF2B'"
-                :id=1
+                :id=3
                 :Amount=0
-                :picLink="'../src/assets/ImageProduct/Joker2.jpg'"
+                :picLink="'../src/assets/ImageProduct/Amiya1.jpg'"
                 />
             </div>
         </div>
@@ -76,43 +75,42 @@
         data() {
             return {
                 PPimages: [ 
-                    "/src/assets/ImageProduct/Joker1.jpg",
-                    "/src/assets/ImageProduct/Joker2.jpg",
-                    "/src/assets/ImageProduct/Joker3.jpg",
-                    "/src/assets/ImageProduct/Joker4.jpg",
-                    "/src/assets/ImageProduct/Joker5.jpg",
-                    // "/src/assets/ImageProduct/Joker2.jpg",    
+                    "/src/assets/ImageProduct/Kita1.jpg",
+                    "/src/assets/ImageProduct/Kita2.jpg",
+                    "/src/assets/ImageProduct/Kita3.jpg",
+                    "/src/assets/ImageProduct/Kita4.jpg",
+                    "/src/assets/ImageProduct/Kita5.jpg",
+                    // "/src/assets/ImageProduct/Amiya.jpg",
                 ],
                 desc: [
                     {
-                        letters: 'POP UP PARADE is a new series of figure that are easy to collect with affordable prices and releases planned just four months after pre-orders begin! Each figure stands around 17-18cm in height and the series features a vast section of characters from popular anime and game series, and many more to be added soon!'
+                        letters: 'From the anime “BOCCHI THE ROCK!” has been sculpted as a figure wearing an original café clerk-style outfit!'
                     },
                     {
-                        letters: 'From “PERSONA5 the Animation”, POP UP PARADE Joker, the leader of the Phantom Thieves of Hearts, is coming out soon! Joker will be released in 170mm size in a dynamic pose with a daring smile on his face.'
+                        letters: 'The cheerful appearance typical of Kita-chan is expressed! The light footsteps and smiling expression are the focus of the design.'
                     },
                     {
-                        letters: `POP UP PARADE Series Special Site `
-                    }, 
-                    {
-                        letters: 'https://special.goodsmile.info/popularparade/en/'
+                        letters: 'In her hands is cheesecake and berry sauce. She is dressed as a café waitress, with a menu designed to look good on Kita-chan\'s face.'
                     },
                     {
-                        letters: 'Sculptor: Design COCO'
+                        letters: 'Transparent parts are used for her hair. The flow of wrinkles in her apron and the flow of her body have also been carefully sculpted.'
+                    },
+                    {
+                        letters: 'Please enjoy the smiling face of Kita-chan as a café waitress!'
                     },
                     {
                         letters: 'Specifications:'
                     },
                     {
-                        letters: 'Painted ABS&PVC non-scale complete product with stand included. Approximately 170mm (6.69in) in height.'
+                        letters: 'Painted plastic non-scale complete product with stand included. Height: Approximately 200mm (7.87in)'
                     },
                     {
-                        letters: 'Manufacturer: Good Smile Company'
-                    },
+                        letters: 'Manufacturer: FURYU'
+                    }
                 ],
             };
         },
     }
-    
 </script>
 
 <style scoped>
@@ -128,8 +126,8 @@
         width: 1200px;
         display: flex;
         flex-direction: row;
-        /* justify-content: space-between; */
-        /* align-items: center; */
+        /* justify-content: space-between;
+        align-items: center; */
     }
 
     .ccontainer2{
@@ -180,4 +178,5 @@
         height: 740px;
         gap: 100px;
     }
+
 </style>

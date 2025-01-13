@@ -7,17 +7,21 @@
 </script>
 
 <template>
-    <div class="acontainer">
-        <img :src="Ppic" alt="img">
+    <div class="dcontainer1">
+        <img :src="Ppic" alt="">
     </div>
 </template>
 
 <style scoped>
-    .acontainer{
-        width: 600px;
-        height: 600px;
-        justify-content: center;
-        align-items: center;
-        border: 1.5px solid black;
+    .dcontainer1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 120px;
+    width: 600px;
+    }
+    .dcontainer1 img{
+        width: 120px;
+        height: 120px;
     }
 </style>

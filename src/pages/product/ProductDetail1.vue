@@ -5,16 +5,15 @@
                 <SMorePic :images="PPimages"/>
             </div>
             <div class="ccontainer1">
-                <!-- <SProductPic :Ppic="PPimages[index]"/> -->
-                <SProductDetail :Name="'POP UP PARADE Joker Figure'"
+                <SProductDetail :Name="'Amiya: Newsgirl VER. Figure'"
                 :tag="'New Arrival'"
                 :tagColor="'#00FF2B'"
-                :Costs="'30.99'"
+                :Costs="'117.99'"
                 :Status="'In Stock'"
                 :statusColor="'#00FF2B'"
-                :id=1
+                :id=2
                 :Amount=0
-                :picLink="'../src/assets/ImageProduct/Joker2.jpg'"
+                :picLink="'../src/assets/ImageProduct/Amiya1.jpg'"
                 />
             </div>
         </div>
@@ -32,7 +31,7 @@
                 />
             </div>
             <div class="moritem">
-                <Moremore2 />
+                <Moremore3 />
             </div>
         </div>
         <div class="ccontainer5">
@@ -41,7 +40,7 @@
                 />
             </div>
             <div class="moritem">
-                <Moremore2 />
+                <InStock />
             </div>
         </div>
         <div class="ccontainer5">
@@ -63,6 +62,8 @@
     import Description from '@/components/SProductPage/Description.vue';
     import SPageTitle from '@/components/SProductPage/SPageTitle.vue';
     import Moremore2 from '@/components/SProductPage/Moremore2.vue';
+    import Moremore3 from '@/components/SProductPage/Moremore3.vue';
+    import InStock from '@/components/SProductPage/InStock.vue';
 
     export default {
         components: {
@@ -71,48 +72,46 @@
             SMorePic,
             Description,
             Moremore2,
+            Moremore3,
+            InStock,
             SPageTitle
         },
         data() {
             return {
                 PPimages: [ 
-                    "/src/assets/ImageProduct/Joker1.jpg",
-                    "/src/assets/ImageProduct/Joker2.jpg",
-                    "/src/assets/ImageProduct/Joker3.jpg",
-                    "/src/assets/ImageProduct/Joker4.jpg",
-                    "/src/assets/ImageProduct/Joker5.jpg",
-                    // "/src/assets/ImageProduct/Joker2.jpg",    
+                    "/src/assets/ImageProduct/Amiya1.jpg",
+                    "/src/assets/ImageProduct/Amiya2.jpg",
+                    "/src/assets/ImageProduct/Amiya3.jpg",
+                    "/src/assets/ImageProduct/Amiya4.jpg",
+                    "/src/assets/ImageProduct/Amiya5.jpg",
+                    // "/src/assets/ImageProduct/Amiya.jpg",
                 ],
                 desc: [
                     {
-                        letters: 'POP UP PARADE is a new series of figure that are easy to collect with affordable prices and releases planned just four months after pre-orders begin! Each figure stands around 17-18cm in height and the series features a vast section of characters from popular anime and game series, and many more to be added soon!'
+                        letters: '"The sky of Londinium is always gray."'
                     },
                     {
-                        letters: 'From “PERSONA5 the Animation”, POP UP PARADE Joker, the leader of the Phantom Thieves of Hearts, is coming out soon! Joker will be released in 170mm size in a dynamic pose with a daring smile on his face.'
+                        letters: 'From the popular smartphone game "Arknights" comes a 1/7 scale figure of Amiya in her popular Newsgirl outfit. With meticulous sculpting and paintwork, the detailed textures of her outfit have been faithfully captured in scale figure form. Amiya\'s oversized shoulder bag and newspapers tucked under her arm further accentuate her adorable looks. Great care has also been taken in creating the texture and colors of the figure’s base, making it appear as though taken straight from the streets of Londinium. Doctor, be sure to add the lovable Newsgirl Amiya to your collection!'
                     },
                     {
-                        letters: `POP UP PARADE Series Special Site `
+                        letters: `Sculptor: Chen Tian (Good Smile Shanghai)`
                     }, 
                     {
                         letters: 'https://special.goodsmile.info/popularparade/en/'
                     },
                     {
-                        letters: 'Sculptor: Design COCO'
-                    },
-                    {
                         letters: 'Specifications:'
                     },
                     {
-                        letters: 'Painted ABS&PVC non-scale complete product with stand included. Approximately 170mm (6.69in) in height.'
+                        letters: 'Painted plastic 1/7 scale complete product with stand included. Approximately 250mm (9.84in) in height.'
                     },
                     {
-                        letters: 'Manufacturer: Good Smile Company'
+                        letters: 'Manufacturer: Good Smile Arts Shanghai'
                     },
                 ],
             };
         },
     }
-    
 </script>
 
 <style scoped>
@@ -128,8 +127,8 @@
         width: 1200px;
         display: flex;
         flex-direction: row;
-        /* justify-content: space-between; */
-        /* align-items: center; */
+        /* justify-content: space-between;
+        align-items: center; */
     }
 
     .ccontainer2{

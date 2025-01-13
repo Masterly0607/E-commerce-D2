@@ -30,71 +30,71 @@ import { ref, onMounted } from "vue";
                 goodie: [
                     {
                         Rou : 'ProductDetail',
-                        picc :'./src/assets/ImageProduct/Makoto3.jpg',
-                        nameholders :'POP UP PARADE P3R Protagnist',
+                        picc :'./src/assets/ImageProduct/Miku.jpg',
+                        nameholders :'Hatsune Miku Figure - Sakura Miku 2024 Ver.',
                         coster :'$33.99',
                         tag11 :'In Stock',
                         tag11Color :'#FF6200',
-                        tag22 :'Persona Series',
+                        tag22 :'Hatsune Miku',
                         tag22Color :'#7B7B7B'
                     },
                     {
                         Rou : 'ProductDetail1',
-                        picc :'./src/assets/ImageProduct/Sumire2.jpg',
-                        nameholders :'Kasumi Yoshizawa Figure',
-                        coster :'$168.99',
+                        picc :'./src/assets/ImageProduct/MikuToo.jpg',
+                        nameholders :'Nendoroid Surprise Piapro Characters',
+                        coster :'$59.94',
                         tag11 :'In Stock',
                         tag11Color :'#FF6200',
                         tag22 :'Persona Series',
                         tag22Color :'#7B7B7B'
                     },
                     {
-                        Rou : 'ProductDetail1',
-                        picc :'./src/assets/ImageProduct/Queen2.jpg',
-                        nameholders :'POP UP PARADE Queen Figure',
+                        Rou : 'ProductDetail',
+                        picc :'./src/assets/ImageProduct/Asuna.jpg',
+                        nameholders :'POP UP PARADE Asuna Figure',
                         coster :'$38.99',
                         tag11 :'Pre Order',
                         tag11Color :'#009000',
-                        tag22 :'Persona Series',
+                        tag22 :'Sword Art Online',
                         tag22Color :'#7B7B7B'
                     },
                     {
-                        Rou : 'ProductDetail1',
-                        picc :'./src/assets/ImageProduct/Yuu4.jpg',
-                        nameholders :'figma Hero Figure (Rerelease)',
-                        coster :'$70.99',
+                        Rou : 'ProductDetail',
+                        picc :'./src/assets/ImageProduct/Anna.jpg',
+                        nameholders :'POP UP PARADE Anna Yanami L Size Figure',
+                        coster :'$57.99',
+                        tag11 :'Pre Order',
+                        tag11Color :'#009000',
+                        tag22 :'Makeine',
+                        tag22Color :'#7B7B7B'
+                    },
+                    {
+                        Rou : 'ProductDetail',
+                        picc :'./src/assets/ImageProduct/Holo.jpg',
+                        nameholders :'TENITOL Holo Figure',
+                        coster :'$56.99',
+                        tag11 :'Pre Order',
+                        tag11Color :'#009000',
+                        tag22 :'Spice and Wolf',
+                        tag22Color :'#7B7B7B'
+                    },
+                    {
+                        Rou : 'ProductDetail',
+                        picc :'./src/assets/ImageProduct/Chainsaw.jpg',
+                        nameholders :'Chainsaw Man Makima 1/7 Scale Figure',
+                        coster :'$197.99',
                         tag11 :'In Stock',
                         tag11Color :'#FF6200',
                         tag22 :'Persona Series',
                         tag22Color :'#7B7B7B'
                     },
                     {
-                        Rou : 'ProductDetail1',
-                        picc :'./src/assets/ImageProduct/Yuu3.jpg',
-                        nameholders :'Qset + P4G Protagnist Figure',
-                        coster :'$15.99',
-                        tag11 :'Pre Order',
-                        tag11Color :'#009000',
-                        tag22 :'Persona Series',
-                        tag22Color :'#7B7B7B'
-                    },
-                    {
-                        Rou : 'ProductDetail1',
-                        picc :'./src/assets/ImageProduct/Haru1.jpg',
-                        nameholders :'POP UP PARADE Noir Figure',
-                        coster :'$31.99',
-                        tag11 :'Pre Order',
-                        tag11Color :'#009000',
-                        tag22 :'Persona Series',
-                        tag22Color :'#7B7B7B'
-                    },
-                    {
-                        Rou : 'ProductDetail1',
-                        picc :'./src/assets/ImageProduct/Panther.jpg',
-                        nameholders :'POP UP PARADE Panther Figure',
-                        coster :'$31.99',
-                        tag11 :'Pre Order',
-                        tag11Color :'#009000',
+                        Rou : 'ProductDetail',
+                        picc :'./src/assets/ImageProduct/Rika.jpg',
+                        nameholders :'Rikka Tadakara Figure',
+                        coster :'$98.99',
+                        tag11 :'In Stock',
+                        tag11Color :'#FF6200',
                         tag22 :'Persona Series',
                         tag22Color :'#7B7B7B'
                     },
@@ -108,7 +108,7 @@ import { ref, onMounted } from "vue";
     <swiper
         :modules="modules"
         :slides-per-view="5"
-        :space-between="50"
+        :space-between="50" 
         navigation
         :mousewheel="{ forceToAxis: true, releaseOnEdges: false }"
         @swiper="onSwiper"
