@@ -123,14 +123,6 @@ import Moremore from './Moremore.vue';
         margin-right: 7.5px;
     }
 
-    .navnext{
-        /* margin-left: 15px; */
-    }
-
-    .navprev{
-        /* margin-right: 15px; */
-    }
-
     html {
         overflow: scroll;
     }
