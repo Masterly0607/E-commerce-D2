@@ -59,7 +59,11 @@ const router = createRouter({
      
           ]
         },
-        
+        {
+          path: "faqs",
+          name: "faqs-page",
+          component: () => import("@/pages/FaqsPage/FaqsPage.vue"),
+        },
         {
           path: "cart",
           name: "cart-page",
