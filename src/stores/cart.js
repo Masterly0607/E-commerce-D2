@@ -35,7 +35,7 @@ export const useCartStore = defineStore("cart", {
     incrementProduct(productId) {
       // initialize product count for the product
       if (!this.productsInCart[productId]) {
-        this.productsInCart[productId] = 0;
+        this.productsInCart[productId] = 1;
       }
       //   this.productsInCart[productId]++;
       // }
@@ -50,7 +50,7 @@ export const useCartStore = defineStore("cart", {
 
     getAmountInCart(productId) {
       if (!this.productsInCart[productId]) {
-        this.productsInCart[productId] = 0;
+        this.productsInCart[productId] = 1;
       }
 
       return this.productsInCart[productId];
@@ -58,9 +58,11 @@ export const useCartStore = defineStore("cart", {
 
     decrementProduct(productId){
       if (!this.productsInCart[productId]){
-        this.productsInCart[productId] > 0;
+        this.productsInCart[productId] = 1;
       }
-      this.productsInCart[productId]--;
+      if (this.productsInCart[productId] > 1) {
+        this.productsInCart[productId]--;
+      }
       console.log("AMOUNT IN CART: ");
       console.log(
         `ID: ${productId}; Amount: ${this.productsInCart[productId]}`

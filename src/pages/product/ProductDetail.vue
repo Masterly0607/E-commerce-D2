@@ -10,6 +10,7 @@
             :statusColor="'#00FF2B'"
             :id=1
             :Amount=0
+            :picLink="'../src/assets/ImageProduct/Joker2.jpg'"
             />
         </div>
         <div class="ccontainer2">

@@ -8,7 +8,7 @@ export default{
 </script>
 
 <template>
-    <div class="container">
+    <div class="zcontainer">
         <hr class="line">
         <div class="title">
             {{ title }}
@@ -18,7 +18,7 @@ export default{
 </template>
 
 <style scoped>
-    .container{
+    .zcontainer{
         height: 30px;
         display: flex;
         justify-content: center;
@@ -36,7 +36,7 @@ export default{
         align-items: center;
     }
 
-    .container .title{
+    .zcontainer .title{
         font-size: 25px;
         width: 240px;
         height: 37.5px;
