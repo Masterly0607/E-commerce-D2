@@ -41,7 +41,7 @@
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="size-8 text-gray-400 hover:text-gray-500"
+                class="size-8 text-white hover:text-gray-500"
                 @click="showSearch"
               >
                 <path
@@ -107,7 +107,7 @@
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="size-8 text-gray-400 hover:text-gray-500 cursor-pointer"
+                class="size-8 text-white hover:text-gray-500 cursor-pointer"
                 @click="toggleAccountDropdown"
               >
                 <path
