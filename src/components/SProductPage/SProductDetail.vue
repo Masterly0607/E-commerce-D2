@@ -67,13 +67,14 @@
                     tagColor: product.tagColor,
                     Status: product.Status,
                     statusColor: product.statusColor,
+                    image: product.picLink,
                 }); // Call the action to add to wishlist
                 alert('Product added to wishlist!');
                 console.log(localStorage.getItem('wishlist'));
                 
             }
         }
-    }
+    }}
 </script>
 
 <template>

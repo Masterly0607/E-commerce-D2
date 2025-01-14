@@ -5,15 +5,17 @@ import sp from '@/assets/wishList_img/anger.webp'
 
 export const useProductStore = defineStore('productStore', () => {
 
+  //set default products for wishlist
   const defaultWishlist = [
       { name: 'Smiski Dressing Series ', price: 10.99, image: smiski },
       { name: 'Skullpanda The Sound Series', price: 15.99, image: sp }, 
   ];
 
+  //import reactive
   const state = reactive({
     products: [],
-    cart: JSON.parse(localStorage.getItem('cart')) || [],
-    wishlist: JSON.parse(localStorage.getItem('wishlist')) || [],
+    cart: JSON.parse(localStorage.getItem('cart')) || [], //get cart products from local storage. if there is none, set empty array
+    wishlist: JSON.parse(localStorage.getItem('wishlist')) || [], //get wishlist products from local storage. if there is none, set empty array
   });
 
   // Add default products if wishlist is empty
@@ -23,14 +25,15 @@ export const useProductStore = defineStore('productStore', () => {
 
   // Watch effect for deep reactivity
   watchEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(state.cart));
-    localStorage.setItem('wishlist', JSON.stringify(state.wishlist));
+    localStorage.setItem('cart', JSON.stringify(state.cart)); //save the products from cart to local storage whenever state.cart changes
+    localStorage.setItem('wishlist', JSON.stringify(state.wishlist)); //save the products from wishlist to local storage whenever state.wishlist changes
   });
 
   // Add product to cart
   const addToCart = (product) => {
-    const existingProduct = state.cart.find(item => item.name === product.name);
+    const existingProduct = state.cart.find(item => item.name === product.name); //check if product is already in cart
 
+    //if the product does not exist in cart, add it with the quantity of 1
     if (!existingProduct) {
       state.cart.push({
         name: product.name,
@@ -39,7 +42,7 @@ export const useProductStore = defineStore('productStore', () => {
         quantity: 1,
       });
     } else {
-      existingProduct.quantity++;
+      existingProduct.quantity++; //if the product already exists in cart, increment its quantity
     }
   };
 
@@ -50,17 +53,14 @@ export const useProductStore = defineStore('productStore', () => {
 
   // Add product to wishlist
   const addToWishlist = (product) => {
-    if (!product.name || !product.price) {
-      console.error("Incomplete product data for wishlist:", product);
-      return;
-    }
 
-    const existingProduct = state.wishlist.find(item => item.name === product.name);
+    const existingProduct = state.wishlist.find(item => item.name === product.name); //check if product is already in wishlist
+    //if the product dont exist in wishlist, add it
     if (!existingProduct) {
       state.wishlist.push({
         name: product.name,
         price: product.price,
-        image: product.image || '',
+        image: product.image || '', //in case there is no image, use an empty string
         Amount: product.Amount,
       });
     }
