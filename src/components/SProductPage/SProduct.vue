@@ -19,7 +19,7 @@ import { RouterLink } from 'vue-router';
 </script>
 
 <template>
-    <RouterLink :to="Rout ? {name: 'Detail'} : '/product'" class="Rout">
+    <RouterLink :to="Rout" class="Rout">
         <div class="ycontainer">
             <img :src="ImageSource" alt="">
             <div class="Name">{{Name}}</div>

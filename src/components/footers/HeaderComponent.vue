@@ -184,6 +184,24 @@
             </li>
             <li>
               <router-link
+                :to="{ name: 'trending-page' }"
+                class="text-gray-400 p-3 text-xl no-underline hover:text-gray-500"
+                active-class="text-white font-bold"
+              >
+                Trending
+              </router-link>
+            </li>
+            <li>
+              <router-link
+                :to="{ name: 'character-detail' }"
+                class="text-gray-400 p-3 text-xl no-underline hover:text-gray-500"
+                active-class="text-white font-bold"
+              >
+                Characters
+              </router-link>
+            </li>
+            <li>
+              <router-link
                 :to="{ name: 'about-us-page' }"
                 class="text-gray-400 p-3 text-xl no-underline hover:text-gray-500"
                 active-class="text-white font-bold"

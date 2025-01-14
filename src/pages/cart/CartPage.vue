@@ -1,6 +1,5 @@
 <template>
   <section class="f-container-1200">
-    <back-button></back-button>
     <div class="mt-3">
       <div class="flex items-center gap-3">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-10 text-black font-bold">
@@ -184,7 +183,8 @@ export default {
 
   methods: {
     removeItem(item) {
-      this.productStore.actions.removeFromCart(item.name);
+      const productStore = useProductStore();
+      productStore.removeFromCart(item.name);
     },
 
     validateZipCode() {

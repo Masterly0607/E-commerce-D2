@@ -1,7 +1,5 @@
 <template>
     <div class="container">
-      <div class="logo">F & G</div>
-      <div class="website">FG.com/Checkout</div>
       
       <div class="content">
         <h1>THANK YOU!</h1>
@@ -13,8 +11,8 @@
             don't hesitate to reach out. We look forward to serving you again in the future and hope to see you back soon!
         </p>
   
-        <router-link to="/checkout">
-        <button class="primary-button">View Checkout</button>
+        <router-link to="/home">
+        <button class="primary-button">Go back to Home Page</button>
         </router-link>
 
         <a href="#" class="return-link">Read about our return policy</a>

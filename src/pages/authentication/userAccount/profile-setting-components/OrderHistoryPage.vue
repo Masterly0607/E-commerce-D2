@@ -152,7 +152,7 @@ export default {
               name: "Hatsune Miku Figure - Sakura Miku 2024 Ver.",
               price: "33.99",
               date: "March 15, 2024",
-              image: '../src/assets/ImageProduct/Miku1.jpg',
+              image: '../src/assets/ImageProduct/Miku.jpg',
               orderDate: "April 15, 2024",
           },
           ],

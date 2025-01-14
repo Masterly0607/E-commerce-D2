@@ -105,6 +105,7 @@ export default {
 }
 .wishList {
     display: flex;
+    justify-content: center;
     flex-direction: column;
     width: 75%;
 }
@@ -124,6 +125,8 @@ export default {
 }
 .emptyWishlist{
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     gap: 20px;
 }
@@ -183,15 +186,8 @@ img {
 .browse {
     text-decoration: none;
     color: white;
-    padding: 12px 20px;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-  }
-  
-  .add-to-cart-btn:hover {
-    background-color: #1e40af;
-  }
-  </style>
-  
+    background-color: black;
+    border-radius: 10px;
+    padding: 10px 15px;
+}
+</style>

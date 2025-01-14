@@ -8,7 +8,7 @@
                 <SProductDetail :Name="'TENITOL Ikuyo Kita Cafe Style ver.'"
                 :tag="'New Arrival'"
                 :tagColor="'#00FF2B'"
-                :Costs="'$41.99'"
+                :Costs="'41.99'"
                 :Status="'In Stock'"
                 :statusColor="'#00FF2B'"
                 :id=3
