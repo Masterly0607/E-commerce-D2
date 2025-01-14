@@ -1,7 +1,7 @@
 <template>
     <div class="container">
       <div class="billing-layout">
-        <!-- Left Side - Shipping Form -->
+
         <div class="shipping-form">
           <h1>Billing Detail</h1>
           
@@ -46,10 +46,10 @@
           </div>
         </div>
   
-        <!-- Right Side - Order Summary -->
+
         <div class="order-summary">
           <div class="summary-content">
-            <!-- Cart Items -->
+
             <div v-for="item in cartItems" :key="item.id" class="cart-item">
               <div class="item-info">
                 <img :src="item.image" :alt="item.name">
@@ -58,31 +58,29 @@
               <span>${{ item.price }}</span>
             </div>
   
-            <!-- Summary -->
             <div class="summary-totals">
               <div class="summary-row">
                 <span>Subtotal:</span>
-                <span>${{ subtotal }}</span>
+                <span>${{ cartSubtotal.toFixed(2) }}</span>
               </div>
               <div class="summary-row">
                 <span>Discount:</span>
-                <span>-${{ discount }}</span>
+                <span>-${{ appliedDiscount.toFixed(2) }}</span>
               </div>
               <div class="summary-row total">
                 <span>Total:</span>
-                <span>${{ total }}</span>
+                <span>${{ finalTotal.toFixed(2) }}</span>
               </div>
             </div>
   
-            <!-- Payment Methods -->
             <div class="payment-methods">
               <label class="payment-method">
                 <input type="radio" v-model="formData.paymentMethod" value="bank">
                 <span>Bank</span>
                 <div class="payment-icons">
-                  <img src="/src/assets/image/visa.png" alt="Visa">
-                  <img src="/src/assets/image/shopping cart.jpg" alt="shopping">
-                  <img src="/src/assets/image/Qk pay.jpg" alt="Other cards">
+                  <img src="/images/visa.png" alt="Visa">
+                  <img src="/images/shopping-cart.jpg" alt="shopping">
+                  <img src="/images/Qk-pay.jpg" alt="Other cards">
                 </div>
               </label>
               <label class="payment-method">
@@ -91,7 +89,6 @@
               </label>
             </div>
   
-            <!-- Coupon -->
             <div class="coupon-section">
               <input v-model="couponCode" type="text" placeholder="Coupon code">
               <button @click="applyCoupon" class="coupon-button">
@@ -99,10 +96,9 @@
               </button>
             </div>
   
-            <!-- Place Order Button -->
-            <button @click="placeOrder" class="place-order-button">
+            <router-link :to="{name: 'confirmation'}" @click="placeOrder" class="place-order-button">
               Place Order
-            </button>
+            </router-link>
           </div>
         </div>
       </div>
@@ -110,11 +106,12 @@
   </template>
   
   <script>
+
   export default {
     name: 'BillingDetails',
     data() {
-      return {
-        formData: {
+    return {
+      formData: {
           email: '',
           name: '',
           country: 'cambodia',
@@ -123,38 +120,55 @@
           saveInfo: false,
           paymentMethod: 'bank'
         },
-        cartItems: [
-          {
-            id: 1,
-            name: 'Kujinata',
-            price: 35,
-            image: '/src/assets/images/yugi.png'
-          },
-          {
-            id: 2,
-            name: 'Kujinata',
-            price: 11,
-            image: '/src/assets/images/miku.jpg'
-          },
-          {
-            id: 3,
-            name: 'Kujinata',
-            price: 35,
-            image: '/src/assets/images/kuji.jpg'
-          }
-        ],
-        couponCode: '',
-        discount: 5
+      checkoutData: {
+        items: [],
+        subtotal: 0,
+        discount: 0,
+        shipping: 0,
+        total: 0,
+        zipCode: ''
       }
-    },
+    };
+  },
+    
+    created() {
+    if (history.state?.checkoutData && Object.keys(history.state.checkoutData).length > 0) {
+      this.checkoutData = JSON.parse(JSON.stringify(history.state.checkoutData)); // Remove Proxy reactivity
+      console.log("Checkout data retrieved from history.state:", this.checkoutData);
+
+      localStorage.setItem('checkoutData', JSON.stringify(this.checkoutData));
+    } else {
+      const savedData = localStorage.getItem('checkoutData');
+      if (savedData) {
+        this.checkoutData = JSON.parse(savedData);
+        console.log("Checkout data retrieved from local storage:", this.checkoutData);
+      } else {
+        console.error("No checkout data found! Make sure the cart page is passing the data correctly.");
+      }
+    }
+  },
+
     computed: {
-      subtotal() {
-        return this.cartItems.reduce((sum, item) => sum + item.price, 0)
+      cartItems() {
+        return Array.isArray(this.checkoutData.items) ? this.checkoutData.items : [];
       },
-      total() {
-        return this.subtotal - this.discount
+      cartSubtotal() {
+        return Number(this.checkoutData.subtotal) || 0;
+      },
+      appliedDiscount() {
+        return Number(this.checkoutData.discount) || 0;
+      },
+      shippingCost() {
+        return Number(this.checkoutData.shipping) || 0;
+      },
+      finalTotal() {
+        return Number(this.checkoutData.total) || 0;
+      },
+      zipCode() {
+        return this.checkoutData.zipCode || '';
       }
     },
+
     methods: {
       applyCoupon() {
         alert('Coupon applied!')
@@ -247,7 +261,7 @@
   
   .order-summary {
     width: 600px;
-    background-color: #C72323;
+    background-color: black;
     color: white;
     padding: 10px 25px;
     border-radius: 8px;
@@ -340,16 +354,25 @@
     border: none;
     cursor: pointer;
   }
+
+  .coupon-button:hover {
+    background-color: #8c8a8a;
+  }
   
   .place-order-button {
-    width: 100%;
-    background-color: black;
-    color: white;
+    width: 50%;
+    background-color: white;
+    color: black;
     padding: 12px;
     border-radius: 4px;
     border: none;
     cursor: pointer;
     margin-top: 16px;
+    text-align: center;
+  }
+
+  .place-order-button:hover {
+    background-color: #8c8a8a;
   }
   
   /* Responsive Design */
@@ -361,5 +384,8 @@
     .order-summary {
       width: 100%;
     }
+  }
+  a {
+    text-decoration: none;
   }
   </style>

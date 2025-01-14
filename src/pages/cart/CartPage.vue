@@ -66,7 +66,7 @@
             <span class="message-error" v-if="zipCodeError">{{ zipCodeError }}</span>
           </div>
           <button @click="updateZipCode" :disabled="!isZipCodeValid || !zipCodeChanged"
-          class="w-full bg-gray-500 rounded-md px-4 py-2 text-white hover:bg-red-700">Update</button>
+          class="w-full bg-black rounded-md px-4 py-2 text-white hover:bg-gray-500">Update</button>
         </div>
 
         <div class="mb-6">
@@ -76,7 +76,7 @@
             <input type="text" placeholder="Coupon code..." v-model="couponCode" :class="{'error': couponError}"
             class="flex-1 border rounded-md px-3 py-2 text-gray-700" />
             <button @click="applyCoupon" :disabled="!couponCode"
-            class="bg-gray-500 rounded-md px-4 py-2 text-white hover:bg-red-700">
+            class="bg-black rounded-md px-4 py-2 text-white hover:bg-gray-500">
             {{ couponLoading ? 'Apply...' : 'Apply' }}
           </button>
           </div>
@@ -84,7 +84,7 @@
           <span v-if="couponSuccess" class="text-green-500 text-sm mt-1">{{ couponSuccess }}</span>
         </div>
 
-        <div class="bg-gray-500 p-4 rounded-md text-white">
+        <div class="bg-black p-4 rounded-md text-white hover:bg-gray-500">
           <p class="flex justify-between">
             <span>Cart Subtotal</span>
             <span>${{ cartSubtotal.toFixed(2) }}</span>
@@ -100,11 +100,11 @@
             <span>${{ finalTotal.toFixed(2) }}</span>
           </p>
         </div>
-      <!-- <router-link :to="checkout"> -->
-        <button class="mt-4 w-full bg-gray-500 text-white rounded-md px-4 py-2 hover:bg-red-700">
+      <router-link :to="{name: 'checkout'}">
+        <button class="mt-4 w-full bg-black text-white rounded-md px-4 py-2 hover:bg-gray-500 cursor-pointer" @click="proceedToCheckout()">
           Proceed to Checkout
         </button>
-      <!-- </router-link> -->
+      </router-link>
       </div>
     </div>
   </section>
@@ -222,26 +222,18 @@ export default {
       const checkoutData = {
         items: this.cartItems,
         subtotal: this.cartSubtotal,
-        discount: this.appliedDiscount,
+        discount: this.automaticDiscount,
         shipping: this.shippingCost,
         total: this.finalTotal,
         zipCode: this.zipCode
       }
+      console.log("Checkout Data:", checkoutData); // Debugging line
 
-       this.$router.push({
-        path: '/checkout',
-        params: { pushedData: checkoutData }
-      })
+      localStorage.setItem('checkoutData', JSON.stringify(checkoutData)); // Store in local storage
+
+      this.$router.push({ name: 'checkout' }); // Navigate to checkout
     },
 
-    // calculateTotal() {
-    //   this.cartSubtotal = this.cartItems.reduce((total, item) => {
-    //     return total + (item.price * item.quantity);
-    //   }, 0);
-    //   const automaticDiscount = this.cartSubtotal + (this.appliedDiscount / 100);
-
-    //   this.finalTotal = this.cartSubtotal - automaticDiscount + this.shippingCost;
-    // },
     simulateApiCall(type, value) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -249,7 +241,7 @@ export default {
             resolve({ success: true })
           } else if (type === 'applyCoupon') {
             if (value.toUpperCase() === 'FIG123') {
-              resolve({ success: true, discount: 10 })
+              resolve({ success: true, discount: 3 })
             } else {
               reject(new Error('Invalid coupon'))
             }
