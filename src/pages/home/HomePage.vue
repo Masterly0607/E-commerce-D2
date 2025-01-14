@@ -87,7 +87,7 @@
             <img :src="item.img" alt="" class="object-cover h-64 bg-green-300 w-[60%]">
               <div class="text-center  mt-2 ">
                 <span>{{ item.title }}</span> <br>
-                <span>{{ item.subtitle }}</span>
+                <span>{{ item.subtitle }}</span> <br>
                 <span class=" text-gray-700 text-sm ">from KHR57,168.52</span>
               </div> 
 

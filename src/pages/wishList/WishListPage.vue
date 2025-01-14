@@ -11,9 +11,9 @@
         </div>
         <div class="wishList mt-5">
             <div class="wishListHeader">
-                <div class="wishLine" />
             </div>
             <div class="wishNav"></div>
+            <!-- If wishlist is empty, display an empty message -->
             <div v-if="!wishlist || wishlist.length === 0" class="emptyWishlist">
                 <img class="empty" src="../../assets/wishList_img/empty.jpg"/>
                 <h4>Your wishlist is empty.</h4>
@@ -21,9 +21,11 @@
             </div>
             <div v-else class="wishAdd">
                 <p class="explore"> Explore, purchase, or remove items from your Wish List here.</p>
+                <!-- Button to add all products to cart -->
                 <button class="AddCart" @click="addAllToCart">Add all to Cart</button>
             </div>
             <div v-if="wishlist">
+                <!-- For each wishlist product -->
                 <div class="wishItem" v-for="product in wishlist" :key="product.name">
                     <div class="product">
                         <button @click="removeFromWishlist(product)">
@@ -40,7 +42,6 @@
                     </div>
                 </div>
             </div>
-            <div class="wishLine2" />
         </div>  
     </section>
 </template>
@@ -62,15 +63,17 @@ export default {
     methods: {
     ...mapActions(useProductStore, ['addToCart', 'removeFromWishlist']),
     addToCart(product) {
-        const productStore = useProductStore(); // Use the store directly
+        const productStore = useProductStore();  // Use method from productStore
         productStore.addToCart(product); // Call the action to add to cart
         productStore.removeFromWishlist(product); // Remove the product from wishlist
         alert('Product added to cart!');
         console.log(localStorage.getItem('product'));
     },
     addAllToCart() {
-        const productStore = useProductStore(); // Use the store directly
+        const productStore = useProductStore(); // Use method from productStore
+        //Go over each product in wishlist
         this.wishlist.forEach(item => {
+            //Add each product to cart
             productStore.addToCart({
                 name: item.name,
                 price: item.price,
@@ -97,13 +100,14 @@ export default {
 .box {
     display: flex;
     flex-direction: column;
-    margin-left: -850px;
+    margin-left: -700px;
     gap: 10px;
 }
 .wishList {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    width: 75%;
 }
 .wishListHeader {
     font-size: 18px;
@@ -111,10 +115,7 @@ export default {
     flex-direction: row;
     display: flex;
     align-items: center;
-    width: 90%;
-}
-.wishLine, .wishLine2 {
-    width: 870px;
+    width: 100%;
 }
 .wishNav {
     display: flex;
@@ -139,6 +140,7 @@ export default {
 }
 .explore {
     margin-right: 35%;
+    margin-left: 7%;
 }
 .AddCart, .add {
     border: none;
@@ -158,8 +160,9 @@ export default {
     flex-direction: row;
     justify-content: space-between; 
     align-items: center;
-    width: 87%; 
+    width: 96%; 
     margin-bottom: 20px; 
+    margin-left: 3%;
 }
 .product {
     display: flex;
@@ -174,9 +177,6 @@ export default {
     align-items: center;
     justify-content: center;
     gap: 20px;
-}
-.wishLine2 {
-    width: 1090px;
 }
 img {
     width: 100px;
