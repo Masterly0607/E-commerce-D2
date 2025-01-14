@@ -14,7 +14,7 @@
         </p>
   
         <router-link to="/checkout">
-        <button class="primary-button">View order confirmation</button>
+        <button class="primary-button">View Checkout</button>
         </router-link>
 
         <a href="#" class="return-link">Read about our return policy</a>

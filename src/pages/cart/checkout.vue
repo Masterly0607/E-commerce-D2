@@ -22,8 +22,6 @@
               <label>Country</label>
               <select v-model="formData.country">
                 <option value="cambodia">Cambodia</option>
-                <option value="thailand">Thailand</option>
-                <option value="vietnam">Vietnam</option>
               </select>
             </div>
   
@@ -170,19 +168,75 @@
     },
 
     methods: {
-      applyCoupon() {
-        alert('Coupon applied!')
-      },
-      placeOrder() {
-        if (this.validateForm()) {
-          console.log('Order placed:', {...this.formData, items: this.cartItems, total: this.total
-        })
-          alert('Order placed successfully!')
+      // applyCoupon() {
+      //   alert('Coupon applied!')
+      // },
+      // placeOrder() {
+      //   if (this.validateForm()) {
+      //     console.log('Order placed:', {...this.formData, items: this.cartItems, total: this.total
+      //   })
+      //     alert('Order placed successfully!')
+      //   }
+      // },
+      // validateForm() {
+      //   return true
+      // }
+
+      loadFromLocalStorage() {
+      try {
+        const savedData = localStorage.getItem('checkoutData');
+        if (savedData) {
+          this.checkoutData = JSON.parse(savedData);
+          console.log("Checkout data retrieved from local storage:", this.checkoutData);
+        } else {
+          console.warn("No checkout data found in local storage");
         }
-      },
-      validateForm() {
-        return true
+      } catch (error) {
+        console.error("Error loading data from local storage:", error);
       }
+    },
+
+    saveToLocalStorage() {
+      try {
+        localStorage.setItem('checkoutData', JSON.stringify(this.checkoutData));
+      } catch (error) {
+        console.error("Error saving to local storage:", error);
+      }
+    },
+
+    applyCoupon() {
+      // Add coupon logic here
+      alert('Coupon applied!');
+      this.saveToLocalStorage(); // Save after applying coupon
+    },
+
+    placeOrder() {
+      if (this.validateForm()) {
+        const orderData = {
+          ...this.formData,
+          items: this.cartItems,
+          total: this.finalTotal
+        };
+        console.log('Order placed:', orderData);
+        alert('Order placed successfully!');
+        
+        // Clear data after successful order
+        this.checkoutData = {
+          items: [],
+          subtotal: 0,
+          discount: 0,
+          shipping: 0,
+          total: 0,
+          zipCode: ''
+        };
+        this.saveToLocalStorage();
+      }
+    },
+
+    validateForm() {
+      // Add validation logic here
+      return true;
+    }
     }
   }
   </script>

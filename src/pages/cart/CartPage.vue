@@ -12,7 +12,7 @@
     </div>
 
     <div class="p-8 flex flex-col lg:flex-row gap-8">
-      <div class="flex-1 bg-gray-300 p-12 rounded-lg lg:flex-row">
+      <div class="flex-1 bg-white p-12 shadow-sm rounded-lg lg:flex-row">
         <h2 class="text-xl font-bold">Shopping Bag</h2>
         <p class="text-gray-600 mb-6">{{ cartItems.length }} items in your bag</p>
 
@@ -40,23 +40,34 @@
           <div>
             <label class="text-sm text-gray-600">Country</label>
             <select class="w-full border rounded-md px-3 py-2 text-gray-700">
-              <option>USA</option>
-              <option>Canada</option>
-              <option>Cambodia</option>
-              <option>Japan</option>
-              <option>French</option>
-              <option>Korea</option>
-              <option>Sigapour</option>
-              <option>Thailand</option>
+              <option value="cambodia">Cambodia</option>
             </select>
           </div>
           <div>
             <label class="text-sm text-gray-600">State/City</label>
             <select class="w-full border rounded-md px-3 py-2 text-gray-700 ">
-              <option>California</option>
-              <option>New York</option>
               <option>Phnom Penh</option>
-              <option>Tokyo</option>
+              <option>Batdambang</option>
+              <option>Kandal</option>
+              <option>Prey Veng</option>
+              <option>Takeo</option>
+              <option>Siem Reap</option>
+              <option>Svay Rieng</option>
+              <option>Ratanakiri</option>
+              <option>Kampong Cham</option>
+              <option>Kampong Chhnang</option>
+              <option>Kampong Speu</option>
+              <option>Kampong Thom</option>
+              <option>Kratie</option>
+              <option>Oddar Meanchey</option>
+              <option>Pailin</option>
+              <option>Preah Vihear</option>
+              <option>Kep</option>
+              <option>Tbong Khmum</option>
+              <option>Sihanoukville</option>
+              <option>Mondulkiri</option>
+              <option>Banteay Meanchey</option>
+              <option>Koh Kong</option>
             </select>
           </div>
           <div>
@@ -164,7 +175,8 @@ export default {
 
     validateZipCode() {
       this.zipCodeChanged = this.zipCode !== this.originalZipCode
-      const zipRegex = /^\d{5}$/
+      const zipRegex = /^\d{5}$/;
+
       if (!this.zipCode) {
         this.zipCodeError = 'Zip code is required'
         this.isZipCodeValid = false
@@ -178,18 +190,41 @@ export default {
     },
 
     async updateZipCode() {
+      // try {
+      //   const response = await this.simulateApiCall('updateZip', this.zipCode)
+      //   if (response.success) {
+      //     this.originalZipCode = this.zipCode
+      //     this.zipCodeChanged = false
+      //     this.calculateShipping()
+      //   }
+      // // eslint-disable-next-line no-unused-vars
+      // } catch (error) {
+      //   this.zipCodeError = 'Failed to update ZIP code. Please try again.'
+      // }
+
       try {
-        const response = await this.simulateApiCall('updateZip', this.zipCode)
-        if (response.success) {
-          this.originalZipCode = this.zipCode
-          this.zipCodeChanged = false
-          this.calculateShipping()
+        this.validateZipCode();
+        if (!this.isZipCodeValid) {
+          return;
         }
-      // eslint-disable-next-line no-unused-vars
-      } catch (error) {
-        this.zipCodeError = 'Failed to update ZIP code. Please try again.'
-      }
+
+        const response = await this.simulateApiCall('updateZip', this.zipCode);
+
+    if (response.success) {
+      // Update the original ZIP code if the API call is successful
+      this.originalZipCode = this.zipCode;
+      this.zipCodeChanged = false;
+      this.zipCodeError = ''; // Clear the error if successful
+
+      // Recalculate the shipping based on the updated ZIP code
+      this.calculateShipping();
+    }
+  } catch (error) {
+    this.zipCodeError = 'Failed to update ZIP code. Please try again.';
+    console.error('Error updating ZIP code:', error);
+  }
     },
+    
 
     async applyCoupon() {
       if (!this.couponCode) return
@@ -213,7 +248,10 @@ export default {
     },
 
     calculateShipping() {
-      this.shippingCost = 5.99
+      if(this.isZipCodeValid) {
+        this.shippingCost = 5.99
+      }
+      // this.shippingCost = 5.99
     },
 
     proceedToCheckout() {
