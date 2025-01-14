@@ -9,7 +9,7 @@
             <div class="flex flex-col gap-2">
               <router-link :to="{name: 'contact-us-page'}" class="text-gray-400 no-underline">Contact Us</router-link>
               <router-link :to="{name:'faqs-page'}" class="text-gray-400">FAQs</router-link>
-              <div class="text-gray-400">Shipping and Delivery</div>
+              <router-link :to="{name:'shipping-page'}" class="text-gray-400">Shipping and Delivery</router-link>
               <div class="text-gray-400">Order Status</div>
               <router-link :to="{name: 'orderhistory'}">
                 <button class="text-gray-400">Order History</button>
