@@ -165,7 +165,9 @@ export default {
 .history{
   display: flex;
   flex-direction: row;
-  padding: 20px 0px
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px;
 }
 .myOrder {
   width: 70%;
