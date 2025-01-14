@@ -18,8 +18,7 @@ const router = createRouter({
         {
           path: "/character/:title",
           name: "character-detail",
-          component: () => import("@/pages/characters/CharacterDetailPage.vue"),
-          props: true, 
+          component: () => import("@/pages/characters/CharacterPage1.vue"),
         },
         
         {

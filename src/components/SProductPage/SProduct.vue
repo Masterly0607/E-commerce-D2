@@ -7,22 +7,25 @@
             tag1: String,
             tag1Color: String,
             tag2: String,
-            tag2Color: String
+            tag2Color: String,
+            Rout: String
         },
 
 }
 </script>
 
 <template>
-    <div class="container">
-        <img :src="ImageSource" alt="">
-        <div class="Name">{{Name}}</div>
-        <div class="Price">{{ Price }}</div>
-        <div class="tag-container">
-            <div class="tag1">{{tag1}}</div>
-            <div class="tag2">{{ tag2 }}</div>
+    <RouterLink :to="Rout ? {name: 'Detail'} : 'product'" class="Rout">
+        <div class="container">
+            <img :src="ImageSource" alt="">
+            <div class="Name">{{Name}}</div>
+            <div class="Price">$ {{ Price }}</div>
+            <div class="tag-container">
+                <div class="tag1">{{tag1}}</div>
+                <div class="tag2">{{ tag2 }}</div>
+            </div>
         </div>
-    </div>
+    </RouterLink>
 </template>
 
 <style scoped>
@@ -44,7 +47,7 @@
         align-self: end;
     }
     .container .Name{
-        font-size: 18px;
+        font-size: 15px;
         height: 60px;
         width: auto;
         /* text-wrap: wrap;
@@ -52,7 +55,7 @@
         word-wrap: break-word;
     }
     .container .Price{
-        font-size: 18px;
+        font-size: 15px;
         font-weight: 400px;
         margin-bottom: 5px;
     }
@@ -68,7 +71,7 @@
     .tag1{
         border-radius: 1px solid v-bind(tag1Color);
         background-color: v-bind(tag1Color);
-        font-size: 12px;
+        font-size: 11px;
         margin-right: 10px;
         padding-left: 10px;
         padding-right: 10px;
@@ -77,7 +80,7 @@
     .tag2{
         border-radius: 1px solid v-bind(tag2Color);
         background-color: v-bind(tag2Color);
-        font-size: 12px;
+        font-size: 11px;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -85,5 +88,10 @@
         padding-right: 10px;
         padding-left: 10px;
         border-radius: 15px;
+    }
+
+    .Rout{
+        text-decoration: none;
+        color: black;
     }
 </style>

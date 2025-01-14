@@ -292,36 +292,36 @@ const newReleases = [
 
 const characters = [
   {
-    title: "Molly",
-    img: "/images/3.png",
-  },
-  {
-    title: "Molly",
-    img: "/public/images/2.png",
-  },
-  {
-    title: "Molly",
+    title: "Skullpanda",
     img: "/public/images/3.png",
   },
   {
-    title: "Molly",
+    title: "Demon Slayer",
+    img: "/public/images/2.png",
+  },
+  {
+    title: "Hacipupu",
+    img: "/public/images/9.png",
+  },
+  {
+    title: "Sonny Angel",
     img: "/public/images/4.png",
   },
   {
-    title: "Molly",
+    title: "Smiski",
     img: "/public/images/5.png",
   },
   {
-    title: "Molly",
+    title: "Powerpuff Girls",
+    img: "/public/images/10.png",
+  },
+  {
+    title: "Labubu",
     img: "/public/images/6.png",
   },
   {
-    title: "Molly",
-    img: "/public/images/7.png",
-  },
-  {
-    title: "Molly",
-    img: "/public/images/7.png",
+    title: "Jujutsu Kaisen",
+    img: "/public/images/11.png",
   },
 ];
 const trending = [
