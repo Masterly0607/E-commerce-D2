@@ -172,7 +172,12 @@ export default {
       },
 
       finalTotal() {
-        return (this.cartSubtotal - this.automaticDiscount);
+        const subtotal = this.cartSubtotal || 0;
+        if (subtotal < 100) {
+          return subtotal;
+        }
+
+        return (subtotal - this.automaticDiscount);
       }
   },
 
