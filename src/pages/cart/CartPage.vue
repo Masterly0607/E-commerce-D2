@@ -163,21 +163,22 @@ export default {
         if (this.cartSubtotal >= 100) return 2;
       },
 
-      automaticDiscount() {
-        return (this.cartSubtotal * this.discountAsPercentage) / 100;
+      automaticDiscount() { 
+        return (this.cartSubtotal >= 100) ? (this.cartSubtotal * 0.02) : 0;
       },
 
       couponDiscount() {
-        return (this.cartSubtotal * this.couponDiscount) / 100;
+        return (this.cartSubtotal * (this.appliedDiscount / 100)) || 0;
       },
 
       finalTotal() {
         const subtotal = this.cartSubtotal || 0;
-        if (subtotal < 100) {
-          return subtotal;
+        if (subtotal === 0) {
+          return 0;
         }
 
-        return (subtotal - this.automaticDiscount);
+        let discount = this.automaticDiscount + this.couponDiscount;
+        return subtotal - discount;
       }
   },
 
@@ -203,18 +204,6 @@ export default {
     },
 
     async updateZipCode() {
-      // try {
-      //   const response = await this.simulateApiCall('updateZip', this.zipCode)
-      //   if (response.success) {
-      //     this.originalZipCode = this.zipCode
-      //     this.zipCodeChanged = false
-      //     this.calculateShipping()
-      //   }
-      // // eslint-disable-next-line no-unused-vars
-      // } catch (error) {
-      //   this.zipCodeError = 'Failed to update ZIP code. Please try again.'
-      // }
-
       try {
         this.validateZipCode();
         if (!this.isZipCodeValid) {
@@ -250,6 +239,8 @@ export default {
         if (response.success) {
           this.appliedDiscount = response.discount
           this.couponSuccess = `Coupon "${this.couponCode}" applied successfully! (${response.discount}% off)`
+
+          this.$forceUpdate();
         }
       // eslint-disable-next-line no-unused-vars
       } catch (error) {
